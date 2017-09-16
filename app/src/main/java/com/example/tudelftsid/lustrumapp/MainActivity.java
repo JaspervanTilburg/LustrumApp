@@ -1,52 +1,73 @@
 package com.example.tudelftsid.lustrumapp;
 
+import android.app.Activity;
+import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+
+import java.util.ArrayList;
+
+public class MainActivity extends Activity {
+
+    String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
+            "WebOS","Ubuntu","Windows7","Max OS X"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        Fragment newFrag = new MainFragment();
+        transaction.replace(R.id.fragment_container, newFrag);
+        transaction.commit();
+
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    private void initSwiper() {
+//        SwipeFlingAdapterView swipeFrame = (SwipeFlingAdapterView) findViewById(R.id.swipeFrame);
+//        swipeFrame.setAdapter(aa);
+//        swipeFrame.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
+//            @Override
+//            public void removeFirstObjectInAdapter() {
+//
+//            }
+//
+//            @Override
+//            public void onLeftCardExit(Object o) {
+//                Toast.makeText(MainActivity.this, "Left!", Toast.LENGTH_SHORT).show();
+//                System.out.println("test");
+//            }
+//
+//            @Override
+//            public void onRightCardExit(Object o) {
+//                Toast.makeText(MainActivity.this, "Right!", Toast.LENGTH_SHORT).show();
+//            }
+//
+//            @Override
+//            public void onAdapterAboutToEmpty(int i) {
+//
+//            }
+//
+//            @Override
+//            public void onScroll(float v) {
+//
+//            }
+//        });
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
+    public void onTinderClick(View view) {
+        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        Fragment tinderFrag = new TinderFragment();
+        transaction.replace(R.id.fragment_container, tinderFrag);
+        transaction.commit();
     }
 }

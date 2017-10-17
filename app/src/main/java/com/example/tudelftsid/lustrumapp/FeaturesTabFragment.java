@@ -10,11 +10,10 @@ import android.view.ViewGroup;
  * Created by TUDelft SID on 5-10-2017.
  */
 
-public class ActiviteitenTabFragment extends Fragment {
+public class FeaturesTabFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        System.out.println("activiteitending");
-        return inflater.inflate(R.layout.activiteiten_tab_layout, container, false);
+        return inflater.inflate(R.layout.features_tab_layout, container, false);
     }
 }

@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
+    <color name="lustrumPink">#e51473</color>
+    <color name="lustrumBlue">#2d2c86</color>
+    <color name="lustrumLightBlue">#1e9bd7</color>
+    <color name="lustrumGreen">#2db198</color>
 </resources>

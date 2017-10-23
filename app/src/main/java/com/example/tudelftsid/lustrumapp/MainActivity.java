@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -44,6 +45,24 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(mViewPager);
 
         selectedActiviteit = R.id.galaButton;
+
+        findViewById(android.R.id.content).setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+                if (mViewPager.getCurrentItem() == 1) {
+                    changeActiviteit(previousButton());
+                }
+            }
+            public void onSwipeLeft() {
+                if (mViewPager.getCurrentItem() == 1) {
+                    changeActiviteit(nextButton());
+                }
+            }
+            public void onSwipeBottom() {
+            }
+
+        });
     }
 
     public void onTinderClick(View view) {
@@ -52,12 +71,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onActiviteitClicked(View view) {
-        int buttonID = view.getId();
+        if (selectedActiviteit == view.getId()) {
+            //TODO
+        } else {
+            changeActiviteit(view.getId());
+        }
+    }
+
+    public void changeActiviteit(int buttonID) {
         ImageButton newButton = (ImageButton) findViewById(buttonID);
         ImageButton oldButton = (ImageButton) findViewById(selectedActiviteit);
         selectedActiviteit = buttonID;
         resizeButtons(oldButton, newButton);
-        colorBackground(view);
+        colorBackground();
     }
 
     public void resizeButtons(ImageButton oldButton, ImageButton newButton) {
@@ -69,7 +95,35 @@ public class MainActivity extends AppCompatActivity {
         newButton.startAnimation(scaleUp);
     }
 
-    public void colorBackground(View view) {
+    public int nextButton() {
+        switch (selectedActiviteit) {
+            case R.id.galaButton :
+                return R.id.wispoButton;
+            case R.id.wispoButton :
+                return R.id.lustrumWeekButton;
+            case R.id.lustrumWeekButton :
+                return R.id.piekWekenButton;
+            case R.id.piekWekenButton :
+                return R.id.piekWekenButton;
+        }
+        return -1;
+    }
+
+    public int previousButton() {
+        switch (selectedActiviteit) {
+            case R.id.galaButton :
+                return R.id.galaButton;
+            case R.id.wispoButton :
+                return R.id.galaButton;
+            case R.id.lustrumWeekButton :
+                return R.id.wispoButton;
+            case R.id.piekWekenButton :
+                return R.id.lustrumWeekButton;
+        }
+        return -1;
+    }
+
+    public void colorBackground() {
         int color = 0;
         switch (selectedActiviteit) {
             case R.id.galaButton :

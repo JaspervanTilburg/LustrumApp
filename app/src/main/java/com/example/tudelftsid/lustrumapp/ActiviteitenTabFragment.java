@@ -14,7 +14,6 @@ public class ActiviteitenTabFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        System.out.println("activiteitending");
         return inflater.inflate(R.layout.activiteiten_tab_layout, container, false);
     }
 }

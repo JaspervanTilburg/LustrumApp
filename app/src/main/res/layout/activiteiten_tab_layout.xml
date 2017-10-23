@@ -1,15 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/activiteitenBackground"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/lustrumPink">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="ACTIVITEITEN"
-        android:textAppearance="?android:attr/textAppearanceLarge"/>
+    <View android:id="@+id/timeLine"
+        android:background="#ffffff"
+        android:layout_width = "fill_parent"
+        android:layout_height="3dip"
+        android:layout_centerVertical="true"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:id="@+id/galaButton"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/gala_logo"
+            android:onClick="onActiviteitClicked" />
+
+        <ImageButton
+            android:id="@+id/wispoButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/wispo_logo"
+            android:onClick="onActiviteitClicked"/>
+
+        <ImageButton
+            android:id="@+id/lustrumWeekButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/lustrum_week_logo"
+            android:onClick="onActiviteitClicked"/>
+
+        <ImageButton
+            android:id="@+id/piekWekenButton"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/piek_weken_logo"
+            android:onClick="onActiviteitClicked"/>
+
+    </LinearLayout>
+
+
+    <!--<TextView-->
+        <!--android:id="@+id/textView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_centerInParent="true"-->
+        <!--android:text="ACTIVITEITEN"-->
+        <!--android:textAppearance="?android:attr/textAppearanceLarge"/>-->
 
 </RelativeLayout>

@@ -71,19 +71,17 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onActiviteitClicked(View view) {
-        if (selectedActiviteit == view.getId()) {
-            //TODO
-        } else {
-            changeActiviteit(view.getId());
-        }
+        changeActiviteit(view.getId());
     }
 
     public void changeActiviteit(int buttonID) {
-        ImageButton newButton = (ImageButton) findViewById(buttonID);
-        ImageButton oldButton = (ImageButton) findViewById(selectedActiviteit);
-        selectedActiviteit = buttonID;
-        resizeButtons(oldButton, newButton);
-        colorBackground();
+        if (selectedActiviteit != buttonID) {
+            ImageButton newButton = (ImageButton) findViewById(buttonID);
+            ImageButton oldButton = (ImageButton) findViewById(selectedActiviteit);
+            selectedActiviteit = buttonID;
+            resizeButtons(oldButton, newButton);
+            colorBackground();
+        }
     }
 
     public void resizeButtons(ImageButton oldButton, ImageButton newButton) {

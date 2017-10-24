@@ -71,7 +71,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onActiviteitClicked(View view) {
-        changeActiviteit(view.getId());
+        if (selectedActiviteit != view.getId()) {
+            changeActiviteit(view.getId());
+        } else {
+            expandButtons(view.getId());
+        }
     }
 
     public void changeActiviteit(int buttonID) {
@@ -87,10 +91,26 @@ public class MainActivity extends AppCompatActivity {
     public void resizeButtons(ImageButton oldButton, ImageButton newButton) {
         ResizeAnimation scaleDown = new ResizeAnimation(oldButton, 0.5);
         ResizeAnimation scaleUp = new ResizeAnimation(newButton, 2);
-        scaleDown.setDuration(100);
-        scaleUp.setDuration(100);
         oldButton.startAnimation(scaleDown);
         newButton.startAnimation(scaleUp);
+    }
+
+    public void expandButtons(int buttonID) {
+        ImageButton parentButton = (ImageButton) findViewById(buttonID);
+        ImageButton childButton = (ImageButton) findViewById(R.id.galaInfoButton);
+
+        float startX = parentButton.getX() + 100;
+        float startY = parentButton.getY() + 100;
+
+        ExpandAnimation expandAnimation = new ExpandAnimation(childButton);
+        TranslateAnimation translateAnimation = new TranslateAnimation(childButton, startX, startY, 400, 200);
+        AnimationSet animationSet = new AnimationSet(true);
+        animationSet.addAnimation(expandAnimation);
+        animationSet.addAnimation(translateAnimation);
+        animationSet.setDuration(300);
+
+        childButton.setVisibility(View.VISIBLE);
+        childButton.startAnimation(animationSet);
     }
 
     public int nextButton() {

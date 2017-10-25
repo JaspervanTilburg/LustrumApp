@@ -18,7 +18,6 @@ public class TranslateAnimation extends Animation {
         this.fromY = fromY;
         this.toX = toX;
         this.toY = toY;
-        //setDuration(100);
     }
 
     @Override

@@ -1,31 +1,20 @@
 package com.example.tudelftsid.lustrumapp;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.AnimationUtils;
-import android.view.animation.ScaleAnimation;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private PagerAdapter pagerAdapter;
     private ViewPager mViewPager;
 
-    private int selectedActiviteit;
+    private LustrumButton selectedButton;
+    private boolean expanded;
 
 
     @Override
@@ -44,19 +33,17 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(mViewPager);
 
-        selectedActiviteit = R.id.galaButton;
-
         findViewById(android.R.id.content).setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
             public void onSwipeTop() {
             }
             public void onSwipeRight() {
                 if (mViewPager.getCurrentItem() == 1) {
-                    changeActiviteit(previousButton());
+                    onActiviteitClicked(selectedButton.getPrevious());
                 }
             }
             public void onSwipeLeft() {
                 if (mViewPager.getCurrentItem() == 1) {
-                    changeActiviteit(nextButton());
+                    onActiviteitClicked(selectedButton.getNext());
                 }
             }
             public void onSwipeBottom() {
@@ -71,93 +58,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onActiviteitClicked(View view) {
-        if (selectedActiviteit != view.getId()) {
-            changeActiviteit(view.getId());
+        if (view == null) {
+            return;
+        }
+        LustrumButton button = (LustrumButton) view;
+        if (!selectedButton.equals(button)) {
+            if (expanded) {
+                selectedButton.animateCollapse();
+                expanded = false;
+            }
+            selectedButton.animateScaleDown();
+            button.animateScaleUp();
+            selectedButton = button;
+            button.setBackgroundColor(this);
         } else {
-            expandButtons(view.getId());
+            if (expanded) {
+                button.animateCollapse();
+                expanded = false;
+            } else {
+                button.animateExpand();
+                expanded = true;
+            }
         }
     }
 
-    public void changeActiviteit(int buttonID) {
-        if (selectedActiviteit != buttonID) {
-            ImageButton newButton = (ImageButton) findViewById(buttonID);
-            ImageButton oldButton = (ImageButton) findViewById(selectedActiviteit);
-            selectedActiviteit = buttonID;
-            resizeButtons(oldButton, newButton);
-            colorBackground();
-        }
+    public void setSelectedButton(LustrumButton button) {
+        this.selectedButton = button;
     }
-
-    public void resizeButtons(ImageButton oldButton, ImageButton newButton) {
-        ResizeAnimation scaleDown = new ResizeAnimation(oldButton, 0.5);
-        ResizeAnimation scaleUp = new ResizeAnimation(newButton, 2);
-        oldButton.startAnimation(scaleDown);
-        newButton.startAnimation(scaleUp);
-    }
-
-    public void expandButtons(int buttonID) {
-        ImageButton parentButton = (ImageButton) findViewById(buttonID);
-        ImageButton childButton = (ImageButton) findViewById(R.id.galaInfoButton);
-
-        float startX = parentButton.getX() + 100;
-        float startY = parentButton.getY() + 100;
-
-        ExpandAnimation expandAnimation = new ExpandAnimation(childButton);
-        TranslateAnimation translateAnimation = new TranslateAnimation(childButton, startX, startY, 400, 200);
-        AnimationSet animationSet = new AnimationSet(true);
-        animationSet.addAnimation(expandAnimation);
-        animationSet.addAnimation(translateAnimation);
-        animationSet.setDuration(300);
-
-        childButton.setVisibility(View.VISIBLE);
-        childButton.startAnimation(animationSet);
-    }
-
-    public int nextButton() {
-        switch (selectedActiviteit) {
-            case R.id.galaButton :
-                return R.id.wispoButton;
-            case R.id.wispoButton :
-                return R.id.lustrumWeekButton;
-            case R.id.lustrumWeekButton :
-                return R.id.piekWekenButton;
-            case R.id.piekWekenButton :
-                return R.id.piekWekenButton;
-        }
-        return -1;
-    }
-
-    public int previousButton() {
-        switch (selectedActiviteit) {
-            case R.id.galaButton :
-                return R.id.galaButton;
-            case R.id.wispoButton :
-                return R.id.galaButton;
-            case R.id.lustrumWeekButton :
-                return R.id.wispoButton;
-            case R.id.piekWekenButton :
-                return R.id.lustrumWeekButton;
-        }
-        return -1;
-    }
-
-    public void colorBackground() {
-        int color = 0;
-        switch (selectedActiviteit) {
-            case R.id.galaButton :
-                color = getResources().getColor(R.color.lustrumPink);
-                break;
-            case R.id.wispoButton :
-                color = getResources().getColor(R.color.lustrumLightBlue);
-                break;
-            case R.id.lustrumWeekButton :
-                color = getResources().getColor(R.color.lustrumBlue);
-                break;
-            case R.id.piekWekenButton :
-                color = getResources().getColor(R.color.lustrumGreen);
-                break;
-        }
-        findViewById(R.id.activiteitenBackground).setBackgroundColor(color);
-    }
-
 }

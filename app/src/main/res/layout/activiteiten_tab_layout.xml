@@ -12,71 +12,74 @@
         android:layout_height="3dip"
         android:layout_centerVertical="true"/>
 
-    <ImageButton
+    <com.example.tudelftsid.lustrumapp.LustrumButton
         android:id="@+id/galaInfoButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:background="@drawable/gala_logo_info"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:clickable="false"/>
 
-    <ImageButton
+    <com.example.tudelftsid.lustrumapp.LustrumButton
         android:id="@+id/galaTinderButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:background="@drawable/gala_logo_tinder"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:clickable="false"/>
 
-    <ImageButton
+    <com.example.tudelftsid.lustrumapp.LustrumButton
         android:id="@+id/galaFotosButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
         android:background="@drawable/gala_logo_fotos"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        android:clickable="false"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <ImageButton
+        <com.example.tudelftsid.lustrumapp.LustrumButton
             android:id="@+id/galaButton"
             android:layout_width="120dp"
             android:layout_height="120dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/gala_logo"
-            android:onClick="onActiviteitClicked" />
+            android:onClick="onActiviteitClicked"
+            android:background="@drawable/gala_logo" />
 
-        <ImageButton
+        <com.example.tudelftsid.lustrumapp.LustrumButton
             android:id="@+id/wispoButton"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/wispo_logo"
-            android:onClick="onActiviteitClicked"/>
+            android:onClick="onActiviteitClicked"
+            android:background="@drawable/wispo_logo" />
 
-        <ImageButton
+        <com.example.tudelftsid.lustrumapp.LustrumButton
             android:id="@+id/lustrumWeekButton"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/lustrum_week_logo"
-            android:onClick="onActiviteitClicked"/>
+            android:onClick="onActiviteitClicked"
+            android:background="@drawable/lustrum_week_logo" />
 
-        <ImageButton
+        <com.example.tudelftsid.lustrumapp.LustrumButton
             android:id="@+id/piekWekenButton"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:background="@drawable/piek_weken_logo"
-            android:onClick="onActiviteitClicked"/>
+            android:onClick="onActiviteitClicked"
+            android:background="@drawable/piek_weken_logo" />
 
     </LinearLayout>
 

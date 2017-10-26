@@ -18,7 +18,8 @@
         android:layout_height="90dp"
         android:background="@drawable/gala_logo_info"
         android:visibility="invisible"
-        android:clickable="false"/>
+        android:clickable="false"
+        android:onClick="onInfoClick"/>
 
     <com.example.tudelftsid.lustrumapp.LustrumButton
         android:id="@+id/galaTinderButton"
@@ -26,7 +27,8 @@
         android:layout_height="90dp"
         android:background="@drawable/gala_logo_tinder"
         android:visibility="invisible"
-        android:clickable="false"/>
+        android:clickable="false"
+        android:onClick="onTinderClick"/>
 
     <com.example.tudelftsid.lustrumapp.LustrumButton
         android:id="@+id/galaFotosButton"

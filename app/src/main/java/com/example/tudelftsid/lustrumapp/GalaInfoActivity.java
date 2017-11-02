@@ -1,6 +1,7 @@
 package com.example.tudelftsid.lustrumapp;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -11,6 +12,9 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 public class GalaInfoActivity extends AppCompatActivity {
 
@@ -25,6 +29,25 @@ public class GalaInfoActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gala_info);
+
+        Typeface head_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Alternate_Bold.ttf");
+        Typeface body_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Bold.ttf");
+
+        TextView head = (TextView) findViewById(R.id.gala_info_head);
+        head.setTypeface(head_font);
+
+        TextView body = (TextView) findViewById(R.id.gala_info_body);
+        TextView bullet1 = (TextView) findViewById(R.id.gala_bullet_1);
+        TextView bullet2 = (TextView) findViewById(R.id.gala_bullet_2);
+        TextView bullet3 = (TextView) findViewById(R.id.gala_bullet_3);
+        TextView bullet4 = (TextView) findViewById(R.id.gala_bullet_4);
+        TextView button = (TextView) findViewById(R.id.gala_info_button);
+        body.setTypeface(body_font);
+        bullet1.setTypeface(body_font);
+        bullet2.setTypeface(body_font);
+        bullet3.setTypeface(body_font);
+        bullet4.setTypeface(body_font);
+        button.setTypeface(body_font);
 
         ImageView backgroundImage = (ImageView) findViewById(R.id.galaBackground);
         backgroundImage.setImageResource(R.drawable.gala_info);

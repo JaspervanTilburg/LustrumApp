@@ -43,6 +43,7 @@
                 android:layout_marginTop="15dp"
                 android:drawableLeft="@drawable/bulletpoint_1d_w"
                 android:drawablePadding="10dp"
+                android:id="@+id/gala_bullet_1"
                 android:text="LUSTRUM GALA"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#FFFFFF" />
@@ -55,6 +56,7 @@
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@drawable/bulletpoint_2d_w"
                 android:drawablePadding="10dp"
+                android:id="@+id/gala_bullet_2"
                 android:text="NATIONAL HOUSE OF VINOHRADY, PRAAG"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#FFFFFF" />
@@ -67,6 +69,7 @@
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@drawable/bulletpoint_3d_w"
                 android:drawablePadding="10dp"
+                android:id="@+id/gala_bullet_3"
                 android:text="16 DECEMBER 2017"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#FFFFFF" />
@@ -80,6 +83,7 @@
                 android:layout_marginTop="10dp"
                 android:drawableLeft="@drawable/bulletpoint_4d_w"
                 android:drawablePadding="10dp"
+                android:id="@+id/gala_bullet_4"
                 android:text="MET 1200 VIRGILIANEN IN EEN PALEIS"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="#FFFFFF" />

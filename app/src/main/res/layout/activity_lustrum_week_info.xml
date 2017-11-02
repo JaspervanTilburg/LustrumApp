@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/lustrumWeekBackground"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/lustrumBlue"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/lustrum_week_info_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="SNELLE FEITJES."
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textColor="#ffffff" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@color/lustrumBlue"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/bulletpoint_1d_w"
+                android:drawablePadding="10dp"
+                android:id="@+id/lustrum_week_bullet_1"
+                android:text="LUSTRUMWEEK"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/bulletpoint_2d_w"
+                android:drawablePadding="10dp"
+                android:id="@+id/lustrum_week_bullet_2"
+                android:text="DELFT E.O."
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/bulletpoint_3d_w"
+                android:drawablePadding="10dp"
+                android:id="@+id/lustrum_week_bullet_3"
+                android:text="5 - 12 MEI 2018"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/bulletpoint_4d_w"
+                android:drawablePadding="10dp"
+                android:id="@+id/lustrum_week_bullet_4"
+                android:text="EEN ONVERGETELIJKE ERVARING"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="#FFFFFF" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/lustrum_week_info_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:text="In 5 jaar tijd kan er veel veranderen, zo ook de opzet van het Lustrum. Nieuw dit jaar wordt de Lustrumweek in mei, waarbij we met z’n allen een onvergetelijke ervaring gaan creëren!\n\nActiviteiten waar je niet eens over durft te dromen zullen werkelijkheid worden. Naast ons gedeelde talent voor bierdrinken zullen in deze week al onze andere talenten tot uiting komen. Door 2000 leden samen te brengen, zullen wij tijdens de Lustrumweek een week lang aan de wereld laten zien waar onze vereniging toe in staat is. Op unieke locaties, met inspirerende mensen zullen er evenementen worden neergezet waarbij niets te gek is en het lustrumgevoel verder wordt aangewakkerd. In een week waar groot denken nog te klein is en er voor iedere Virgiliaan wat wils is. Laat het lustrum maar beginnen, wij zijn er klaar voor!"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/lustrum_week_website_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginRight="45dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/lustrum_week_button"
+            android:text="Naar de site voor alle informatie" />
+    </LinearLayout>
+</ScrollView>

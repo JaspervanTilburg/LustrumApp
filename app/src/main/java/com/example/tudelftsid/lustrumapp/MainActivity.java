@@ -8,6 +8,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.example.tudelftsid.lustrumapp.InfoPages.GalaInfoActivity;
+import com.example.tudelftsid.lustrumapp.InfoPages.LustrumWekenInfoActivity;
+import com.example.tudelftsid.lustrumapp.InfoPages.PiekWekenInfoActivity;
+import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
+
 public class MainActivity extends AppCompatActivity {
 
     private PagerAdapter pagerAdapter;
@@ -46,5 +51,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onLustrumWekenInfoClick(View view) {
+        Intent intent = new Intent(this, LustrumWekenInfoActivity.class);
+        startActivity(intent);
+    }
 
 }

@@ -76,7 +76,8 @@
         android:background="@drawable/lustrum_circle_5"
         android:elevation="20dp"
         android:visibility="invisible"
-        android:clickable="false"/>
+        android:clickable="true"
+        android:onClick="onLustrumWekenInfoClick"/>
 
     <ImageView
         android:id="@+id/piekWekenInfoButton"

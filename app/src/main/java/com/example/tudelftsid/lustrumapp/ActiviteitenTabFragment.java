@@ -38,10 +38,10 @@ public class ActiviteitenTabFragment extends Fragment {
     public void initButtons() {
 
         lustrumButtons = new ArrayList<>();
-        LustrumButton galaButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaButton), R.color.lustrumPink);
-        LustrumButton wispoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.wispoButton), R.color.lustrumLightBlue);
-        LustrumButton lustrumWeekButton = new LustrumButton((ImageView) rootView.findViewById(R.id.lustrumWeekButton), R.color.lustrumBlue);
-        LustrumButton piekWekenButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenButton), R.color.lustrumGreen);
+        LustrumButton galaButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaButton), R.color.lustrumPink, "GALA");
+        LustrumButton wispoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.wispoButton), R.color.lustrumLightBlue, "WISPO");
+        LustrumButton lustrumWeekButton = new LustrumButton((ImageView) rootView.findViewById(R.id.lustrumWeekButton), R.color.lustrumBlue, "LUSTRUMWEEK");
+        LustrumButton piekWekenButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenButton), R.color.lustrumGreen, "PIEKWEKEN");
 
         galaButton.getImage().setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,13 +77,25 @@ public class ActiviteitenTabFragment extends Fragment {
         lustrumButtons.add(lustrumWeekButton);
         lustrumButtons.add(piekWekenButton);
 
-        galaButton.addChildButton(new LustrumButton((ImageView) rootView.findViewById(R.id.galaInfoButton), R.color.lustrumPink));
-        galaButton.addChildButton(new LustrumButton((ImageView) rootView.findViewById(R.id.galaFotosButton), R.color.lustrumPink));
-        galaButton.addChildButton(new LustrumButton((ImageView) rootView.findViewById(R.id.galaTinderButton), R.color.lustrumPink));
+        LustrumButton galaInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaInfoButton), R.color.lustrumPink, 200, 1100);
+        LustrumButton galaSpelButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaSpelButton), R.color.lustrumPink, 600, 900);
+        LustrumButton galaTinderButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaTinderButton), R.color.lustrumPink, 400, 200);
+        LustrumButton wispoInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.wispoInfoButton), R.color.lustrumPink, 500, 1000);
+        LustrumButton lustrumWeekInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.lustrumWeekInfoButton), R.color.lustrumPink, 400, 1000);
+        LustrumButton piekWekenInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenInfoButton), R.color.lustrumPink, 500, 1000);
+
+        galaButton.addChildButton(galaInfoButton);
+        galaButton.addChildButton(galaSpelButton);
+        galaButton.addChildButton(galaTinderButton);
+
+        wispoButton.addChildButton(wispoInfoButton);
+        lustrumWeekButton.addChildButton(lustrumWeekInfoButton);
+        piekWekenButton.addChildButton(piekWekenInfoButton);
 
         selectedButton = lustrumButtons.get(0);
         selectedButton.animateExpand();
         selectedButton.animateScaleUp();
+        selectedButton.setName(getActivity());
     }
 
     public void initSwipe() {
@@ -110,12 +122,13 @@ public class ActiviteitenTabFragment extends Fragment {
     public void selectButton(LustrumButton button) {
         int size = lustrumButtons.get(0).getImage().getWidth();
         if (!selectedButton.equals(button)) {
-            selectedButton.animateScaleDown();
             selectedButton.animateCollapse();
-            button.animateScaleUp();
+            selectedButton.animateScaleDown();
             button.animateExpand();
+            button.animateScaleUp();
             selectedButton = button;
             button.setBackgroundColor(getActivity());
+            button.setName(getActivity());
         }
     }
 

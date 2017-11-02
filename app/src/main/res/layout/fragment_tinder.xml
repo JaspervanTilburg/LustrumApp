@@ -1,23 +1,49 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-    <TextView
-        android:text="tinder fragment text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="30dp"
-        android:id="@+id/textView" />
+    android:layout_height="match_parent"
+    android:background="@color/galaRoze">
 
 
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/swipeFrame"
-        android:layout_width="289dp"
-        android:layout_height="325dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginTop="50dp"
-        android:background="@color/colorAccent"></com.lorentzos.flingswipe.SwipeFlingAdapterView>
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:background="#FFFFFF"
+        app:max_visible="4"
+        app:rotation_degrees="16"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="bottom">
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/dislikeButton"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/dislike"
+            />
+
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/likeButton"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_margin="15dp"
+            android:src="@drawable/like"/>
+
+
+
+    </LinearLayout>
+
 
 </LinearLayout>

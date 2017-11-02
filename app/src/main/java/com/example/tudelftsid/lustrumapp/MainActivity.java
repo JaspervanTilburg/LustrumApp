@@ -29,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.tijdlijn_icon);
+        tabLayout.getTabAt(1).setIcon(R.drawable.profiel_icon);
+        tabLayout.getTabAt(2).setIcon(R.drawable.features_icon);
     }
 
     public void onTinderClick(View view) {

@@ -1,15 +1,11 @@
 package com.example.tudelftsid.lustrumapp;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import java.util.ArrayList;
 
@@ -17,7 +13,7 @@ import java.util.ArrayList;
  * Created by TUDelft SID on 5-10-2017.
  */
 
-public class ActiviteitenTabFragment extends Fragment {
+public class TijdlijnTabFragment extends Fragment {
 
     private LustrumButton selectedButton;
     private ArrayList<LustrumButton> lustrumButtons;
@@ -25,7 +21,7 @@ public class ActiviteitenTabFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.activiteiten_tab_layout, container, false);
+        rootView = inflater.inflate(R.layout.tijdlijn_tab_layout, container, false);
         return rootView;
     }
 

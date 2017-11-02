@@ -14,10 +14,10 @@ public class PagerAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                InfoTabFragment tab1 = new InfoTabFragment();
+                TijdlijnTabFragment tab1 = new TijdlijnTabFragment();
                 return tab1;
             case 1:
-                ActiviteitenTabFragment tab2 = new ActiviteitenTabFragment();
+                ProfielTabFragment tab2 = new ProfielTabFragment();
                 return tab2;
             case 2:
                 FeaturesTabFragment tab3 = new FeaturesTabFragment();
@@ -36,9 +36,9 @@ public class PagerAdapter extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "INFO";
+                return "TIJDLIJN";
             case 1:
-                return "ACTIVITEITEN";
+                return "PROFIEL";
             case 2:
                 return "FEATURES";
         }

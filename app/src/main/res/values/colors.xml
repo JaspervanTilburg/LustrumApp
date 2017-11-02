@@ -8,4 +8,10 @@
     <color name="lustrumBlue">#2d2c86</color>
     <color name="lustrumLightBlue">#1e9bd7</color>
     <color name="lustrumGreen">#2db198</color>
+    <color name="lustrumPink_1">#650033</color>
+    <color name="lustrumPink_2">#a9004d</color>
+    <color name="lustrumPink_3">#ff5ca7</color>
+    <color name="lustrumLightBlue_1">#006da5</color>
+    <color name="lustrumGreen_1">#00816a</color>
+    <color name="lustrumBlue_1">#000658</color>
 </resources>

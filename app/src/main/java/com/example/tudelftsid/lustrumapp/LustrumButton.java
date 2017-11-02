@@ -12,6 +12,7 @@ import android.view.animation.AnimationSet;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -28,16 +29,26 @@ import java.util.ArrayList;
         public static final int DESELECT_BUTTON_SIZE = 157;
         public static final int SELECT_DURATION = 100;
 
-        private int[] XLocations = {200, 300, 600};
-        private int[] YLocations = {200, 1000, 300};
+        private int xLoc;
+        private int yLoc;
 
         private ImageView image;
         private int color;
+        private String name;
         private ArrayList<LustrumButton> childButtons;
 
-        public LustrumButton(ImageView image, int color) {
+        public LustrumButton(ImageView image, int color, String name) {
             this.image = image;
             this.color = color;
+            this.name = name;
+            childButtons = new ArrayList<>();
+        }
+
+        public LustrumButton(ImageView image, int color, int x, int y) {
+            this.image = image;
+            this.color = color;
+            this.xLoc = x;
+            this.yLoc = y;
             childButtons = new ArrayList<>();
         }
 
@@ -69,7 +80,7 @@ import java.util.ArrayList;
             ResizeAnimation expandAnimation = new ResizeAnimation(button,
                     COLLAPSED_BUTTON_SIZE, COLLAPSED_BUTTON_SIZE, EXPANDED_BUTTON_SIZE, EXPANDED_BUTTON_SIZE, EXPAND_DURATION);
             TranslateAnimation translateAnimation = new TranslateAnimation(button,
-                    image.getX() + 100, image.getY() + 100, XLocations[i], YLocations[i]);
+                    image.getX() + 150, image.getY() + 150, childButtons.get(i).getxLoc(), childButtons.get(i).getyLoc());
             AnimationSet animationSet = new AnimationSet(true);
             animationSet.addAnimation(expandAnimation);
             animationSet.addAnimation(translateAnimation);
@@ -87,10 +98,10 @@ import java.util.ArrayList;
                 ResizeAnimation collapseAnimation = new ResizeAnimation(button,
                         EXPANDED_BUTTON_SIZE, EXPANDED_BUTTON_SIZE, COLLAPSED_BUTTON_SIZE, COLLAPSED_BUTTON_SIZE, EXPAND_DURATION);
                 TranslateAnimation translateAnimation = new TranslateAnimation(button,
-                        XLocations[i], YLocations[i], image.getX() + 100, image.getY() + 100);
+                        childButtons.get(i).getxLoc(), childButtons.get(i).getyLoc(), image.getX() + 150, image.getY() + 150);
                 AnimationSet animationSet = new AnimationSet(true);
-                animationSet.addAnimation(collapseAnimation);
                 animationSet.addAnimation(translateAnimation);
+                animationSet.addAnimation(collapseAnimation);
                 animationSet.setDuration(EXPAND_DURATION);
 
                 button.setVisibility(View.INVISIBLE);
@@ -101,6 +112,10 @@ import java.util.ArrayList;
 
     public void setBackgroundColor(Activity activity) {
         activity.findViewById(R.id.activiteitenBackground).setBackgroundColor(ContextCompat.getColor(activity, color));
+    }
+
+    public void setName(Activity activity){
+        ((TextView) activity.findViewById(R.id.timeline_text)).setText(name);
     }
 
         public ImageView getImage() {
@@ -119,4 +134,22 @@ import java.util.ArrayList;
         public void setColor(int color) {
             this.color = color;
         }
+
+        public int getxLoc() {
+            return xLoc;
+        }
+
+        public void setxLoc(int xLoc) {
+            this.xLoc = xLoc;
+        }
+
+        public int getyLoc() {
+            return yLoc;
+        }
+
+        public void setyLoc(int yLoc) {
+            this.yLoc = yLoc;
+        }
     }
+
+

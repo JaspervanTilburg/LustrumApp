@@ -30,7 +30,7 @@ public class WispoInfoActivity extends AppCompatActivity {
         Window wispoWindow = this.getWindow();
         wispoWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         wispoWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        wispoWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumBlue_1));
+        wispoWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumLightBlue_1));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wispo_info);
@@ -67,6 +67,5 @@ public class WispoInfoActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
     }
 }

@@ -23,6 +23,7 @@
         <activity android:name=".InfoPages.GalaInfoActivity" />
         <activity android:name=".InfoPages.WispoInfoActivity" />
         <activity android:name=".InfoPages.LustrumWekenInfoActivity" />
+        <activity android:name=".InfoPages.PiekWeekInfoActivity" />
     </application>
 
 </manifest>

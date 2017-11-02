@@ -60,12 +60,11 @@ public class LustrumWekenInfoActivity extends AppCompatActivity {
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "https://www.lustrumvirgiel.nl/evenementen/gala/";
+                String url = "https://www.lustrumvirgiel.nl/evenementen/lustrumweek/";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);
             }
         });
-
     }
 }

@@ -10,7 +10,7 @@ import android.view.View;
 
 import com.example.tudelftsid.lustrumapp.InfoPages.GalaInfoActivity;
 import com.example.tudelftsid.lustrumapp.InfoPages.LustrumWekenInfoActivity;
-import com.example.tudelftsid.lustrumapp.InfoPages.PiekWekenInfoActivity;
+import com.example.tudelftsid.lustrumapp.InfoPages.PiekWeekInfoActivity;
 import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
 
 public class MainActivity extends AppCompatActivity {
@@ -56,4 +56,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onPiekWeekInfoClick(View view) {
+        Intent intent = new Intent(this, PiekWeekInfoActivity.class);
+        startActivity(intent);
+    }
 }

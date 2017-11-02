@@ -109,7 +109,6 @@ public class ActiviteitenTabFragment extends Fragment {
 
     public void selectButton(LustrumButton button) {
         int size = lustrumButtons.get(0).getImage().getWidth();
-        System.out.println(size + ", " + lustrumButtons.get(0).getImage().getLayoutParams().width);
         if (!selectedButton.equals(button)) {
             selectedButton.animateScaleDown();
             selectedButton.animateCollapse();

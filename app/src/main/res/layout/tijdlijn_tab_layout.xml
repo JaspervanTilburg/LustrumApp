@@ -6,6 +6,11 @@
     android:layout_height="fill_parent"
     android:background="@color/lustrumPink">
 
+    <com.example.tudelftsid.lustrumapp.Background
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <TextView
         android:id="@+id/timeline_text"
         android:layout_width="wrap_content"

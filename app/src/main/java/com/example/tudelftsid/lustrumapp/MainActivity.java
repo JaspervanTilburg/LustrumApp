@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onInfoClick(View view) {
-        Intent intent = new Intent(this, InfoActivity.class);
+        Intent intent = new Intent(this, GalaInfoActivity.class);
         startActivity(intent);
     }
 

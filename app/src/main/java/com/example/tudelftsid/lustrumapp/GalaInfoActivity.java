@@ -21,7 +21,7 @@ public class GalaInfoActivity extends AppCompatActivity {
         Window galaWindow = this.getWindow();
         galaWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         galaWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        galaWindow.setStatusBarColor(this.getResources().getColor(R.color.colorAccent));
+        galaWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumPink_2));
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gala_info);

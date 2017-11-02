@@ -3,18 +3,22 @@ package com.example.tudelftsid.lustrumapp;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.AppCompatImageButton;
+import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AnimationSet;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import java.util.ArrayList;
 
     /**
      * Created by TUDelft SID on 24-10-2017.
      */
-    public class LustrumButton extends AppCompatImageButton {
+    public class LustrumButton {
 
         public static final int EXPANDED_BUTTON_SIZE = 236;
         public static final int COLLAPSED_BUTTON_SIZE = 1;
@@ -27,23 +31,13 @@ import java.util.ArrayList;
         private int[] XLocations = {200, 300, 600};
         private int[] YLocations = {200, 1000, 300};
 
+        private ImageView image;
         private int color;
-        private LustrumButton next;
-        private LustrumButton previous;
         private ArrayList<LustrumButton> childButtons;
 
-        public LustrumButton(Context context) {
-            super(context);
-            childButtons = new ArrayList<>();
-        }
-
-        public LustrumButton(Context context, AttributeSet attrs) {
-            super(context, attrs);
-            childButtons = new ArrayList<>();
-        }
-
-        public LustrumButton(Context context, AttributeSet attrs, int defStyle) {
-            super(context, attrs, defStyle);
+        public LustrumButton(ImageView image, int color) {
+            this.image = image;
+            this.color = color;
             childButtons = new ArrayList<>();
         }
 
@@ -51,27 +45,31 @@ import java.util.ArrayList;
         childButtons.add(button);
     }
 
-    public ResizeAnimation animateScaleDown() {
-        ResizeAnimation scaleUp = new ResizeAnimation(this,
-                SELECT_BUTTON_SIZE, SELECT_BUTTON_SIZE, DESELECT_BUTTON_SIZE, DESELECT_BUTTON_SIZE, SELECT_DURATION);
-        this.startAnimation(scaleUp);
-        return scaleUp;
+    public WeightAnimation animateScaleDown() {
+        int width = image.getWidth();
+        int height = image.getHeight();
+        WeightAnimation scaleDown = new WeightAnimation(image,
+                2, 1, SELECT_DURATION);
+        image.startAnimation(scaleDown);
+        return scaleDown;
     }
 
-    public ResizeAnimation animateScaleUp() {
-        ResizeAnimation scaleDown = new ResizeAnimation(this,
-                DESELECT_BUTTON_SIZE, DESELECT_BUTTON_SIZE, SELECT_BUTTON_SIZE, SELECT_BUTTON_SIZE, SELECT_DURATION);
-        this.startAnimation(scaleDown);
-        return scaleDown;
+    public WeightAnimation animateScaleUp() {
+        int width = image.getWidth();
+        int height = image.getHeight();
+        WeightAnimation scaleUp = new WeightAnimation(image,
+               1, 2, SELECT_DURATION);
+        image.startAnimation(scaleUp);
+        return scaleUp;
     }
 
     public void animateExpand() {
         for (int i = 0; i < childButtons.size(); i++) {
-            LustrumButton button = childButtons.get(i);
+            ImageView button = childButtons.get(i).getImage();
             ResizeAnimation expandAnimation = new ResizeAnimation(button,
                     COLLAPSED_BUTTON_SIZE, COLLAPSED_BUTTON_SIZE, EXPANDED_BUTTON_SIZE, EXPANDED_BUTTON_SIZE, EXPAND_DURATION);
             TranslateAnimation translateAnimation = new TranslateAnimation(button,
-                    this.getX() + 100, this.getY() + 100, XLocations[i], YLocations[i]);
+                    image.getX() + 100, image.getY() + 100, XLocations[i], YLocations[i]);
             AnimationSet animationSet = new AnimationSet(true);
             animationSet.addAnimation(expandAnimation);
             animationSet.addAnimation(translateAnimation);
@@ -85,11 +83,11 @@ import java.util.ArrayList;
 
         public void animateCollapse() {
             for (int i = 0; i < childButtons.size(); i++) {
-                LustrumButton button = childButtons.get(i);
+                ImageView button = childButtons.get(i).getImage();
                 ResizeAnimation collapseAnimation = new ResizeAnimation(button,
                         EXPANDED_BUTTON_SIZE, EXPANDED_BUTTON_SIZE, COLLAPSED_BUTTON_SIZE, COLLAPSED_BUTTON_SIZE, EXPAND_DURATION);
                 TranslateAnimation translateAnimation = new TranslateAnimation(button,
-                        XLocations[i], YLocations[i], this.getX() + 100, this.getY() + 100);
+                        XLocations[i], YLocations[i], image.getX() + 100, image.getY() + 100);
                 AnimationSet animationSet = new AnimationSet(true);
                 animationSet.addAnimation(collapseAnimation);
                 animationSet.addAnimation(translateAnimation);
@@ -102,25 +100,17 @@ import java.util.ArrayList;
         }
 
     public void setBackgroundColor(Activity activity) {
-        System.out.println(color);
-        activity.findViewById(R.id.activiteitenBackground).setBackgroundColor(color);
+        activity.findViewById(R.id.activiteitenBackground).setBackgroundColor(ContextCompat.getColor(activity, color));
     }
 
-    public LustrumButton getNext() {
-        return next;
-    }
+        public ImageView getImage() {
+            return image;
+        }
 
-    public void setNext(LustrumButton next) {
-        this.next = next;
-    }
+        public void setImage(ImageView image) {
+            this.image = image;
+        }
 
-    public LustrumButton getPrevious() {
-        return previous;
-    }
-
-    public void setPrevious(LustrumButton previous) {
-        this.previous = previous;
-    }
 
     public int getColor() {
             return color;

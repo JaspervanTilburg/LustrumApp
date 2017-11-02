@@ -6,13 +6,15 @@
     android:layout_height="fill_parent"
     android:background="@color/lustrumPink">
 
+
+
     <View android:id="@+id/timeLine"
         android:background="#ffffff"
         android:layout_width = "fill_parent"
         android:layout_height="3dip"
         android:layout_centerVertical="true"/>
 
-    <com.example.tudelftsid.lustrumapp.LustrumButton
+    <ImageView
         android:id="@+id/galaInfoButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -21,7 +23,7 @@
         android:clickable="false"
         android:onClick="onInfoClick"/>
 
-    <com.example.tudelftsid.lustrumapp.LustrumButton
+    <ImageView
         android:id="@+id/galaTinderButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -30,7 +32,7 @@
         android:clickable="false"
         android:onClick="onTinderClick"/>
 
-    <com.example.tudelftsid.lustrumapp.LustrumButton
+    <ImageView
         android:id="@+id/galaFotosButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -43,55 +45,50 @@
         android:layout_height="match_parent"
         android:orientation="horizontal">
 
-        <com.example.tudelftsid.lustrumapp.LustrumButton
+        <ImageView
             android:id="@+id/galaButton"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="2"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:onClick="onActiviteitClicked"
-            android:background="@drawable/gala_logo" />
+            android:onClick="onGalaButtonClicked"
+            android:src="@drawable/gala_logo" />
 
-        <com.example.tudelftsid.lustrumapp.LustrumButton
+        <ImageView
             android:id="@+id/wispoButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:onClick="onActiviteitClicked"
-            android:background="@drawable/wispo_logo" />
+            android:onClick="onWispoButtonClicked"
+            android:src="@drawable/wispo_logo" />
 
-        <com.example.tudelftsid.lustrumapp.LustrumButton
+        <ImageView
             android:id="@+id/lustrumWeekButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:onClick="onActiviteitClicked"
-            android:background="@drawable/lustrum_week_logo" />
+            android:onClick="onLustrumWeekButtonClicked"
+            android:src="@drawable/lustrum_week_logo" />
 
-        <com.example.tudelftsid.lustrumapp.LustrumButton
+        <ImageView
             android:id="@+id/piekWekenButton"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:layout_weight="1"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:onClick="onActiviteitClicked"
-            android:background="@drawable/piek_weken_logo" />
+            android:onClick="onPiekWekenButtonClicked"
+            android:src="@drawable/piek_weken_logo" />
 
     </LinearLayout>
-
-
-    <!--<TextView-->
-        <!--android:id="@+id/textView"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_centerInParent="true"-->
-        <!--android:text="ACTIVITEITEN"-->
-        <!--android:textAppearance="?android:attr/textAppearanceLarge"/>-->
 
 </RelativeLayout>

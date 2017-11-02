@@ -6,7 +6,12 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+
+import java.util.ArrayList;
 
 /**
  * Created by TUDelft SID on 5-10-2017.
@@ -14,36 +19,105 @@ import android.widget.ImageButton;
 
 public class ActiviteitenTabFragment extends Fragment {
 
+    private LustrumButton selectedButton;
+    private ArrayList<LustrumButton> lustrumButtons;
+    private View rootView;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View rootView = inflater.inflate(R.layout.activiteiten_tab_layout, container, false);
-        initButtons(rootView);
+        rootView = inflater.inflate(R.layout.activiteiten_tab_layout, container, false);
         return rootView;
     }
 
-    public void initButtons(View view) {
-        LustrumButton galaButton = (LustrumButton) view.findViewById(R.id.galaButton);
-        LustrumButton wispoButton = (LustrumButton) view.findViewById(R.id.wispoButton);
-        LustrumButton lustrumWeekButton = (LustrumButton) view.findViewById(R.id.lustrumWeekButton);
-        LustrumButton piekWekenButton = (LustrumButton) view.findViewById(R.id.piekWekenButton);
-
-        ((MainActivity)getActivity()).setSelectedButton(galaButton);
-
-        galaButton.addChildButton((LustrumButton) view.findViewById(R.id.galaInfoButton));
-        galaButton.addChildButton((LustrumButton) view.findViewById(R.id.galaFotosButton));
-        galaButton.addChildButton((LustrumButton) view.findViewById(R.id.galaTinderButton));
-        galaButton.setNext(wispoButton);
-        galaButton.setColor(Color.parseColor("#e51473"));
-
-        wispoButton.setNext(lustrumWeekButton);
-        wispoButton.setPrevious(galaButton);
-        wispoButton.setColor(Color.parseColor("#1e9bd7"));
-
-        lustrumWeekButton.setNext(piekWekenButton);
-        lustrumWeekButton.setPrevious(wispoButton);
-        lustrumWeekButton.setColor(Color.parseColor("#2d2c86"));
-
-        piekWekenButton.setPrevious(lustrumWeekButton);
-        piekWekenButton.setColor(Color.parseColor("#2db198"));
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        initButtons();
+        initSwipe();
     }
+
+    public void initButtons() {
+
+        lustrumButtons = new ArrayList<>();
+        LustrumButton galaButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaButton), R.color.lustrumPink);
+        LustrumButton wispoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.wispoButton), R.color.lustrumLightBlue);
+        LustrumButton lustrumWeekButton = new LustrumButton((ImageView) rootView.findViewById(R.id.lustrumWeekButton), R.color.lustrumBlue);
+        LustrumButton piekWekenButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenButton), R.color.lustrumGreen);
+
+        galaButton.getImage().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LustrumButton button = lustrumButtons.get(0);
+                selectButton(button);
+            }
+        });
+        wispoButton.getImage().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LustrumButton button = lustrumButtons.get(1);
+                selectButton(button);
+            }
+        });
+        lustrumWeekButton.getImage().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LustrumButton button = lustrumButtons.get(2);
+                selectButton(button);
+            }
+        });
+        piekWekenButton.getImage().setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                LustrumButton button = lustrumButtons.get(3);
+                selectButton(button);
+            }
+        });
+
+        lustrumButtons.add(galaButton);
+        lustrumButtons.add(wispoButton);
+        lustrumButtons.add(lustrumWeekButton);
+        lustrumButtons.add(piekWekenButton);
+
+        galaButton.addChildButton(new LustrumButton((ImageView) rootView.findViewById(R.id.galaInfoButton), R.color.lustrumPink));
+        galaButton.addChildButton(new LustrumButton((ImageView) rootView.findViewById(R.id.galaFotosButton), R.color.lustrumPink));
+        galaButton.addChildButton(new LustrumButton((ImageView) rootView.findViewById(R.id.galaTinderButton), R.color.lustrumPink));
+
+        selectedButton = lustrumButtons.get(0);
+        selectedButton.animateExpand();
+        selectedButton.animateScaleUp();
+    }
+
+    public void initSwipe() {
+        rootView.findViewById(R.id.activiteitenBackground).setOnTouchListener(new OnSwipeTouchListener(getActivity()) {
+            public void onSwipeTop() {
+            }
+            public void onSwipeRight() {
+                int index = lustrumButtons.indexOf(selectedButton);
+                if (index != 0) {
+                    selectButton(lustrumButtons.get(index - 1));
+                }
+            }
+            public void onSwipeLeft() {
+                int index = lustrumButtons.indexOf(selectedButton);
+                if (index != 3) {
+                    selectButton(lustrumButtons.get(index + 1));
+                }
+            }
+            public void onSwipeBottom() {
+            }
+        });
+    }
+
+    public void selectButton(LustrumButton button) {
+        int size = lustrumButtons.get(0).getImage().getWidth();
+        System.out.println(size + ", " + lustrumButtons.get(0).getImage().getLayoutParams().width);
+        if (!selectedButton.equals(button)) {
+            selectedButton.animateScaleDown();
+            selectedButton.animateCollapse();
+            button.animateScaleUp();
+            button.animateExpand();
+            selectedButton = button;
+            button.setBackgroundColor(getActivity());
+        }
+    }
+
 }

@@ -13,10 +13,6 @@ public class MainActivity extends AppCompatActivity {
     private PagerAdapter pagerAdapter;
     private ViewPager mViewPager;
 
-    private LustrumButton selectedButton;
-    private boolean expanded;
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,27 +25,10 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(pagerAdapter);
+        mViewPager.setCurrentItem(1);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
         tabLayout.setupWithViewPager(mViewPager);
-
-        findViewById(android.R.id.content).setOnTouchListener(new OnSwipeTouchListener(MainActivity.this) {
-            public void onSwipeTop() {
-            }
-            public void onSwipeRight() {
-                if (mViewPager.getCurrentItem() == 1) {
-                    onActiviteitClicked(selectedButton.getPrevious());
-                }
-            }
-            public void onSwipeLeft() {
-                if (mViewPager.getCurrentItem() == 1) {
-                    onActiviteitClicked(selectedButton.getNext());
-                }
-            }
-            public void onSwipeBottom() {
-            }
-
-        });
     }
 
     public void onTinderClick(View view) {
@@ -62,32 +41,4 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onActiviteitClicked(View view) {
-        if (view == null) {
-            return;
-        }
-        LustrumButton button = (LustrumButton) view;
-        if (!selectedButton.equals(button)) {
-            if (expanded) {
-                selectedButton.animateCollapse();
-                expanded = false;
-            }
-            selectedButton.animateScaleDown();
-            button.animateScaleUp();
-            selectedButton = button;
-            button.setBackgroundColor(this);
-        } else {
-            if (expanded) {
-                button.animateCollapse();
-                expanded = false;
-            } else {
-                button.animateExpand();
-                expanded = true;
-            }
-        }
-    }
-
-    public void setSelectedButton(LustrumButton button) {
-        this.selectedButton = button;
-    }
 }

@@ -21,6 +21,8 @@ import java.util.ArrayList;
 public class TinderFragment extends Fragment {
 
     public ArrayList<String> items;
+    ArrayAdapter<String> adapter;
+    SwipeFlingAdapterView swipeView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -33,8 +35,8 @@ public class TinderFragment extends Fragment {
         items.add("Rolf");
         items.add("Klaas");
         items.add("Jan");
-        final SwipeFlingAdapterView swipeView = (SwipeFlingAdapterView) view.findViewById(R.id.swipeFrame);
-        final ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.tinder_item, items);
+        swipeView = (SwipeFlingAdapterView) view.findViewById(R.id.swipeFrame);
+        adapter = new ArrayAdapter<>(getActivity().getApplicationContext(), R.layout.tinder_item, items);
         swipeView.setAdapter(adapter);
         swipeView.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
             @Override
@@ -67,5 +69,13 @@ public class TinderFragment extends Fragment {
         });
 
         return view;
+    }
+
+    private void swipeLeft() {
+        swipeView.getTopCardListener().selectLeft();
+    }
+
+    private void swipeRight() {
+        swipeView.getTopCardListener().selectRight();
     }
 }

@@ -20,7 +20,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".TinderActivity"/>
-        <activity android:name=".GalaInfoActivity" />
+        <activity android:name=".InfoPages.GalaInfoActivity" />
+        <activity android:name=".InfoPages.WispoInfoActivity" />
     </application>
 
 </manifest>

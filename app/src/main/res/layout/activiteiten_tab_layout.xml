@@ -29,8 +29,8 @@
         android:background="@drawable/lustrum_circle"
         android:elevation="20dp"
         android:visibility="invisible"
-        android:clickable="false"
-        android:onClick="onInfoClick"/>
+        android:clickable="true"
+        android:onClick="onGalaInfoClick"/>
 
     <ImageView
         android:id="@+id/galaTinderButton"
@@ -64,7 +64,8 @@
         android:background="@drawable/lustrum_circle_4"
         android:elevation="20dp"
         android:visibility="invisible"
-        android:clickable="false"/>
+        android:clickable="true"
+        android:onClick="onWispoInfoClick"/>
 
     <ImageView
         android:id="@+id/lustrumWeekInfoButton"

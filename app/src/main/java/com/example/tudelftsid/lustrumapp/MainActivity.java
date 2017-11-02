@@ -36,8 +36,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onInfoClick(View view) {
+    public void onGalaInfoClick(View view) {
         Intent intent = new Intent(this, GalaInfoActivity.class);
+        startActivity(intent);
+    }
+
+    public void onWispoInfoClick(View view) {
+        Intent intent = new Intent(this, WispoInfoActivity.class);
         startActivity(intent);
     }
 

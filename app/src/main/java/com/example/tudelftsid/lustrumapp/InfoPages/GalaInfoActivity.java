@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.InfoPages;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -13,6 +13,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.tudelftsid.lustrumapp.R;
 
 import org.w3c.dom.Text;
 
@@ -41,7 +43,7 @@ public class GalaInfoActivity extends AppCompatActivity {
         TextView bullet2 = (TextView) findViewById(R.id.gala_bullet_2);
         TextView bullet3 = (TextView) findViewById(R.id.gala_bullet_3);
         TextView bullet4 = (TextView) findViewById(R.id.gala_bullet_4);
-        TextView button = (TextView) findViewById(R.id.gala_info_button);
+        TextView button = (TextView) findViewById(R.id.gala_website_button);
         body.setTypeface(body_font);
         bullet1.setTypeface(body_font);
         bullet2.setTypeface(body_font);
@@ -52,7 +54,7 @@ public class GalaInfoActivity extends AppCompatActivity {
         ImageView backgroundImage = (ImageView) findViewById(R.id.galaBackground);
         backgroundImage.setImageResource(R.drawable.gala_info);
 
-        final Button infoButton = (Button) findViewById(R.id.gala_info_button);
+        final Button infoButton = (Button) findViewById(R.id.gala_website_button);
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

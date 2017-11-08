@@ -1,11 +1,13 @@
 package com.example.tudelftsid.lustrumapp;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -29,6 +31,13 @@ public class TijdlijnTabFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         initButtons();
         initSwipe();
+        initTitle();
+    }
+
+    public void initTitle() {
+        TextView title = (TextView) rootView.findViewById(R.id.timeline_text);
+        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Alternate_Bold.ttf");
+        title.setTypeface(font);
     }
 
     public void initButtons() {

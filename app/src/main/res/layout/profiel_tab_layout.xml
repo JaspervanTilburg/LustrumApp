@@ -24,7 +24,7 @@
         android:id = "@+id/loginEmail"
         android:hint = "E-MAILADRES"
         android:focusable = "true"
-        android:textColorHighlight = "#FFFFF"
+        android:textColorHighlight = "#FFFFFF"
         android:textColorHint = "@color/lustrumLightGrey"
         android:theme="@style/GreyTheme"/>
 
@@ -38,7 +38,7 @@
         android:id = "@+id/loginPassword"
         android:hint = "WACHTWOORD"
         android:focusable = "true"
-        android:textColorHighlight = "#FFFFF"
+        android:textColorHighlight = "#FFFFFF"
         android:textColorHint = "@color/lustrumLightGrey"
         android:theme="@style/GreyTheme" />
     
@@ -49,7 +49,8 @@
         android:text="INLOGGEN"
         android:textColor="@color/lustrumBlue"
         android:background="@drawable/login_button"
-        android:elevation="20dp"/>
+        android:elevation="20dp"
+        android:onClick="login"/>
 
 
 </LinearLayout>

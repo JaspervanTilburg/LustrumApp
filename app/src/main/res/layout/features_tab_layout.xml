@@ -16,7 +16,7 @@
             android:layout_marginTop="20dp"
             android:layout_weight="1"
             android:onClick="onTinderClick"
-            android:src="@mipmap/tinder"
+            android:src="@mipmap/berichten"
             android:background="@drawable/lustrum_rectangle_1"/>
 
         <ImageButton

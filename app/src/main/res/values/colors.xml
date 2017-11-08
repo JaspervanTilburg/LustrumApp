@@ -15,4 +15,5 @@
     <color name="lustrumGreen_1">#00816a</color>
     <color name="lustrumBlue_1">#000658</color>
     <color name="lustrumGrey">#212121</color>
+    <color name="lustrumLightGrey">#a5a4aa</color>
 </resources>

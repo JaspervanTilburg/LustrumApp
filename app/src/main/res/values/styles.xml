@@ -21,4 +21,10 @@
         <item name="titleTextColor">#D3D3D3</item>
     </style>
 
+    <style name="GreyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorControlNormal">@color/lustrumLightGrey</item>
+        <item name="colorControlActivated">#ffffff</item>
+        <item name="colorControlHighlight">#ffffff</item>
+    </style>
+
 </resources>

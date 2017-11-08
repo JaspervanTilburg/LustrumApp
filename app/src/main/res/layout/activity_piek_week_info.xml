@@ -11,14 +11,14 @@
         android:orientation="vertical">
 
         <ImageView
-            android:id="@+id/galaBackground"
+            android:id="@+id/piekWeekBackground"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:background="@color/lustrumPink"
+            android:background="@color/lustrumGreen"
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/gala_info_head"
+            android:id="@+id/piek_week_info_head"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="15dp"
-            android:background="@color/lustrumPink"
+            android:background="@color/lustrumGreen"
             android:orientation="vertical">
 
             <TextView
@@ -41,12 +41,12 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="15dp"
-                android:drawableLeft="@drawable/bulletpoint_1d_w"
+                android:drawableLeft="@drawable/bulletpoint_1d_z"
                 android:drawablePadding="10dp"
-                android:id="@+id/gala_bullet_1"
-                android:text="LUSTRUM GALA"
+                android:id="@+id/piek_week_bullet_1"
+                android:text="@string/piekWekenInfoTitel"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -54,12 +54,12 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
-                android:drawableLeft="@drawable/bulletpoint_2d_w"
+                android:drawableLeft="@drawable/bulletpoint_2d_z"
                 android:drawablePadding="10dp"
-                android:id="@+id/gala_bullet_2"
-                android:text="NATIONAL HOUSE OF VINOHRADY, PRAAG"
+                android:id="@+id/piek_week_bullet_2"
+                android:text="ILLUSTER"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -67,12 +67,12 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
-                android:drawableLeft="@drawable/bulletpoint_3d_w"
+                android:drawableLeft="@drawable/bulletpoint_3d_z"
                 android:drawablePadding="10dp"
-                android:id="@+id/gala_bullet_3"
-                android:text="16 DECEMBER 2017"
+                android:id="@+id/piek_week_bullet_3"
+                android:text="13 - 22 JULI 2018"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#FFFFFF" />
+                android:textColor="#000000" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -81,33 +81,32 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="10dp"
-                android:drawableLeft="@drawable/bulletpoint_4d_w"
+                android:drawableLeft="@drawable/bulletpoint_4d_z"
                 android:drawablePadding="10dp"
-                android:id="@+id/gala_bullet_4"
-                android:text="MET 1200 VIRGILIANEN IN EEN PALEIS"
+                android:id="@+id/piek_week_bullet_4"
+                android:text="AFSLUITING VAN HET LUSTRUMJAAR"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textColor="#FFFFFF" />
-
+                android:textColor="#000000" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/gala_info_body"
+            android:id="@+id/piek_week_info_body"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="15dp"
-            android:text="Na 5 jaar mogen we dan eindelijk weer. Feesten op Virgiel zijn altijd leuk, maar lijken vaak nogal op elkaar. Gala’s daarentegen zijn uniek. We kijken met zijn allen al jaren uit naar komend lustrumjaar, maar natuurlijk vooral naar het hoogtepunt van het lustrum: dat ene onvergetelijke gala weekend.\n\nDe Lustrum Gala commissie heeft voor jullie een droomlocatie uitgekozen in de mooiste stad van Europa: Praag! Op 16 December opent het National House of Vinohrady haar deuren voor ons, en samen met meer dan duizend Virgilianen, oud- Virgilianen en dates gaan wij een fantastisch weekend tegemoet. Overdag kan je met je date de stad verkennen, een wandeling langs de Donau maken en een hapje gaan eten in de oude binnenstad, om je vervolgens klaar te maken voor een legendarische avond van klasse, die ervoor zorgt dat jij en je date elkaar, en het 24e lustrum der K.S.V.S.V, nooit zullen vergeten."
-            android:textColor="#FFFFFF" />
+            android:text="Het einde van het lustrumjaar gaan we spectaculair afsluiten tijdens de PIEKWEEK, want wat is er nou beter dan met al je vrienden keihard feesten op een extern terrein in de zomervakantie?! De piekweek zal een waardig slotstuk zijn van het 24e lustrumjaar, waarin we gaan vieren dat Virgiel al zo lang bestaat. Voordat de piekweek van start gaat, gaan we met z’n allen een weekend weg: het Piekweekend, wat een fantastisch begin belooft te worden. Hierna verplaatsen we ons naar het lustrumterrein om het programma te vervolgen. Zie jij jezelf al schitteren op een epische locatie samen met je club-, huis-, dispuuts- genoten, vrienden? In een zelf gekluste ruimte met een biertje uit je zelf versierde bar? De piekweek is iets wat je maar één keer van dichtbij zult meemaken en nooit meer zal vergeten! Wij hebben er ontzettend veel zin in en samen gaan we er een waanzinnig lustrumjaar van maken!"
+            android:textColor="#ffffff" />
 
         <Button
-            android:id="@+id/gala_website_button"
+            android:id="@+id/piek_week_website_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="25dp"
             android:layout_marginLeft="45dp"
             android:layout_marginRight="45dp"
             android:layout_marginTop="15dp"
-            android:background="@drawable/gala_button"
+            android:background="@drawable/piek_week_button"
             android:text="Naar de site voor alle informatie" />
     </LinearLayout>
 </ScrollView>

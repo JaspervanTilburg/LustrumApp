@@ -15,7 +15,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:onClick="onTinderClick"
+            android:onClick="onBerichtenClick"
             android:src="@mipmap/berichten"
             android:background="@drawable/lustrum_rectangle_1"/>
 
@@ -36,6 +36,7 @@
             android:layout_marginTop="20dp"
             android:layout_marginRight="20dp"
             android:layout_weight="1"
+            android:onClick="onDatespelClick"
             android:src="@mipmap/datespel"
             android:background="@drawable/lustrum_rectangle"/>
 

@@ -44,5 +44,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onBerichtenClick(View view) {
+        Intent intent = new Intent(this, BerichtenActivity.class);
+        startActivity(intent);
+    }
+
+    public void onDatespelClick(View view) {
+        Intent intent = new Intent(this, DatespelActivity.class);
+        startActivity(intent);
+    }
 
 }

@@ -58,7 +58,8 @@
         android:background="@drawable/lustrum_circle_3"
         android:elevation="20dp"
         android:visibility="invisible"
-        android:clickable="false"/>
+        android:clickable="false"
+        android:onClick="onDatespelClick"/>
 
     <ImageView
         android:id="@+id/wispoInfoButton"

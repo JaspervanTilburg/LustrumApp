@@ -17,14 +17,4 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="VierdeDimensieTheme" parent="@style/Widget.AppCompat.Toolbar">
-        <item name="titleTextColor">#D3D3D3</item>
-    </style>
-
-    <style name="GreyTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorControlNormal">@color/lustrumLightGrey</item>
-        <item name="colorControlActivated">#ffffff</item>
-        <item name="colorControlHighlight">#ffffff</item>
-    </style>
-
 </resources>

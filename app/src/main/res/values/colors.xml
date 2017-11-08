@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#e51473</color>
+    <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-
-    <color name="lustrumPink">#e51473</color>
-    <color name="lustrumBlue">#2d2c86</color>
-    <color name="lustrumLightBlue">#1e9bd7</color>
-    <color name="lustrumGreen">#2db198</color>
-    <color name="lustrumPink_1">#650033</color>
-    <color name="lustrumPink_2">#a9004d</color>
-    <color name="lustrumPink_3">#ff5ca7</color>
-    <color name="lustrumLightBlue_1">#006da5</color>
-    <color name="lustrumGreen_1">#00816a</color>
-    <color name="lustrumBlue_1">#000658</color>
-    <color name="lustrumGrey">#212121</color>
-    <color name="lustrumLightGrey">#a5a4aa</color>
 </resources>

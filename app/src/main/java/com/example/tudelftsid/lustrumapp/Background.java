@@ -47,6 +47,7 @@ public class Background extends View {
     public void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //spawnNewConfetti(canvas);
+        System.out.println();
         for (Confetti c : confettis) {
             c.draw(canvas);
         }

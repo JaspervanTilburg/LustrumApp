@@ -1,73 +1,83 @@
 package com.example.tudelftsid.lustrumapp;
 
-import android.app.Activity;
-import android.app.FragmentTransaction;
+import android.content.Intent;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ListView;
-import android.widget.Toast;
+import android.widget.EditText;
 
-import com.lorentzos.flingswipe.SwipeFlingAdapterView;
+import com.example.tudelftsid.lustrumapp.InfoPages.GalaInfoActivity;
+import com.example.tudelftsid.lustrumapp.InfoPages.LustrumWekenInfoActivity;
+import com.example.tudelftsid.lustrumapp.InfoPages.PiekWeekInfoActivity;
+import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
 
-import java.util.ArrayList;
+public class MainActivity extends AppCompatActivity {
 
-public class MainActivity extends Activity {
-
-    String[] mobileArray = {"Android","IPhone","WindowsMobile","Blackberry",
-            "WebOS","Ubuntu","Windows7","Max OS X"};
+    private PagerAdapter pagerAdapter;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Fragment newFrag = new MainFragment();
-        transaction.replace(R.id.fragment_container, newFrag);
-        transaction.commit();
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-    }
+        pagerAdapter = new PagerAdapter(getSupportFragmentManager());
 
-    private void initSwiper() {
-//        SwipeFlingAdapterView swipeFrame = (SwipeFlingAdapterView) findViewById(R.id.swipeFrame);
-//        swipeFrame.setAdapter(aa);
-//        swipeFrame.setFlingListener(new SwipeFlingAdapterView.onFlingListener() {
-//            @Override
-//            public void removeFirstObjectInAdapter() {
-//
-//            }
-//
-//            @Override
-//            public void onLeftCardExit(Object o) {
-//                Toast.makeText(MainActivity.this, "Left!", Toast.LENGTH_SHORT).show();
-//                System.out.println("test");
-//            }
-//
-//            @Override
-//            public void onRightCardExit(Object o) {
-//                Toast.makeText(MainActivity.this, "Right!", Toast.LENGTH_SHORT).show();
-//            }
-//
-//            @Override
-//            public void onAdapterAboutToEmpty(int i) {
-//
-//            }
-//
-//            @Override
-//            public void onScroll(float v) {
-//
-//            }
-//        });
+        mViewPager = (ViewPager) findViewById(R.id.pager);
+        mViewPager.setAdapter(pagerAdapter);
+        mViewPager.setCurrentItem(0);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);
+        tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.getTabAt(0).setIcon(R.drawable.tijdlijn_icon);
+        tabLayout.getTabAt(1).setIcon(R.drawable.profiel_icon);
+        tabLayout.getTabAt(2).setIcon(R.drawable.features_icon);
     }
 
     public void onTinderClick(View view) {
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
-        Fragment tinderFrag = new TinderFragment();
-        transaction.replace(R.id.fragment_container, tinderFrag);
-        transaction.commit();
+        Intent intent = new Intent(this, TinderActivity.class);
+        startActivity(intent);
+    }
+
+    public void onBerichtenClick(View view) {
+        Intent intent = new Intent(this, BerichtenActivity.class);
+        startActivity(intent);
+    }
+
+    public void onDatespelClick(View view) {
+        Intent intent = new Intent(this, DatespelActivity.class);
+        startActivity(intent);
+    }
+
+    public void login(View view) {
+        EditText username = (EditText) findViewById(R.id.loginEmail);
+        EditText password = (EditText) findViewById(R.id.loginPassword);
+
+    }
+
+    public void onGalaInfoClick(View view) {
+        Intent intent = new Intent(this, GalaInfoActivity.class);
+        startActivity(intent);
+    }
+
+    public void onWispoInfoClick(View view) {
+        Intent intent = new Intent(this, WispoInfoActivity.class);
+        startActivity(intent);
+    }
+
+    public void onLustrumWekenInfoClick(View view) {
+        Intent intent = new Intent(this, LustrumWekenInfoActivity.class);
+        startActivity(intent);
+    }
+
+    public void onPiekWeekInfoClick(View view) {
+        Intent intent = new Intent(this, PiekWeekInfoActivity.class);
+        startActivity(intent);
     }
 }

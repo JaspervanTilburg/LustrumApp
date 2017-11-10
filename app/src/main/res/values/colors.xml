@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimary">#e51473</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
-    <color name="galaRoze">#e51473</color>
-    <color name="wispoBlauw">#2d2c86</color>
-    <color name="lustrumWeek">#2db198</color>
-    <color name="piekWeek">#1e9bd7</color>
+    <color name="lustrumPink">#e51473</color>
+    <color name="lustrumPink_Light">#ff5ca7</color>
+    <color name="lustrumPink_Dark">#a9004d</color>
+    <color name="lustrumBlue">#2d2c86</color>
+    <color name="lustrumBlue_Light">#6155b7</color>
+    <color name="lustrumBlue_Dark">#000658</color>
+    <color name="lustrumLightBlue">#1e9bd7</color>
+    <color name="lustrumLightBlue_Light">#67ccff</color>
+    <color name="lustrumLightBlue_Dark">#006da5</color>
+    <color name="lustrumGreen">#2db198</color>
+    <color name="lustrumGreen_Light">#69e4c9</color>
+    <color name="lustrumGreen_Dark">#00816a</color>
+    <color name="lustrumGrey">#12141f</color>
+    <color name="lustrumLightGrey">#a5a4aa</color>
 </resources>

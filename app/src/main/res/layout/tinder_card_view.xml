@@ -2,9 +2,11 @@
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="350dp"
-    android:layout_height="425dp"
-    android:layout_marginBottom="50dp"
+    android:layout_width="400dp"
+    android:layout_height="500dp"
+    android:layout_marginBottom="75dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
     android:orientation="vertical">
     <android.support.v7.widget.CardView
         android:orientation="vertical"
@@ -19,10 +21,10 @@
             android:scaleType="centerCrop"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginBottom="75dp"/>
+            android:layout_marginBottom="100dp"/>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="100dp"
             android:orientation="vertical"
             android:layout_gravity="bottom"
             android:gravity="center|left"
@@ -35,12 +37,29 @@
                 android:textStyle="bold"
                 android:layout_height="wrap_content"/>
             <TextView
-                android:id="@+id/locationNameTxt"
+                android:id="@+id/clubTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorPrimaryDark"
                 android:textSize="14dp"
                 android:textStyle="normal"/>
+            <TextView
+                android:id="@+id/bolletjesTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14dp"
+                android:textStyle="normal"
+                android:text="49 bolletjes"/>
+            <TextView
+                android:id="@+id/huisTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="14dp"
+                android:textStyle="normal"
+                android:text="Huize de Botte Bijl"/>
+
         </LinearLayout>
     </android.support.v7.widget.CardView>
 </FrameLayout>

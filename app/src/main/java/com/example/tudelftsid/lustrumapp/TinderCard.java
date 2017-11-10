@@ -30,8 +30,14 @@ public class TinderCard {
     @View(R.id.nameAgeTxt)
     private TextView nameAgeTxt;
 
-    @View(R.id.locationNameTxt)
-    private TextView locationNameTxt;
+    @View(R.id.clubTxt)
+    private TextView clubTxt;
+
+    @View(R.id.clubTxt)
+    private TextView bolletjesTxt;
+
+    @View(R.id.clubTxt)
+    private TextView huisTxt;
 
     private Profile mProfile;
     private Context mContext;
@@ -47,7 +53,7 @@ public class TinderCard {
     private void onResolved(){
         Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
         nameAgeTxt.setText(mProfile.getName() + ", " + mProfile.getAge());
-        locationNameTxt.setText(mProfile.getLocation());
+        clubTxt.setText(mProfile.getLocation());
     }
 
     @SwipeOut

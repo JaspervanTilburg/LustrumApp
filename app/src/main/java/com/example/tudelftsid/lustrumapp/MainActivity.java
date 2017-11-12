@@ -16,7 +16,7 @@ import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-    private PagerAdapter pagerAdapter;
+    private PagerAdapterMain pagerAdapterMain;
     private ViewPager mViewPager;
 
     @Override
@@ -27,10 +27,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        pagerAdapter = new PagerAdapter(getSupportFragmentManager());
+        pagerAdapterMain = new PagerAdapterMain(getSupportFragmentManager());
 
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(pagerAdapter);
+        mViewPager.setAdapter(pagerAdapterMain);
         mViewPager.setCurrentItem(0);
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_layout);

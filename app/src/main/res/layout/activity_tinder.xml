@@ -1,38 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lustrumGrey">
+    android:orientation="vertical"
+    android:fitsSystemWindows="true"
+    tools:context="com.example.tudelftsid.lustrumapp.TinderActivity">
 
-    <LinearLayout
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/tinderBar"
         android:layout_width="match_parent"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:orientation="horizontal">
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/dislikeButton"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_margin="15dp"
-            android:src="@mipmap/dislike"/>
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tab_tinder_layout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_gravity="bottom"
+            android:background="@color/lustrumGrey"
+            app:tabGravity="fill"
+            app:tabMode="fixed"/>
 
-        <android.support.design.widget.FloatingActionButton
-            android:id="@+id/likeButton"
-            android:layout_width="75dp"
-            android:layout_height="75dp"
-            android:layout_margin="15dp"
-            android:src="@mipmap/like"/>
+    </android.support.design.widget.AppBarLayout>
 
-    </LinearLayout>
-
-    <com.mindorks.placeholderview.SwipePlaceHolderView
-        android:id="@+id/swipeView"
+    <com.example.tudelftsid.lustrumapp.ViewPagerNoScroll
+        android:id="@+id/tinderPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
-</FrameLayout>
+</LinearLayout>

@@ -3,9 +3,9 @@ package com.example.tudelftsid.lustrumapp;
         import android.support.v4.app.FragmentManager;
         import android.support.v4.app.FragmentPagerAdapter;
 
-public class PagerAdapter extends FragmentPagerAdapter {
+public class PagerAdapterMain extends FragmentPagerAdapter {
 
-    public PagerAdapter(FragmentManager fm) {
+    public PagerAdapterMain(FragmentManager fm) {
         super(fm);
     }
 

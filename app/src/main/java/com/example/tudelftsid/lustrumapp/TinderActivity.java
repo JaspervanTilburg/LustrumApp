@@ -3,6 +3,8 @@ package com.example.tudelftsid.lustrumapp;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,53 +19,21 @@ import java.util.ArrayList;
 
 public class TinderActivity extends AppCompatActivity {
 
-    private SwipePlaceHolderView mSwipeView;
-    private Context mContext;
+    private PagerAdapterTinder pagerAdapterTinder;
+    private ViewPager mViewPager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tinder);
 
-        mSwipeView = (SwipePlaceHolderView)findViewById(R.id.swipeView);
-        mContext = getApplicationContext();
+        pagerAdapterTinder = new PagerAdapterTinder(getSupportFragmentManager());
 
-        mSwipeView.getBuilder()
-                .setDisplayViewCount(3)
-                .setSwipeDecor(new SwipeDecor()
-                        .setPaddingTop(20)
-                        .setRelativeScale(0.01f)
-                        .setSwipeInMsgLayoutId(R.layout.tinder_swipe_accept_view)
-                        .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_reject_view));
+        mViewPager = (ViewPager) findViewById(R.id.tinderPager);
+        mViewPager.setAdapter(pagerAdapterTinder);
+        mViewPager.setCurrentItem(0);
 
-
-        for(Profile profile : Utils.loadProfiles(this.getApplicationContext())){
-            mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
-        }
-
-        findViewById(R.id.dislikeButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSwipeView.doSwipe(false);
-            }
-        });
-
-        findViewById(R.id.likeButton).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mSwipeView.doSwipe(true);
-            }
-        });
-
-        TextView name = (TextView) findViewById(R.id.nameAgeTxt);
-        TextView club = (TextView) findViewById(R.id.clubTxt);
-        TextView bolletjes = (TextView) findViewById(R.id.bolletjesTxt);
-        TextView huis = (TextView) findViewById(R.id.huisTxt);
-
-        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Alternate_Bold.ttf");
-        name.setTypeface(font);
-        club.setTypeface(font);
-        bolletjes.setTypeface(font);
-        huis.setTypeface(font);
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_tinder_layout);
+        tabLayout.setupWithViewPager(mViewPager);
     }
 }

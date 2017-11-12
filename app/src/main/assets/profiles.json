@@ -2,9 +2,11 @@
 [
   {
     "url":"https://pbs.twimg.com/profile_images/572905100960485376/GK09QnNG.jpeg",
-    "name":"Sofia",
-    "age":20,
-    "location":"New York"
+    "name":"Jasper",
+    "age":21,
+    "club":"JC Athos",
+    "bolletjes" : 7,
+    "huis" : "Huize de Botte Bijl"
   },
   {
     "url":"http://cdn.cavemancircus.com//wp-content/uploads/images/2015/june/pretty_girls_3/pretty_girls_15.jpg",

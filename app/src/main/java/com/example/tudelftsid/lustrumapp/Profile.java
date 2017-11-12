@@ -22,9 +22,17 @@ public class Profile {
     @Expose
     private Integer age;
 
-    @SerializedName("location")
+    @SerializedName("club")
     @Expose
-    private String location;
+    private String club;
+
+    @SerializedName("bolletjes")
+    @Expose
+    private String bolletjes;
+
+    @SerializedName("huis")
+    @Expose
+    private String huis;
 
     public String getName() {
         return name;
@@ -50,11 +58,27 @@ public class Profile {
         this.age = age;
     }
 
-    public String getLocation() {
-        return location;
+    public String getClub() {
+        return club;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setClub(String location) {
+        this.club = location;
+    }
+
+    public String getBolletjes() {
+        return bolletjes;
+    }
+
+    public void setBolletjes(String bolletjes) {
+        this.bolletjes = bolletjes;
+    }
+
+    public String getHuis() {
+        return huis;
+    }
+
+    public void setHuis(String huis) {
+        this.huis = huis;
     }
 }

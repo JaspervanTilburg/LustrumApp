@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="400dp"
-    android:layout_height="500dp"
-    android:layout_marginBottom="75dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:layout_marginLeft="10dp"
     android:layout_marginRight="10dp"
+    android:layout_marginBottom="100dp"
     android:orientation="vertical">
     <android.support.v7.widget.CardView
         android:orientation="vertical"
@@ -32,7 +32,7 @@
             <TextView
                 android:id="@+id/nameAgeTxt"
                 android:layout_width="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/lustrumPink_Dark"
                 android:textSize="18dp"
                 android:textStyle="bold"
                 android:layout_height="wrap_content"/>
@@ -40,26 +40,30 @@
                 android:id="@+id/clubTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/lustrumPink"
                 android:textSize="14dp"
-                android:textStyle="normal"/>
+                android:textStyle="normal"
+                android:drawableLeft="@mipmap/club"
+                android:drawablePadding="10dp"/>
             <TextView
                 android:id="@+id/bolletjesTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/lustrumPink"
                 android:textSize="14dp"
                 android:textStyle="normal"
-                android:text="49 bolletjes"/>
+                android:drawableLeft="@mipmap/bolletjes"
+                android:drawablePadding="10dp"/>
             <TextView
                 android:id="@+id/huisTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimaryDark"
+                android:textColor="@color/lustrumPink"
                 android:textSize="14dp"
                 android:textStyle="normal"
-                android:text="Huize de Botte Bijl"/>
+                android:drawableLeft="@mipmap/huis"
+                android:drawablePadding="10dp"/>
 
         </LinearLayout>
     </android.support.v7.widget.CardView>
-</FrameLayout>
+</RelativeLayout>

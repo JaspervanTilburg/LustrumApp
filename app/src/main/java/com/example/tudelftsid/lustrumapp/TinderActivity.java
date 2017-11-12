@@ -1,10 +1,12 @@
 package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lorentzos.flingswipe.SwipeFlingAdapterView;
@@ -52,5 +54,16 @@ public class TinderActivity extends AppCompatActivity {
                 mSwipeView.doSwipe(true);
             }
         });
+
+        TextView name = (TextView) findViewById(R.id.nameAgeTxt);
+        TextView club = (TextView) findViewById(R.id.clubTxt);
+        TextView bolletjes = (TextView) findViewById(R.id.bolletjesTxt);
+        TextView huis = (TextView) findViewById(R.id.huisTxt);
+
+        Typeface font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Alternate_Bold.ttf");
+        name.setTypeface(font);
+        club.setTypeface(font);
+        bolletjes.setTypeface(font);
+        huis.setTypeface(font);
     }
 }

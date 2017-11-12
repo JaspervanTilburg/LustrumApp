@@ -33,10 +33,10 @@ public class TinderCard {
     @View(R.id.clubTxt)
     private TextView clubTxt;
 
-    @View(R.id.clubTxt)
+    @View(R.id.bolletjesTxt)
     private TextView bolletjesTxt;
 
-    @View(R.id.clubTxt)
+    @View(R.id.huisTxt)
     private TextView huisTxt;
 
     private Profile mProfile;
@@ -52,8 +52,10 @@ public class TinderCard {
     @Resolve
     private void onResolved(){
         Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
-        nameAgeTxt.setText(mProfile.getName() + ", " + mProfile.getAge());
-        clubTxt.setText(mProfile.getLocation());
+        nameAgeTxt.setText(mProfile.getName().toUpperCase() + ", " + mProfile.getAge());
+        clubTxt.setText(mProfile.getClub().toUpperCase());
+        bolletjesTxt.setText(mProfile.getBolletjes() + " BOLLETJES");
+        huisTxt.setText(mProfile.getHuis().toUpperCase());
     }
 
     @SwipeOut

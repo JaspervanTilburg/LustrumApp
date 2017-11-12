@@ -14,6 +14,8 @@ import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by TUDelft SID on 5-10-2017.
@@ -41,7 +43,9 @@ public class SwipeTabFragment extends Fragment {
                         .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_reject_view));
 
 
-        for(Profile profile : Utils.loadProfiles(getActivity().getApplicationContext())){
+        List<Profile> profiles = Utils.loadProfiles(getActivity().getApplicationContext());
+        Collections.shuffle(profiles);
+        for(Profile profile : profiles){
             mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
         }
 
@@ -59,16 +63,6 @@ public class SwipeTabFragment extends Fragment {
             }
         });
 
-        TextView name = (TextView) rootView.findViewById(R.id.nameAgeTxt);
-        TextView club = (TextView) rootView.findViewById(R.id.clubTxt);
-        TextView bolletjes = (TextView) rootView.findViewById(R.id.bolletjesTxt);
-        TextView huis = (TextView) rootView.findViewById(R.id.huisTxt);
-
-        Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Alternate_Bold.ttf");
-        name.setTypeface(font);
-        club.setTypeface(font);
-        bolletjes.setTypeface(font);
-        huis.setTypeface(font);
         return rootView;
     }
 

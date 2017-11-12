@@ -16,7 +16,7 @@ public class ProfileTabFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.profiel_tab_layout, container, false);
+        rootView = inflater.inflate(R.layout.tinder_profile_tab_layout, container, false);
         return rootView;
     }
 

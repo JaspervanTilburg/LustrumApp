@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -22,6 +23,17 @@ import java.util.List;
 public class Utils {
 
     private static final String TAG = "Utils";
+
+    public static List<DateQuestion> loadDateQuestions(Context context, JSONArray jsonArray) throws JSONException {
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        List<DateQuestion> questionsList = new ArrayList<>();
+        for(int i=0;i<jsonArray.length();i++){
+            DateQuestion question = gson.fromJson(jsonArray.getString(i), DateQuestion.class);
+            questionsList.add(question);
+        }
+        return questionsList;
+    }
 
     public static List<Profile> loadProfiles(Context context){
         try{

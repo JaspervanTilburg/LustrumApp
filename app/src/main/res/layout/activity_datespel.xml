@@ -18,10 +18,6 @@
     <com.mindorks.placeholderview.SwipePlaceHolderView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="115dp"
-        android:layout_marginBottom="150dp"
         android:id="@+id/datespel_swipe"/>
 
 </android.support.constraint.ConstraintLayout>

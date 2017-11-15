@@ -24,8 +24,8 @@ public class DateSpelCard {
     @View(R.id.datespel_uppertext)
     private TextView upperText;
 
-    @View(R.id.datespel_bottomtext)
-    private TextView bottomText;
+//    @View(R.id.datespel_bottomtext)
+//    private TextView bottomText;
 
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;

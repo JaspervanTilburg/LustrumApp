@@ -29,9 +29,9 @@ public class DateSpelCard {
 
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
-    private DateSpelVraag mVraag;
+    private DateQuestion mVraag;
 
-    public DateSpelCard(Context context, SwipePlaceHolderView swipeView, DateSpelVraag vraag) {
+    public DateSpelCard(Context context, SwipePlaceHolderView swipeView, DateQuestion vraag) {
         mContext = context;
         mSwipeView = swipeView;
         mVraag = vraag;
@@ -39,8 +39,7 @@ public class DateSpelCard {
 
     @Resolve
     private void onResolved(){
-        upperText.setText(mVraag.getUpperText());
-        bottomText.setText(mVraag.getBottomText());
+        upperText.setText(mVraag.getQuestion());
     }
 
     @SwipeOut

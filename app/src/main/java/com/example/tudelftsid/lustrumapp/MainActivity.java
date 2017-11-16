@@ -98,6 +98,9 @@ public class MainActivity extends AppCompatActivity {
                     String token = response.getString("jwt");
                     saveToken(token);
                     LustrumRestClient.setToken(token);
+                    System.out.println("Logged in");
+                    Toast toast = Toast.makeText(getApplicationContext(), "LOGGED IN",Toast.LENGTH_SHORT);
+                    toast.show();
                     pagerAdapterMain.notifyDataSetChanged();
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -113,6 +116,15 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    public void logout(View view) {
+        new File(getFilesDir(), LustrumRestClient.FILE_NAME).delete();
+        LustrumRestClient.setToken(null);
+        pagerAdapterMain.notifyDataSetChanged();
+        System.out.println("Logged out");
+        Toast toast = Toast.makeText(getApplicationContext(), "LOGGED OUT",Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
     public void saveToken(String token) {
         new File(getApplicationContext().getFilesDir(), LustrumRestClient.FILE_NAME);
         FileOutputStream outputStream;
@@ -120,7 +132,6 @@ public class MainActivity extends AppCompatActivity {
             outputStream = openFileOutput(LustrumRestClient.FILE_NAME, Context.MODE_PRIVATE);
             outputStream.write(token.getBytes());
             outputStream.close();
-            System.out.println("Token saved");
         } catch (Exception e) {
             e.printStackTrace();
         }

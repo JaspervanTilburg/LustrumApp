@@ -21,7 +21,7 @@ public class PagerAdapterTinder extends FragmentPagerAdapter {
                 MatchTabFragment tab2 = new MatchTabFragment();
                 return tab2;
             case 2:
-                ProfileTabFragment tab3 = new ProfileTabFragment();
+                TinderProfileTabFragment tab3 = new TinderProfileTabFragment();
                 return tab3;
             default:
                 return null;

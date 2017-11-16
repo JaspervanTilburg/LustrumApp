@@ -13,6 +13,17 @@ import com.example.tudelftsid.lustrumapp.InfoPages.GalaInfoActivity;
 import com.example.tudelftsid.lustrumapp.InfoPages.LustrumWekenInfoActivity;
 import com.example.tudelftsid.lustrumapp.InfoPages.PiekWeekInfoActivity;
 import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
+
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -58,7 +69,32 @@ public class MainActivity extends AppCompatActivity {
     public void login(View view) {
         EditText username = (EditText) findViewById(R.id.loginEmail);
         EditText password = (EditText) findViewById(R.id.loginPassword);
+        RequestParams params = new RequestParams();
+        JSONObject auth = new JSONObject();
+        JSONObject subParams = new JSONObject();
+        StringEntity entity = null;
+        try {
+            subParams.put("email", "test@example.com");
+            subParams.put("password", "123123");
+            auth.put("auth", subParams);
+            entity = new StringEntity(auth.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
+        LustrumRestClient.postJSON("auth", entity, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                System.out.println("Object " + response);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] header, String msg, Throwable exception) {
+                System.out.println("Something went wrong: " + statusCode + ", " + msg);
+            }
+        });
     }
 
     public void onGalaInfoClick(View view) {
@@ -80,4 +116,5 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PiekWeekInfoActivity.class);
         startActivity(intent);
     }
+
 }

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
  * Created by TUDelft SID on 5-10-2017.
  */
 
-public class ProfileTabFragment extends Fragment {
+public class TinderProfileTabFragment extends Fragment {
 
     private View rootView;
 

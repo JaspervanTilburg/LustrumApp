@@ -41,7 +41,7 @@ public class DatespelActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {
-                    System.out.println("Array " + response);
+                    System.out.println("Date questions retrieved: " + response);
                     List<DateQuestion> questions = Utils.loadDateQuestions(getApplicationContext(), response);
                     showQuestions(questions);
                 } catch (JSONException e) {

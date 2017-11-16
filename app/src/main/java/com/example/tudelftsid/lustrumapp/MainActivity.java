@@ -93,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
         LustrumRestClient.authenticate(username.getText().toString(), password.getText().toString(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("JSONObject " + response);
+                System.out.println("Token retrieved: " + response);
                 try {
                     String token = response.getString("jwt");
                     saveToken(token);

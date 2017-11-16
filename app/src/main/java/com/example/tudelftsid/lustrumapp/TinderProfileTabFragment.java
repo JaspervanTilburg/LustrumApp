@@ -34,7 +34,7 @@ public class TinderProfileTabFragment extends Fragment {
         LustrumRestClient.getWithHeader("profile", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("Array " + response);
+                System.out.println("My Profile loaded: " + response);
                 Profile myProfile = Utils.loadProfile(response);
                 setTextViews(myProfile);
             }

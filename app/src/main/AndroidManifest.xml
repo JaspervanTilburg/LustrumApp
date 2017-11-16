@@ -14,20 +14,28 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TinderActivity"/>
-        <activity android:name=".BerichtenActivity" />
-        <activity android:name=".DatespelActivity" />
-        <activity android:name=".InfoPages.GalaInfoActivity" />
-        <activity android:name=".InfoPages.WispoInfoActivity" />
-        <activity android:name=".InfoPages.LustrumWekenInfoActivity" />
-        <activity android:name=".InfoPages.PiekWeekInfoActivity" />
+        <activity android:name=".TinderActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".BerichtenActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".DatespelActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".InfoPages.GalaInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".InfoPages.WispoInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".InfoPages.LustrumWekenInfoActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".InfoPages.PiekWeekInfoActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

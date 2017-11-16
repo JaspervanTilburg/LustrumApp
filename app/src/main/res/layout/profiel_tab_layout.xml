@@ -26,6 +26,7 @@
         android:focusable = "true"
         android:textColorHighlight = "#FFFFFF"
         android:textColorHint = "@color/lustrumLightGrey"
+        android:textColor="#FFFFFF"
         android:theme="@style/GreyTheme"/>
 
     <EditText
@@ -38,6 +39,7 @@
         android:id = "@+id/loginPassword"
         android:hint = "WACHTWOORD"
         android:focusable = "true"
+        android:textColor="#FFFFFF"
         android:textColorHighlight = "#FFFFFF"
         android:textColorHint = "@color/lustrumLightGrey"
         android:theme="@style/GreyTheme" />

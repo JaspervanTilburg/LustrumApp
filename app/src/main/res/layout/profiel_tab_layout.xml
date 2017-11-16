@@ -43,7 +43,8 @@
         android:textColor="#FFFFFF"
         android:textColorHighlight = "#FFFFFF"
         android:textColorHint = "@color/lustrumLightGrey"
-        android:theme="@style/GreyTheme" />
+        android:theme="@style/GreyTheme"
+        android:inputType="textPassword"/>
     
     <Button
         android:layout_width="match_parent"

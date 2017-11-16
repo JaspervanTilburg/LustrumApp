@@ -27,6 +27,7 @@
         android:textColorHighlight = "#FFFFFF"
         android:textColorHint = "@color/lustrumLightGrey"
         android:textColor="#FFFFFF"
+        android:inputType="textCapSentences"
         android:theme="@style/GreyTheme"/>
 
     <EditText

@@ -1,6 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/lustrumGrey"
+    android:padding="40dp">
 
-</android.support.constraint.ConstraintLayout>
+    <ImageView
+        android:id="@+id/myProfileImageView"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="200dp"
+        android:layout_height="200dp" />
+
+    <TextView
+        android:id="@+id/myNameTxt"
+        android:layout_width="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="10dp"
+        android:textColor="#FFFFFF"
+        android:textSize="24dp"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/myClubTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:textColor="@color/lustrumPink"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        android:drawableLeft="@mipmap/club"
+        android:drawablePadding="10dp"/>
+    <TextView
+        android:id="@+id/myBolletjesTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/lustrumPink"
+        android:layout_margin="5dp"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        android:drawableLeft="@mipmap/bolletjes"
+        android:drawablePadding="10dp"/>
+    <TextView
+        android:id="@+id/myHuisTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/lustrumPink"
+        android:layout_margin="5dp"
+        android:textSize="20dp"
+        android:textStyle="normal"
+        android:drawableLeft="@mipmap/huis"
+        android:drawablePadding="10dp"/>
+</LinearLayout>

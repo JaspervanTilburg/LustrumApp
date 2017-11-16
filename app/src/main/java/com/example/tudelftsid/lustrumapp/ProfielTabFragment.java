@@ -1,21 +1,14 @@
 package com.example.tudelftsid.lustrumapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
-import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.RequestParams;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.util.List;
-
-import cz.msebera.android.httpclient.Header;
+import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
 
 public class ProfielTabFragment extends Fragment {
 
@@ -23,19 +16,12 @@ public class ProfielTabFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootview = inflater.inflate(R.layout.profiel_tab_layout, container, false);
-
-        requestUserData();
-
+        if (LustrumRestClient.hasToken()) {
+            rootview = inflater.inflate(R.layout.profiel_tab_layout, container, false);
+        } else {
+            rootview = inflater.inflate(R.layout.profiel_login_layout, container, false);
+        }
         return rootview;
     }
 
-    public void requestUserData() {
-        LustrumRestClient.getWithHeader("profile", null, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("Array " + response);
-            }
-        });
-    }
 }

@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -33,6 +34,13 @@ public class Utils {
             questionsList.add(question);
         }
         return questionsList;
+    }
+
+    public static Profile loadProfile(JSONObject object) {
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        Profile profile = gson.fromJson(object.toString(), Profile.class);
+        return profile;
     }
 
     public static List<Profile> loadProfiles(Context context){

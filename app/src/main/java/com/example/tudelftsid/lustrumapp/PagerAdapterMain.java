@@ -1,7 +1,13 @@
 package com.example.tudelftsid.lustrumapp;
+        import android.content.Intent;
         import android.support.v4.app.Fragment;
         import android.support.v4.app.FragmentManager;
         import android.support.v4.app.FragmentPagerAdapter;
+        import android.support.v4.view.PagerAdapter;
+
+        import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
+
+        import java.io.File;
 
 public class PagerAdapterMain extends FragmentPagerAdapter {
 
@@ -17,14 +23,18 @@ public class PagerAdapterMain extends FragmentPagerAdapter {
                 TijdlijnTabFragment tab1 = new TijdlijnTabFragment();
                 return tab1;
             case 1:
-                ProfielTabFragment tab2 = new ProfielTabFragment();
-                return tab2;
+                return new ProfielTabFragment();
             case 2:
                 FeaturesTabFragment tab3 = new FeaturesTabFragment();
                 return tab3;
             default:
                 return null;
         }
+    }
+
+    @Override
+    public int getItemPosition(Object object) {
+        return PagerAdapter.POSITION_NONE;
     }
 
     @Override

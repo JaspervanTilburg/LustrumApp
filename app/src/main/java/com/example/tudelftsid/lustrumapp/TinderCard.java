@@ -1,6 +1,7 @@
 package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -17,9 +18,13 @@ import com.mindorks.placeholderview.annotations.swipe.SwipeInState;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOut;
 import com.mindorks.placeholderview.annotations.swipe.SwipeOutState;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+
 import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
 
 /**
  * Created by TUDelft SID on 10-11-2017.
@@ -77,6 +82,7 @@ public class TinderCard {
     @SwipeIn
     private void onSwipeIn(){
         Log.d("EVENT", "onSwipedIn");
+        postLike();
         addTinderCard();
     }
 
@@ -94,9 +100,30 @@ public class TinderCard {
         LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("Object " + response);
+                System.out.println("Tinder card added: " + response);
                 Profile profile = Utils.loadProfile(response);
                 mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
+                System.out.println("Something went wrong " + msg);
+            }
+        });
+    }
+
+    public void postLike() {
+        LustrumRestClient.postLike(mProfile.getId(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                System.out.println("Like posted: " + response);
+                try {
+                    if ((boolean) response.get("is_match")) {
+
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
 
             @Override

@@ -10,9 +10,17 @@ import com.google.gson.annotations.SerializedName;
 
 public class Profile {
 
+    @SerializedName("id")
+    @Expose
+    private Integer id;
+
     @SerializedName("name")
     @Expose
     private String name;
+
+    @SerializedName("gender")
+    @Expose
+    private String gender;
 
     @SerializedName("url")
     @Expose
@@ -28,11 +36,25 @@ public class Profile {
 
     @SerializedName("bolletjes")
     @Expose
-    private String bolletjes;
+    private Integer bolletjes;
 
     @SerializedName("huis")
     @Expose
     private String huis;
+
+    @SerializedName("clubjaar")
+    @Expose
+    private Integer clubjaar;
+
+    @SerializedName("verticale")
+    @Expose
+    private String verticale;
+
+    @SerializedName("studie")
+    @Expose
+    private String studie;
+
+    private String matchCreatedAt;
 
     public String getName() {
         return name;
@@ -66,11 +88,11 @@ public class Profile {
         this.club = location;
     }
 
-    public String getBolletjes() {
+    public int getBolletjes() {
         return bolletjes;
     }
 
-    public void setBolletjes(String bolletjes) {
+    public void setBolletjes(int bolletjes) {
         this.bolletjes = bolletjes;
     }
 
@@ -80,5 +102,53 @@ public class Profile {
 
     public void setHuis(String huis) {
         this.huis = huis;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public int getClubjaar() {
+        return clubjaar;
+    }
+
+    public void setClubjaar(int clubjaar) {
+        this.clubjaar = clubjaar;
+    }
+
+    public String getVerticale() {
+        return verticale;
+    }
+
+    public void setVerticale(String verticale) {
+        this.verticale = verticale;
+    }
+
+    public String getStudie() {
+        return studie;
+    }
+
+    public void setStudie(String studie) {
+        this.studie = studie;
+    }
+
+    public String getMatchCreatedAt() {
+        return matchCreatedAt;
+    }
+
+    public void setMatchCreatedAt(String matchCreatedAt) {
+        this.matchCreatedAt = matchCreatedAt;
     }
 }

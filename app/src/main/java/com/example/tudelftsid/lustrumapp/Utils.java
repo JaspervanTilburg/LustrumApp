@@ -9,6 +9,7 @@ import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -35,14 +36,24 @@ public class Utils {
         return questionsList;
     }
 
-    public static List<Profile> loadProfiles(Context context){
+    public static Profile loadProfile(JSONObject object) {
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+        Profile profile = gson.fromJson(object.toString(), Profile.class);
+        return profile;
+    }
+
+    public static List<Profile> loadProfiles(JSONObject response){
         try{
             GsonBuilder builder = new GsonBuilder();
             Gson gson = builder.create();
-            JSONArray array = new JSONArray(loadJSONFromAsset(context, "profiles.json"));
             List<Profile> profileList = new ArrayList<>();
+            JSONArray array = (JSONArray) response.get("matches");
             for(int i=0;i<array.length();i++){
-                Profile profile = gson.fromJson(array.getString(i), Profile.class);
+                JSONObject match = (JSONObject) array.get(i);
+                JSONObject user = (JSONObject) match.get("user");
+                Profile profile = gson.fromJson(user.toString(), Profile.class);
+                profile.setMatchCreatedAt(match.getString("created_at"));
                 profileList.add(profile);
             }
             return profileList;

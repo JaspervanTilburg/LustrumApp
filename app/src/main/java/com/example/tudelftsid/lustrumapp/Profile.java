@@ -54,6 +54,8 @@ public class Profile {
     @Expose
     private String studie;
 
+    private String matchCreatedAt;
+
     public String getName() {
         return name;
     }
@@ -140,5 +142,13 @@ public class Profile {
 
     public void setStudie(String studie) {
         this.studie = studie;
+    }
+
+    public String getMatchCreatedAt() {
+        return matchCreatedAt;
+    }
+
+    public void setMatchCreatedAt(String matchCreatedAt) {
+        this.matchCreatedAt = matchCreatedAt;
     }
 }

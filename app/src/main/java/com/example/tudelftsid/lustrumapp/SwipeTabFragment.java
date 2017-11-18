@@ -53,22 +53,7 @@ public class SwipeTabFragment extends Fragment {
                         .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_reject_view));
 
         for (int i = 0; i < INITIAL_TINDER_CARDS; i++) {
-            LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                    System.out.println("Profile queued: " + response);
-                    Profile profile = Utils.loadProfile(response);
-                    mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
-                }
-
-                @Override
-                public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
-                    System.out.println("Something went wrong " + msg);
-                    if (statusCode >= 400 || statusCode <500) {
-                        logout();
-                    }
-                }
-            });
+            getRandomUser();
         }
 
         rootView.findViewById(R.id.dislikeButton).setOnClickListener(new View.OnClickListener() {
@@ -96,4 +81,27 @@ public class SwipeTabFragment extends Fragment {
         toast.show();
     }
 
+    public void getRandomUser() {
+        LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                System.out.println("Profile queued: " + response);
+                Profile profile = Utils.loadProfile(response);
+                if (Preferences.match(profile.getGender())) {
+                    mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+                    System.out.println("gender " + profile.getGender());
+                } else {
+                    getRandomUser();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
+                System.out.println("Something went wrong " + msg);
+                if (statusCode >= 400 || statusCode <500) {
+                    logout();
+                }
+            }
+        });
+    }
 }

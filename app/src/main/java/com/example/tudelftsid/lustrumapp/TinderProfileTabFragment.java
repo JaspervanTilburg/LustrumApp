@@ -1,10 +1,12 @@
 package com.example.tudelftsid.lustrumapp;
 
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -27,6 +29,7 @@ public class TinderProfileTabFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.tinder_profile_tab_layout, container, false);
+
 
         requestUserData();
 
@@ -61,6 +64,13 @@ public class TinderProfileTabFragment extends Fragment {
         bolletjesTxt.setText(profile.getBolletjes() + " BOLLETJES");
         TextView huisTxt = rootView.findViewById(R.id.myHuisTxt);
         huisTxt.setText(profile.getHuis().toUpperCase());
+        CheckBox mannenCheckBox = rootView.findViewById(R.id.mannenCheckBox);
+        CheckBox vrouwenCheckBox = rootView.findViewById(R.id.vrouwenCheckBox);
+        if (profile.getGender().equals("M")) {
+            vrouwenCheckBox.setChecked(true);
+        } else {
+            mannenCheckBox.setChecked(true);
+        }
     }
 
     public void logout() {

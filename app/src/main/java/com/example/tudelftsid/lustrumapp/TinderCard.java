@@ -2,6 +2,7 @@ package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Handler;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -86,7 +87,6 @@ public class TinderCard {
     private void onSwipeIn(){
         Log.d("EVENT", "onSwipedIn");
         postLike();
-        addTinderCard();
     }
 
     @SwipeInState
@@ -105,7 +105,11 @@ public class TinderCard {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("Tinder card added: " + response);
                 Profile profile = Utils.loadProfile(response);
-                mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+                if (Preferences.match(profile.getGender())) {
+                    mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+                } else {
+                    addTinderCard();
+                }
             }
 
             @Override
@@ -126,6 +130,7 @@ public class TinderCard {
                         intent.putExtra("name", mProfile.getName());
                         mContext.startActivity(intent);
                     }
+                    addTinderCard();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -137,6 +142,11 @@ public class TinderCard {
                 if (statusCode >= 400 || statusCode <500) {
                     logout();
                 }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject msg) {
+                System.out.println("Something went wrong " + msg);
             }
         });
     }

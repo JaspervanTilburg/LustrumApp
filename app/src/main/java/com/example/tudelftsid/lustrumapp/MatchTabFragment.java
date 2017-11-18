@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -13,6 +14,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
@@ -41,11 +43,22 @@ public class MatchTabFragment extends Fragment {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
-                System.out.println("Something went wrong " + msg);
+                System.out.println("Something went wrong, statuscode: " + statusCode + ", " + msg);
+                if (statusCode >= 400 || statusCode <500) {
+                    logout();
+                }
             }
         });
 
         return rootView;
+    }
+
+    public void logout() {
+        new File(getContext().getFilesDir(), LustrumRestClient.FILE_NAME).delete();
+        LustrumRestClient.setToken(null);
+        System.out.println("Logged out");
+        Toast toast = Toast.makeText(getContext().getApplicationContext(), "LOGGED OUT",Toast.LENGTH_SHORT);
+        toast.show();
     }
 
 }

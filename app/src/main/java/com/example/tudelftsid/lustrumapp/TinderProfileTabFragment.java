@@ -6,10 +6,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONObject;
+
+import java.io.File;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -38,6 +41,14 @@ public class TinderProfileTabFragment extends Fragment {
                 Profile myProfile = Utils.loadProfile(response);
                 setTextViews(myProfile);
             }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
+                System.out.println("Something went wrong " + msg);
+                if (statusCode >= 400 || statusCode <500) {
+                    logout();
+                }
+            }
         });
     }
 
@@ -50,6 +61,14 @@ public class TinderProfileTabFragment extends Fragment {
         bolletjesTxt.setText(profile.getBolletjes() + " BOLLETJES");
         TextView huisTxt = rootView.findViewById(R.id.myHuisTxt);
         huisTxt.setText(profile.getHuis().toUpperCase());
+    }
+
+    public void logout() {
+        new File(getContext().getFilesDir(), LustrumRestClient.FILE_NAME).delete();
+        LustrumRestClient.setToken(null);
+        System.out.println("Logged out");
+        Toast toast = Toast.makeText(getContext().getApplicationContext(), "LOGGED OUT",Toast.LENGTH_SHORT);
+        toast.show();
     }
 
 }

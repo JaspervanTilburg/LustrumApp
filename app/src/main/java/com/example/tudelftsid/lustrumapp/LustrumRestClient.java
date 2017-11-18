@@ -73,6 +73,20 @@ public class LustrumRestClient {
         client.post(null, getAbsoluteUrl("auth"), entity, "application/json", responseHandler);
     }
 
+    public static void postLike(int user_id, ResponseHandlerInterface responseHandler) {
+        JSONObject auth = new JSONObject();
+        StringEntity entity = null;
+        try {
+            auth.put("user_id", user_id);
+            entity = new StringEntity(auth.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        client.post(null, getAbsoluteUrl("swipe"), entity, "application/json", responseHandler);
+    }
+
     private static String getAbsoluteUrl(String relativeUrl) {
         return BASE_URL + relativeUrl;
     }

@@ -3,8 +3,11 @@ package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -31,6 +34,14 @@ public class DatespelActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mContext = getApplicationContext();
         setContentView(R.layout.activity_datespel);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window dateSpelWindow = this.getWindow();
+            dateSpelWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumPink));
+        }
+        setTitle("GALA DATESPEL");
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumPink_Dark)));
 
         try {
             getDateCards();
@@ -85,4 +96,10 @@ public class DatespelActivity extends AppCompatActivity {
         toast.show();
     }
 
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 }

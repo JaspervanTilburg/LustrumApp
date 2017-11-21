@@ -1,7 +1,9 @@
 package com.example.tudelftsid.lustrumapp.InfoPages;
 
+import android.app.ActionBar;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -16,21 +18,23 @@ import android.widget.TextView;
 
 import com.example.tudelftsid.lustrumapp.R;
 
-import org.w3c.dom.Text;
-
 public class GalaInfoActivity extends AppCompatActivity {
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("GALA");
-        Window galaWindow = this.getWindow();
-        galaWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        galaWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        galaWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumPink_Dark));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window galaWindow = this.getWindow();
+            galaWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            galaWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            galaWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumPink_Dark));
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gala_info);
+
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumPink)));
 
         Typeface head_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Alternate_Bold.ttf");
         Typeface body_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Bold.ttf");
@@ -64,5 +68,11 @@ public class GalaInfoActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

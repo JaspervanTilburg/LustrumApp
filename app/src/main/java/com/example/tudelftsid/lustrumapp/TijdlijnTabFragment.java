@@ -104,6 +104,13 @@ public class TijdlijnTabFragment extends Fragment {
         lustrumWeekButton.addChildButton(lustrumWeekInfoButton);
         piekWekenButton.addChildButton(piekWekenInfoButton);
 
+        lustrumButtons.add(galaInfoButton);
+        lustrumButtons.add(galaSpelButton);
+        lustrumButtons.add(galaTinderButton);
+        lustrumButtons.add(wispoInfoButton);
+        lustrumButtons.add(lustrumWeekInfoButton);
+        lustrumButtons.add(piekWekenInfoButton);
+
         selectedButton = lustrumButtons.get(0);
         selectedButton.animateExpand();
         selectedButton.animateScaleUp();
@@ -111,7 +118,7 @@ public class TijdlijnTabFragment extends Fragment {
     }
 
     public void initSwipe() {
-        rootView.findViewById(R.id.activiteitenBackground).setOnTouchListener(new OnSwipeTouchListener(getActivity()) {
+        View.OnTouchListener listener = new OnSwipeTouchListener(getActivity()) {
             public void onSwipeTop() {
             }
             public void onSwipeRight() {
@@ -128,7 +135,12 @@ public class TijdlijnTabFragment extends Fragment {
             }
             public void onSwipeBottom() {
             }
-        });
+        };
+        rootView.findViewById(R.id.activiteitenBackground).setOnTouchListener(listener);
+        for (LustrumButton button : lustrumButtons) {
+            button.getImage().setOnTouchListener(listener);
+        }
+
     }
 
     public void selectButton(LustrumButton button) {

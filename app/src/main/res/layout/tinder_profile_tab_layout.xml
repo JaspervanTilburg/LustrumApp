@@ -79,6 +79,7 @@
             android:drawablePadding="10dp"/>
 
         <TextView
+            android:id="@+id/instellingenTitel"
             android:layout_width="wrap_content"
             android:layout_marginTop="20dp"
             android:textColor="#FFFFFF"
@@ -142,6 +143,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/ikWilZienTitel"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
@@ -187,6 +189,7 @@
             android:orientation="horizontal">
 
             <TextView
+                android:id="@+id/alleenTokoTitel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -194,6 +197,7 @@
                 android:textColor="@android:color/darker_gray"/>
 
             <TextView
+                android:id="@+id/jarenBody"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="end"
@@ -201,7 +205,6 @@
                 android:text="2017-2014"
                 android:textColor="@android:color/darker_gray" />
         </LinearLayout>
-
 
         <View
             android:layout_width="match_parent"

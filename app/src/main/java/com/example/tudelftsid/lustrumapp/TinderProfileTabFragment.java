@@ -56,6 +56,7 @@ public class TinderProfileTabFragment extends Fragment {
 
     private void setTextViews(Profile profile) {
         Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
+        Typeface head_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Alternate_Bold.ttf");
 
         TextView nameTxt = rootView.findViewById(R.id.myNameTxt);
         nameTxt.setText(profile.getName().toUpperCase() + " (" + profile.getAge() + ")");
@@ -80,6 +81,28 @@ public class TinderProfileTabFragment extends Fragment {
         } else {
             mannenCheckBox.setChecked(true);
         }
+
+        TextView instellingenTxt = rootView.findViewById(R.id.instellingenTitel);
+        TextView ikBenTxt = rootView.findViewById(R.id.ikBenTxt);
+        TextView ikWilZienTxt = rootView.findViewById(R.id.ikWilZienTitel);
+        TextView alleenTokoJaren = rootView.findViewById(R.id.alleenTokoTitel);
+
+        ikBenTxt.setTypeface(head_font);
+        instellingenTxt.setTypeface(head_font);
+        ikWilZienTxt.setTypeface(head_font);
+        alleenTokoJaren.setTypeface(head_font);
+
+        TextView mannen1 = rootView.findViewById(R.id.mannenCheckBox);
+        TextView vrouwen1 = rootView.findViewById(R.id.vrouwenCheckBox);
+        TextView mannen2 = rootView.findViewById(R.id.manButton);
+        TextView vrouwen2 = rootView.findViewById(R.id.womanButton);
+        TextView jarenBody = rootView.findViewById(R.id.jarenBody);
+
+        mannen1.setTypeface(body_font);
+        vrouwen1.setTypeface(body_font);
+        mannen2.setTypeface(body_font);
+        vrouwen2.setTypeface(body_font);
+        jarenBody.setTypeface(body_font);
     }
 
     public void logout() {

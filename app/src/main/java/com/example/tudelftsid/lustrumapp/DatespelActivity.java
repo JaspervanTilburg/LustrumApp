@@ -37,11 +37,18 @@ public class DatespelActivity extends AppCompatActivity {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window dateSpelWindow = this.getWindow();
-            dateSpelWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumPink));
+            dateSpelWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumPink_Dark));
         }
         setTitle("GALA DATESPEL");
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumPink_Dark)));
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumPink)));
+
+        Context context = getApplicationContext();
+        CharSequence text = "Swipe voor een nieuwe vraag/stelling!";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
 
         try {
             getDateCards();

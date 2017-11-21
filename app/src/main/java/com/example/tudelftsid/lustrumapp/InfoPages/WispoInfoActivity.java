@@ -3,6 +3,7 @@ package com.example.tudelftsid.lustrumapp.InfoPages;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -29,13 +30,18 @@ public class WispoInfoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("WISPO");
-        Window wispoWindow = this.getWindow();
-        wispoWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        wispoWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        wispoWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumLightBlue_Dark));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window wispoWindow = this.getWindow();
+            wispoWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            wispoWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            wispoWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumLightBlue_Dark));
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wispo_info);
+
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumLightBlue)));
 
         Typeface head_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Alternate_Bold.ttf");
         Typeface body_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Bold.ttf");
@@ -71,5 +77,11 @@ public class WispoInfoActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

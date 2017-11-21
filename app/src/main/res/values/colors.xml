@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#e51473</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#12141f</color>
+    <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
     <color name="lustrumPink">#e51473</color>
     <color name="lustrumPink_Light">#ff5ca7</color>

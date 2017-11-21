@@ -2,6 +2,7 @@ package com.example.tudelftsid.lustrumapp.InfoPages;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -22,17 +23,21 @@ import com.example.tudelftsid.lustrumapp.R;
 
 public class PiekWeekInfoActivity extends AppCompatActivity {
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("PIEKWEEK");
-        Window piekWeekWindow = this.getWindow();
-        piekWeekWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        piekWeekWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        piekWeekWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumGreen_Dark));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window piekWeekWindow = this.getWindow();
+            piekWeekWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            piekWeekWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            piekWeekWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumGreen_Dark));
+        }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_piek_week_info);
+
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumGreen)));
 
         Typeface head_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Alternate_Bold.ttf");
         Typeface body_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Bold.ttf");
@@ -66,5 +71,11 @@ public class PiekWeekInfoActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

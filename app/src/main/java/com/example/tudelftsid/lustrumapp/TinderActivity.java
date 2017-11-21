@@ -1,9 +1,12 @@
 package com.example.tudelftsid.lustrumapp;
 
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Window;
 import android.widget.CheckBox;
 
 
@@ -16,6 +19,14 @@ public class TinderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tinder);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window dateSpelWindow = this.getWindow();
+            dateSpelWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumPink_Dark));
+        }
+        setTitle("TOKO TINDER");
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumPink)));
 
         pagerAdapterTinder = new PagerAdapterTinder(getSupportFragmentManager());
 
@@ -45,5 +56,11 @@ public class TinderActivity extends AppCompatActivity {
         } else {
             Preferences.setPreferWomen(true);
         }
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

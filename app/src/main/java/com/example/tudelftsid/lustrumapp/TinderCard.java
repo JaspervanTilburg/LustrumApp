@@ -103,9 +103,9 @@ public class TinderCard {
         LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("Tinder card added: " + response);
                 Profile profile = Utils.loadProfile(response);
-                if (Preferences.match(profile.getGender())) {
+                System.out.println("Profile " + profile.getId() + " queued: " + response);
+                if (Preferences.match(profile.getGender(), profile.getClubjaar())) {
                     mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
                 } else {
                     addTinderCard();
@@ -146,7 +146,7 @@ public class TinderCard {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject msg) {
-                System.out.println("Something went wrong " + msg);
+                System.out.println("Something went wrong with queue " + msg);
             }
         });
     }

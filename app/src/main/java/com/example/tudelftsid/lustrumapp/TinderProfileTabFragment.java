@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appyvet.materialrangebar.RangeBar;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONObject;
@@ -30,8 +32,18 @@ public class TinderProfileTabFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.tinder_profile_tab_layout, container, false);
 
-
         requestUserData();
+
+        RangeBar rangeBar = rootView.findViewById(R.id.rangeBar);
+        rangeBar.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
+            @Override
+            public void onRangeChangeListener(RangeBar rangeBar, int leftPinIndex,
+                                              int rightPinIndex, String leftPinValue, String rightPinValue) {
+                Preferences.setStartYear(Integer.parseInt(leftPinValue));
+                Preferences.setEndYear(Integer.parseInt(rightPinValue));
+            }
+
+        });
 
         return rootView;
     }
@@ -52,6 +64,14 @@ public class TinderProfileTabFragment extends Fragment {
                     logout();
                 }
             }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject object) {
+                System.out.println("Something went wrong " + throwable);
+                if (statusCode >= 400 || statusCode <500) {
+                    logout();
+                }
+            }
         });
     }
 
@@ -66,10 +86,14 @@ public class TinderProfileTabFragment extends Fragment {
         huisTxt.setText(profile.getHuis().toUpperCase());
         CheckBox mannenCheckBox = rootView.findViewById(R.id.mannenCheckBox);
         CheckBox vrouwenCheckBox = rootView.findViewById(R.id.vrouwenCheckBox);
+        RadioButton manButton = rootView.findViewById(R.id.manButton);
+        RadioButton womanButton = rootView.findViewById(R.id.womanButton);
         if (profile.getGender().equals("M")) {
             vrouwenCheckBox.setChecked(true);
+            manButton.setChecked(true);
         } else {
             mannenCheckBox.setChecked(true);
+            womanButton.setChecked(true);
         }
     }
 

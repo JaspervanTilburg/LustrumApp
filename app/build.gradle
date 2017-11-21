@@ -41,5 +41,6 @@ dependencies {
     compile 'com.google.code.gson:gson:2.7'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'de.hdodenhof:circleimageview:2.2.0'
+    compile 'com.appyvet:materialrangebar:1.4'
     testCompile 'junit:junit:4.12'
 }

@@ -14,28 +14,32 @@ public class Preferences {
 
     public static boolean preferMen;
     public static boolean preferWomen;
-
-    public static boolean isPreferMen() {
-        return preferMen;
-    }
+    public static int startYear;
+    public static int endYear;
 
     public static void setPreferMen(boolean preferMen) {
         Preferences.preferMen = preferMen;
-    }
-
-    public static boolean isPreferWomen() {
-        return preferWomen;
     }
 
     public static void setPreferWomen(boolean preferWomen) {
         Preferences.preferWomen = preferWomen;
     }
 
-    public static boolean match(String gender) {
-        if (gender.equals("M") && preferMen) {
-            return true;
-        } else if (gender.equals("F") && preferWomen) {
-            return  true;
+    public static void setStartYear(int startYear) {
+        Preferences.startYear = startYear;
+    }
+
+    public static void setEndYear(int endYear) {
+        Preferences.endYear = endYear;
+    }
+
+    public static boolean match(String gender, int year) {
+        if (year >= startYear && year <= endYear) {
+            if (gender.equals("M") && preferMen) {
+                return true;
+            } else if (gender.equals("F") && preferWomen) {
+                return  true;
+            }
         }
         return false;
     }
@@ -60,5 +64,7 @@ public class Preferences {
                 System.out.println("Something went wrong " + msg);
             }
         });
+        setStartYear(2010);
+        setEndYear(2017);
     }
 }

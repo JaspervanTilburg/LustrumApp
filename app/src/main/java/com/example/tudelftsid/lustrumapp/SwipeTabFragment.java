@@ -31,7 +31,7 @@ import cz.msebera.android.httpclient.Header;
 
 public class SwipeTabFragment extends Fragment {
 
-    public static final int INITIAL_TINDER_CARDS = 10;
+    public static final int INITIAL_TINDER_CARDS = 3;
 
     private View rootView;
     private SwipePlaceHolderView mSwipeView;
@@ -85,11 +85,10 @@ public class SwipeTabFragment extends Fragment {
         LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("Profile queued: " + response);
                 Profile profile = Utils.loadProfile(response);
-                if (Preferences.match(profile.getGender())) {
+                if (Preferences.match(profile.getGender(), profile.getClubjaar())) {
+                    System.out.println("Profile " + profile.getId() + " queued: " + response);
                     mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
-                    System.out.println("gender " + profile.getGender());
                 } else {
                     getRandomUser();
                 }
@@ -98,6 +97,14 @@ public class SwipeTabFragment extends Fragment {
             @Override
             public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
                 System.out.println("Something went wrong " + msg);
+                if (statusCode >= 400 || statusCode <500) {
+                    logout();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable msg, JSONObject object) {
+                System.out.println("Something went wrong with queueu" + msg);
                 if (statusCode >= 400 || statusCode <500) {
                     logout();
                 }

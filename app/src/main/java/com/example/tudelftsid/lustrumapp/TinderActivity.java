@@ -1,21 +1,11 @@
 package com.example.tudelftsid.lustrumapp;
 
-import android.content.Context;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.widget.CheckBox;
 
-import com.lorentzos.flingswipe.SwipeFlingAdapterView;
-import com.mindorks.placeholderview.SwipeDecor;
-import com.mindorks.placeholderview.SwipePlaceHolderView;
-
-import java.util.ArrayList;
 
 public class TinderActivity extends AppCompatActivity {
 
@@ -35,5 +25,25 @@ public class TinderActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_tinder_layout);
         tabLayout.setupWithViewPager(mViewPager);
+
+        Preferences.initPreferences();
+    }
+
+    public void onMannenCheckBoxClick() {
+        CheckBox checkBox = findViewById(R.id.mannenCheckBox);
+        if (checkBox.isChecked()) {
+            Preferences.setPreferMen(false);
+        } else {
+            Preferences.setPreferMen(true);
+        }
+    }
+
+    public void onVrouwenCheckBoxClick() {
+        CheckBox checkBox = findViewById(R.id.vrouwenCheckBox);
+        if (checkBox.isChecked()) {
+            Preferences.setPreferWomen(false);
+        } else {
+            Preferences.setPreferWomen(true);
+        }
     }
 }

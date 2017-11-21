@@ -24,9 +24,11 @@
         </activity>
         <activity android:name=".TinderActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".BerichtenActivity"
+        <activity android:name=".TinderMatchActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".DatespelActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".BerichtenActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".InfoPages.GalaInfoActivity"
             android:screenOrientation="portrait"/>

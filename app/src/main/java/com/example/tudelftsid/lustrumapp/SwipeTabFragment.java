@@ -7,6 +7,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.mindorks.placeholderview.SwipeDecor;
@@ -16,6 +19,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -50,20 +54,7 @@ public class SwipeTabFragment extends Fragment {
                         .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_reject_view));
 
         for (int i = 0; i < INITIAL_TINDER_CARDS; i++) {
-            LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
-                @Override
-                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                    System.out.println("Profile queued: " + response);
-                    Profile profile = Utils.loadProfile(response);
-                    Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
-                    mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView, body_font));
-                }
-
-                @Override
-                public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
-                    System.out.println("Something went wrong " + msg);
-                }
-            });
+            getRandomUser();
         }
 
         rootView.findViewById(R.id.dislikeButton).setOnClickListener(new View.OnClickListener() {
@@ -83,4 +74,36 @@ public class SwipeTabFragment extends Fragment {
         return rootView;
     }
 
+    public void logout() {
+        new File(mContext.getFilesDir(), LustrumRestClient.FILE_NAME).delete();
+        LustrumRestClient.setToken(null);
+        System.out.println("Logged out");
+        Toast toast = Toast.makeText(mContext.getApplicationContext(), "LOGGED OUT",Toast.LENGTH_SHORT);
+        toast.show();
+    }
+
+    public void getRandomUser() {
+        LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                System.out.println("Profile queued: " + response);
+                Profile profile = Utils.loadProfile(response);
+                if (Preferences.match(profile.getGender())) {
+                    Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
+                    mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView, body_font));
+                    System.out.println("gender " + profile.getGender());
+                } else {
+                    getRandomUser();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
+                System.out.println("Something went wrong " + msg);
+                if (statusCode >= 400 || statusCode <500) {
+                    logout();
+                }
+            }
+        });
+    }
 }

@@ -63,8 +63,6 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(1).setIcon(R.drawable.profiel_icon);
         tabLayout.getTabAt(2).setIcon(R.drawable.features_icon);
 
-        //For testing
-        //new File(getFilesDir(), LustrumRestClient.FILE_NAME).delete();
         retrieveToken();
     }
 

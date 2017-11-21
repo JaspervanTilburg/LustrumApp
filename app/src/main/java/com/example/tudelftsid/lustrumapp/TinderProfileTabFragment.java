@@ -1,5 +1,6 @@
 package com.example.tudelftsid.lustrumapp;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -42,14 +43,24 @@ public class TinderProfileTabFragment extends Fragment {
     }
 
     private void setTextViews(Profile profile) {
+        Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
+
         TextView nameTxt = rootView.findViewById(R.id.myNameTxt);
         nameTxt.setText(profile.getName().toUpperCase() + " (" + profile.getAge() + ")");
+        nameTxt.setTypeface(body_font);
+
         TextView clubTxt = rootView.findViewById(R.id.myClubTxt);
         clubTxt.setText(profile.getClub().toUpperCase() + " (" + profile.getClubjaar() + ", " + profile.getVerticale().toUpperCase() + ")");
+        clubTxt.setTypeface(body_font);
+
         TextView bolletjesTxt = rootView.findViewById(R.id.myBolletjesTxt);
         bolletjesTxt.setText(profile.getBolletjes() + " BOLLETJES");
+        bolletjesTxt.setTypeface(body_font);
+
         TextView huisTxt = rootView.findViewById(R.id.myHuisTxt);
         huisTxt.setText(profile.getHuis().toUpperCase());
+        huisTxt.setTypeface(body_font);
+
     }
 
 }

@@ -1,6 +1,7 @@
 package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -54,7 +55,8 @@ public class SwipeTabFragment extends Fragment {
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     System.out.println("Profile queued: " + response);
                     Profile profile = Utils.loadProfile(response);
-                    mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+                    Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
+                    mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView, body_font));
                 }
 
                 @Override

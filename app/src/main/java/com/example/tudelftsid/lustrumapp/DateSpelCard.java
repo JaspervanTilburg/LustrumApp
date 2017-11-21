@@ -1,6 +1,8 @@
 package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.widget.TextView;
 
@@ -27,15 +29,18 @@ public class DateSpelCard {
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
     private DateQuestion mVraag;
+    private Typeface mFont;
 
-    public DateSpelCard(Context context, SwipePlaceHolderView swipeView, DateQuestion vraag) {
+    public DateSpelCard(Context context, SwipePlaceHolderView swipeView, DateQuestion vraag, Typeface font) {
         mContext = context;
         mSwipeView = swipeView;
         mVraag = vraag;
+        mFont = font;
     }
 
     @Resolve
     private void onResolved(){
+        upperText.setTypeface(mFont);
         upperText.setText(mVraag.getQuestion());
     }
 

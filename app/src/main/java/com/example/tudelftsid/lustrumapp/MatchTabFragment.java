@@ -1,11 +1,13 @@
 package com.example.tudelftsid.lustrumapp;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
 
@@ -34,7 +36,8 @@ public class MatchTabFragment extends Fragment {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("Matches Retrieved: " + response);
                 List<Profile> profiles = Utils.loadProfiles(response);
-                TinderMatchAdapter adapter = new TinderMatchAdapter(getContext(), profiles);
+                Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
+                TinderMatchAdapter adapter = new TinderMatchAdapter(getContext(), profiles, body_font);
                 ListView itemsListView  = (ListView) rootView.findViewById(R.id.matchListView);
                 itemsListView.setAdapter(adapter);
             }

@@ -1,6 +1,7 @@
 package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,10 +17,12 @@ import java.util.List;
 public class TinderMatchAdapter extends BaseAdapter {
     private Context context; //context
     private List<Profile> items; //data source of the list adapter
+    private Typeface font; //The Font the data should be displayed in
 
-    public TinderMatchAdapter(Context context, List<Profile> items) {
+    public TinderMatchAdapter(Context context, List<Profile> items, Typeface font) {
         this.context = context;
         this.items = items;
+        this.font = font;
     }
 
     @Override
@@ -46,6 +49,10 @@ public class TinderMatchAdapter extends BaseAdapter {
         Profile currentItem = (Profile) getItem(position);
         TextView textViewItemName = (TextView) convertView.findViewById(R.id.matchNameTxt);
         TextView textViewCreatedAt = (TextView) convertView.findViewById(R.id.matchCreatedAtTxt);
+
+        textViewItemName.setTypeface(font);
+        textViewCreatedAt.setTypeface(font);
+
         textViewItemName.setText(currentItem.getName() + " (" + currentItem.getAge() + ")");
         textViewCreatedAt.setText(currentItem.getMatchCreatedAt());
         return convertView;

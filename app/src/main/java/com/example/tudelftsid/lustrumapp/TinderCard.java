@@ -1,6 +1,7 @@
 package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,15 +48,22 @@ public class TinderCard {
     private Profile mProfile;
     private Context mContext;
     private SwipePlaceHolderView mSwipeView;
+    private Typeface mFont;
 
-    public TinderCard(Context context, Profile profile, SwipePlaceHolderView swipeView) {
+    public TinderCard(Context context, Profile profile, SwipePlaceHolderView swipeView, Typeface font) {
         mContext = context;
         mProfile = profile;
         mSwipeView = swipeView;
+        mFont = font;
     }
 
     @Resolve
     private void onResolved(){
+        nameAgeTxt.setTypeface(mFont);
+        clubTxt.setTypeface(mFont);
+        bolletjesTxt.setTypeface(mFont);
+        huisTxt.setTypeface(mFont);
+
         Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
         nameAgeTxt.setText(mProfile.getName().toUpperCase() + ", " + mProfile.getAge());
         clubTxt.setText(mProfile.getClub().toUpperCase());
@@ -96,7 +104,7 @@ public class TinderCard {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("Object " + response);
                 Profile profile = Utils.loadProfile(response);
-                mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView));
+                mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView, mFont));
             }
 
             @Override

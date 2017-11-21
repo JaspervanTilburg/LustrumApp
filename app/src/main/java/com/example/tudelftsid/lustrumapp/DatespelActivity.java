@@ -2,6 +2,7 @@ package com.example.tudelftsid.lustrumapp;
 
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
@@ -61,7 +62,8 @@ public class DatespelActivity extends AppCompatActivity {
         Collections.shuffle(questions);
 
         for(DateQuestion vraag: questions) {
-            mSwipeView.addView(new DateSpelCard(mContext, mSwipeView, vraag));
+            Typeface body_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Bold.ttf");
+            mSwipeView.addView(new DateSpelCard(mContext, mSwipeView, vraag, body_font));
         }
     }
 

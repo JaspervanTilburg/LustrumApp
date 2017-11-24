@@ -52,12 +52,15 @@ public class TinderMatchAdapter extends BaseAdapter {
         Profile currentItem = (Profile) getItem(position);
         TextView textViewItemName = (TextView) convertView.findViewById(R.id.matchNameTxt);
         TextView textViewCreatedAt = (TextView) convertView.findViewById(R.id.matchCreatedAtTxt);
+        TextView textViewNumber = (TextView) convertView.findViewById(R.id.phoneTxt);
 
         textViewItemName.setTypeface(font);
         textViewCreatedAt.setTypeface(font);
+        textViewNumber.setTypeface(font);
 
         textViewItemName.setText(currentItem.getName() + " (" + currentItem.getAge() + ")");
         textViewCreatedAt.setText(currentItem.getMatchCreatedAt());
+        textViewNumber.setText("+" + currentItem.getPhone());
         return convertView;
     }
 }

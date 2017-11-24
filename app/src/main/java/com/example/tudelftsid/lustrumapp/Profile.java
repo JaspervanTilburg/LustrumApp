@@ -22,6 +22,10 @@ public class Profile {
     @Expose
     private String avatar;
 
+    @SerializedName("phone_number")
+    @Expose
+    private String phone;
+
     @SerializedName("gender")
     @Expose
     private String gender;
@@ -55,6 +59,14 @@ public class Profile {
     private String studie;
 
     private String matchCreatedAt;
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
 
     public String getAvatar() {
         return avatar;

@@ -18,8 +18,4 @@ public class TinderMatchActivity extends AppCompatActivity {
         TextView textView = findViewById(R.id.newMatchTxt);
         textView.setText(getIntent().getStringExtra("name"));
     }
-
-    public void onAddContactClick() {
-
-    }
 }

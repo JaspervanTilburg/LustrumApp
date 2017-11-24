@@ -68,7 +68,8 @@
                 android:background="@android:color/transparent"
                 android:text="CONTACT TOEVOEGEN"
                 android:textSize="15dp"
-                android:textColor="#FFFFFF"/>
+                android:textColor="#FFFFFF"
+                android:onClick="onAddContactClick"/>
 
             <Button
                 android:id="@+id/removeButton"

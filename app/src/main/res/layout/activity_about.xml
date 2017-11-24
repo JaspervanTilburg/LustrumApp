@@ -28,6 +28,7 @@
                 android:layout_height="wrap_content"
                 android:text="Bravo voor Jip Rietveld!"
                 android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:layout_marginLeft="10dp"/>
 
         </LinearLayout>
@@ -48,6 +49,7 @@
                 android:layout_height="wrap_content"
                 android:text="Bravo voor Rolf de Vries!"
                 android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:layout_marginLeft="10dp"/>
 
         </LinearLayout>
@@ -68,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:text="Bravo voor Jasper van Tilburg!"
                 android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:layout_marginLeft="10dp"/>
         </LinearLayout>
 
@@ -87,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:text="Bravo voor Dieuwer Hondelink!"
                 android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:layout_marginLeft="10dp"/>
 
         </LinearLayout>
@@ -107,6 +111,7 @@
                 android:layout_height="wrap_content"
                 android:text="Bravo voor Jhorie Slot!"
                 android:textColor="#FFFFFF"
+                android:textStyle="bold"
                 android:layout_marginLeft="10dp"/>
 
         </LinearLayout>

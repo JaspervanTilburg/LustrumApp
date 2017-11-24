@@ -27,16 +27,12 @@ public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTitle("ABOUT");
+        setTitle("ABOUT US");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
-        Typeface head_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Alternate_Bold.ttf");
-        Typeface body_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Bold.ttf");
-
     }
 
     @Override

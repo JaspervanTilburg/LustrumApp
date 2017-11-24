@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Animation;
 
 import android.view.View;
 import android.view.ViewGroup;

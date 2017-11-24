@@ -1,18 +1,15 @@
 package com.example.tudelftsid.lustrumapp;
 
 import android.app.Activity;
-import android.content.Context;
-import android.graphics.Color;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.AppCompatImageButton;
-import android.support.v7.widget.AppCompatImageView;
-import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.AnimationSet;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.example.tudelftsid.lustrumapp.Animation.ResizeAnimation;
+import com.example.tudelftsid.lustrumapp.Animation.TranslateAnimation;
+import com.example.tudelftsid.lustrumapp.Animation.WeightAnimation;
 
 import java.util.ArrayList;
 

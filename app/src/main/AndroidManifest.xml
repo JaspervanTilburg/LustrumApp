@@ -40,6 +40,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".Activities.SoundboardActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.AboutActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

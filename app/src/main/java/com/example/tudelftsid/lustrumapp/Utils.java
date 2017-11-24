@@ -1,9 +1,8 @@
 package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.util.Log;
 
+import com.example.tudelftsid.lustrumapp.DateSpel.DateQuestion;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -11,8 +10,6 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 

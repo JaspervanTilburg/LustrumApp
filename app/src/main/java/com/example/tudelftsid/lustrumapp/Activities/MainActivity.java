@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -18,6 +18,9 @@ import com.example.tudelftsid.lustrumapp.InfoPages.GalaInfoActivity;
 import com.example.tudelftsid.lustrumapp.InfoPages.LustrumWekenInfoActivity;
 import com.example.tudelftsid.lustrumapp.InfoPages.PiekWeekInfoActivity;
 import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
+import com.example.tudelftsid.lustrumapp.LustrumRestClient;
+import com.example.tudelftsid.lustrumapp.PagerAdapter.PagerAdapterMain;
+import com.example.tudelftsid.lustrumapp.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONException;

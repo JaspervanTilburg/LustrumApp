@@ -1,16 +1,20 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Tinder;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Handler;
 import android.graphics.Typeface;
-import android.content.Intent;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.tudelftsid.lustrumapp.Activities.TinderMatchActivity;
+import com.example.tudelftsid.lustrumapp.LustrumRestClient;
+import com.example.tudelftsid.lustrumapp.Preferences;
+import com.example.tudelftsid.lustrumapp.Profile;
+import com.example.tudelftsid.lustrumapp.R;
+import com.example.tudelftsid.lustrumapp.Utils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 import com.mindorks.placeholderview.annotations.Layout;
@@ -27,10 +31,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.io.UnsupportedEncodingException;
 
 import cz.msebera.android.httpclient.Header;
-import cz.msebera.android.httpclient.entity.StringEntity;
 
 /**
  * Created by TUDelft SID on 10-11-2017.

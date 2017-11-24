@@ -1,13 +1,12 @@
-package com.example.tudelftsid.lustrumapp;
-        import android.content.Intent;
+package com.example.tudelftsid.lustrumapp.PagerAdapter;
         import android.support.v4.app.Fragment;
         import android.support.v4.app.FragmentManager;
         import android.support.v4.app.FragmentPagerAdapter;
         import android.support.v4.view.PagerAdapter;
 
-        import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
-
-        import java.io.File;
+        import com.example.tudelftsid.lustrumapp.Fragments.FeaturesTabFragment;
+        import com.example.tudelftsid.lustrumapp.Fragments.ProfielTabFragment;
+        import com.example.tudelftsid.lustrumapp.Fragments.TijdlijnTabFragment;
 
 public class PagerAdapterMain extends FragmentPagerAdapter {
 

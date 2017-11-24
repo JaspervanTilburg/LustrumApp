@@ -1,7 +1,9 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+
+import com.example.tudelftsid.lustrumapp.R;
 
 public class BerichtenActivity extends AppCompatActivity {
 

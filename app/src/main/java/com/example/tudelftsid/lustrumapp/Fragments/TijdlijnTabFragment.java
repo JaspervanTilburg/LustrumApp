@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Fragments;
 
 import android.graphics.Typeface;
 import android.os.Build;
@@ -10,6 +10,10 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.tudelftsid.lustrumapp.LustrumButton;
+import com.example.tudelftsid.lustrumapp.OnSwipeTouchListener;
+import com.example.tudelftsid.lustrumapp.R;
 
 import java.util.ArrayList;
 

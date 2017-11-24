@@ -12,7 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activities.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar"
             android:screenOrientation="portrait">
@@ -22,13 +22,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TinderActivity"
+        <activity android:name=".Activities.TinderActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".TinderMatchActivity"
+        <activity android:name=".Activities.TinderMatchActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".DatespelActivity"
+        <activity android:name=".Activities.DatespelActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".BerichtenActivity"
+        <activity android:name=".Activities.BerichtenActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".InfoPages.GalaInfoActivity"
             android:screenOrientation="portrait"/>

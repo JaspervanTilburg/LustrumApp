@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Tinder;
 
 import android.graphics.Paint;
 import android.graphics.Typeface;
@@ -13,6 +13,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appyvet.materialrangebar.RangeBar;
+import com.example.tudelftsid.lustrumapp.LustrumRestClient;
+import com.example.tudelftsid.lustrumapp.Preferences;
+import com.example.tudelftsid.lustrumapp.Profile;
+import com.example.tudelftsid.lustrumapp.R;
+import com.example.tudelftsid.lustrumapp.Utils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONObject;

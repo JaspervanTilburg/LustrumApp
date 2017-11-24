@@ -1,11 +1,13 @@
 package com.example.tudelftsid.lustrumapp.Activities;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.example.tudelftsid.lustrumapp.R;
 import com.example.tudelftsid.lustrumapp.Soundboard.Sound;
@@ -28,10 +30,10 @@ public class SoundboardActivity extends AppCompatActivity {
         mSoundPlayer = new SoundPlayer(this);
         Sound[] soundArray = SoundStore.getSounds(this);
 
-        GridView gridView = (GridView) findViewById(R.id.gridView);
+        GridView gridView = (GridView) findViewById(R.id.deSoundboard);
 
         final ArrayAdapter<Sound> adapter =
-                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, soundArray);
+                new ArrayAdapter<>(this, R.layout.soundboard_button, soundArray);
 
         gridView.setAdapter(adapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

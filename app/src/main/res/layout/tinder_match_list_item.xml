@@ -25,9 +25,11 @@
                 android:id="@+id/matchNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:text="TextView"
                 android:textColor="#FFFFFF"
-                android:textSize="20dp"
-                android:text="TextView" />
+                android:textSize="20dp" />
 
             <TextView
                 android:id="@+id/matchCreatedAtTxt"
@@ -57,6 +59,8 @@
                 android:id="@+id/matchImageView"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 card_view:srcCompat="@android:drawable/sym_def_app_icon" />
 
@@ -70,17 +74,6 @@
                 android:textSize="15dp"
                 android:textColor="#FFFFFF"
                 android:onClick="onAddContactClick"/>
-
-            <Button
-                android:id="@+id/removeButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@+id/matchImageView"
-                android:layout_alignParentBottom="true"
-                android:background="@android:color/transparent"
-                android:text="VERWIJDER"
-                android:textColor="#FFFFFF"
-                android:textSize="15dp" />
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

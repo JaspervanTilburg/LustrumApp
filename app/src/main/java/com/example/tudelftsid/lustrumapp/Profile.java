@@ -18,6 +18,10 @@ public class Profile {
     @Expose
     private String name;
 
+    @SerializedName("avatar")
+    @Expose
+    private String avatar;
+
     @SerializedName("gender")
     @Expose
     private String gender;

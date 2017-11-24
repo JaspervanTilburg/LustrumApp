@@ -77,9 +77,6 @@ public class DatespelActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
                 System.out.println("Something went wrong " + msg);
-                if (statusCode >= 400 || statusCode <500) {
-                    logout();
-                }
             }
         });
     }
@@ -97,14 +94,6 @@ public class DatespelActivity extends AppCompatActivity {
             Typeface body_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Bold.ttf");
             mSwipeView.addView(new DateSpelCard(mContext, mSwipeView, vraag, body_font));
         }
-    }
-
-    public void logout() {
-        new File(mContext.getFilesDir(), LustrumRestClient.FILE_NAME).delete();
-        LustrumRestClient.setToken(null);
-        System.out.println("Logged out");
-        Toast toast = Toast.makeText(mContext.getApplicationContext(), "LOGGED OUT",Toast.LENGTH_SHORT);
-        toast.show();
     }
 
     @Override

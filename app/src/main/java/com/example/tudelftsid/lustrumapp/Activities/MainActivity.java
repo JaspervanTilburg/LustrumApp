@@ -185,4 +185,13 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onAboutClick(View view) {
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
+
+    public void onSoundboardClick(View view) {
+        Intent intent = new Intent(this, SoundboardActivity.class);
+        startActivity(intent);
+    }
 }

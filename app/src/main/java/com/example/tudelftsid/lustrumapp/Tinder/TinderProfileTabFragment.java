@@ -47,6 +47,7 @@ public class TinderProfileTabFragment extends Fragment {
                                               int rightPinIndex, String leftPinValue, String rightPinValue) {
                 Preferences.setStartYear(Integer.parseInt(leftPinValue));
                 Preferences.setEndYear(Integer.parseInt(rightPinValue));
+                Preferences.postPreferences();
             }
 
         });

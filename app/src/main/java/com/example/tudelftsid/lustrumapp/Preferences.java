@@ -1,7 +1,11 @@
 package com.example.tudelftsid.lustrumapp;
 
+import android.content.Intent;
+
+import com.example.tudelftsid.lustrumapp.Activities.TinderMatchActivity;
 import com.loopj.android.http.JsonHttpResponseHandler;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import cz.msebera.android.httpclient.Header;
@@ -66,5 +70,36 @@ public class Preferences {
         });
         setStartYear(2010);
         setEndYear(2017);
+        postPreferences();
+    }
+
+    public static void postPreferences() {
+        LustrumRestClient.postPreferences(getInterestString(), startYear, endYear, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                System.out.println("Preferences posted: " + response);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
+                System.out.println("Something went wrong " + throwable);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject msg) {
+                System.out.println("Something went wrong with preferences " + msg);
+            }
+        });
+    }
+
+    private static String getInterestString() {
+        if (preferWomen && preferMen) {
+            return "B";
+        } else if (preferWomen) {
+            return "V";
+        } else if (preferMen) {
+            return "M";
+        }
+        return "B";
     }
 }

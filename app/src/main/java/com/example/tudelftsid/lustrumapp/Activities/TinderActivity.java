@@ -52,6 +52,7 @@ public class TinderActivity extends AppCompatActivity {
         } else {
             Preferences.setPreferMen(false);
         }
+        Preferences.postPreferences();
     }
 
     public void onVrouwenCheckBoxClick(View view) {
@@ -61,6 +62,7 @@ public class TinderActivity extends AppCompatActivity {
         } else {
             Preferences.setPreferWomen(false);
         }
+        Preferences.postPreferences();
     }
 
     @Override

@@ -57,7 +57,7 @@ public class TijdlijnTabFragment extends Fragment {
         LustrumButton galaButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaButton), R.color.lustrumPink, "GALA");
         LustrumButton wispoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.wispoButton), R.color.lustrumLightBlue, "WISPO");
         LustrumButton lustrumWeekButton = new LustrumButton((ImageView) rootView.findViewById(R.id.lustrumWeekButton), R.color.lustrumBlue, "LUSTRUMWEEK");
-        LustrumButton piekWekenButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenButton), R.color.lustrumGreen, "PIEKWEKEN");
+        LustrumButton piekWekenButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenButton), R.color.lustrumGreen, "PIEKWEEK");
 
         galaButton.getImage().setOnClickListener(new View.OnClickListener() {
             @Override

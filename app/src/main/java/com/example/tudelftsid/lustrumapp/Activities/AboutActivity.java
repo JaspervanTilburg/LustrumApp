@@ -27,7 +27,7 @@ public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setTitle("ABOUT US");
+        setTitle("'Vo voor ons");
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);

@@ -38,6 +38,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".InfoPages.PiekWeekInfoActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.SoundboardActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

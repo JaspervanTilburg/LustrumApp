@@ -1,13 +1,15 @@
 package com.example.tudelftsid.lustrumapp.Activities;
 
-import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.GridView;
-import android.widget.TextView;
 
 import com.example.tudelftsid.lustrumapp.R;
 import com.example.tudelftsid.lustrumapp.Soundboard.Sound;
@@ -26,6 +28,15 @@ public class SoundboardActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_soundboard);
+
+        setTitle("SOUNDBOARD");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            Window soundboardWindow = this.getWindow();
+            soundboardWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumPink_Dark));
+        }
+
+        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumPink)));
 
         mSoundPlayer = new SoundPlayer(this);
         Sound[] soundArray = SoundStore.getSounds(this);
@@ -49,5 +60,11 @@ public class SoundboardActivity extends AppCompatActivity {
     public void onPause() {
         super.onPause();
         mSoundPlayer.release();
+    }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
     }
 }

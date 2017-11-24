@@ -141,10 +141,6 @@ public class TijdlijnTabFragment extends Fragment {
             }
         };
         rootView.findViewById(R.id.activiteitenBackground).setOnTouchListener(listener);
-        for (LustrumButton button : lustrumButtons) {
-            button.getImage().setOnTouchListener(listener);
-        }
-
     }
 
     public void selectButton(LustrumButton button) {

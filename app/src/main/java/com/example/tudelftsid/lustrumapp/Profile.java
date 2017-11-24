@@ -26,10 +26,6 @@ public class Profile {
     @Expose
     private String gender;
 
-    @SerializedName("url")
-    @Expose
-    private String imageUrl;
-
     @SerializedName("age")
     @Expose
     private Integer age;
@@ -60,20 +56,20 @@ public class Profile {
 
     private String matchCreatedAt;
 
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getImageUrl() {
-        return imageUrl;
-    }
-
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
     }
 
     public Integer getAge() {

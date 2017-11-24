@@ -3,6 +3,7 @@ package com.example.tudelftsid.lustrumapp.Tinder;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -31,6 +32,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -76,51 +80,49 @@ public class TinderCard {
         bolletjesTxt.setTypeface(mFont);
         huisTxt.setTypeface(mFont);
 
-        Glide.with(mContext).load(mProfile.getImageUrl()).into(profileImageView);
+        Glide.with(mContext).load(LustrumRestClient.BASE_URL + mProfile.getAvatar()).into(profileImageView);
         nameAgeTxt.setText(mProfile.getName().toUpperCase() + ", " + mProfile.getAge());
         clubTxt.setText(mProfile.getClub().toUpperCase());
         bolletjesTxt.setText(mProfile.getBolletjes() + " BOLLETJES");
-        huisTxt.setText(mProfile.getHuis().toUpperCase());
+        if (mProfile.getHuis().toUpperCase().contains("BOT") || mProfile.getHuis().toUpperCase().contains("BIJL")) {
+            huisTxt.setText(mProfile.getHuis().toUpperCase() + " BRAVO!!");
+        } else {
+            huisTxt.setText(mProfile.getHuis().toUpperCase());
+        }
     }
 
     @SwipeOut
     private void onSwipedOut(){
-        Log.d("EVENT", "onSwipedOut");
         addTinderCard();
     }
 
     @SwipeCancelState
     private void onSwipeCancelState(){
-        Log.d("EVENT", "onSwipeCancelState");
     }
 
     @SwipeIn
     private void onSwipeIn(){
-        Log.d("EVENT", "onSwipedIn");
         postLike();
     }
 
     @SwipeInState
     private void onSwipeInState(){
-        Log.d("EVENT", "onSwipeInState");
     }
 
     @SwipeOutState
     private void onSwipeOutState(){
-        Log.d("EVENT", "onSwipeOutState");
     }
 
     public void addTinderCard() {
+        final SwipePlaceHolderView newSwipeView = mSwipeView;
+        final Context newContext = mContext;
+        final Typeface newFont = mFont;
         LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile profile = Utils.loadProfile(response);
                 System.out.println("Profile " + profile.getId() + " queued: " + response);
-                if (Preferences.match(profile.getGender(), profile.getClubjaar())) {
-                    mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView, mFont));
-                } else {
-                    addTinderCard();
-                }
+                newSwipeView.addView(new TinderCard(newContext, profile, newSwipeView, newFont));
             }
 
             @Override

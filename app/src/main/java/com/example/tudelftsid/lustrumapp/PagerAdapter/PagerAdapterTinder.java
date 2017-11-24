@@ -1,8 +1,12 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.PagerAdapter;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
+import com.example.tudelftsid.lustrumapp.Fragments.MatchTabFragment;
+import com.example.tudelftsid.lustrumapp.Fragments.SwipeTabFragment;
+import com.example.tudelftsid.lustrumapp.Tinder.TinderProfileTabFragment;
 
 public class PagerAdapterTinder extends FragmentPagerAdapter {
 

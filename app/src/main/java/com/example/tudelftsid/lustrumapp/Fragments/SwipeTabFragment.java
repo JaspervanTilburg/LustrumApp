@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Fragments;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -7,22 +7,21 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.tudelftsid.lustrumapp.LustrumRestClient;
+import com.example.tudelftsid.lustrumapp.Preferences;
+import com.example.tudelftsid.lustrumapp.Profile;
+import com.example.tudelftsid.lustrumapp.R;
+import com.example.tudelftsid.lustrumapp.Tinder.TinderCard;
+import com.example.tudelftsid.lustrumapp.Utils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
 

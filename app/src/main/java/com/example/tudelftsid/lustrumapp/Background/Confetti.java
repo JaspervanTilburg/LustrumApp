@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Background;
 
 import android.graphics.Canvas;
 import android.graphics.drawable.Drawable;

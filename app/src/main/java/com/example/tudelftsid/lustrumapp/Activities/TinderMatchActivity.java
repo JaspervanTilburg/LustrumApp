@@ -1,8 +1,10 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Activities;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
+
+import com.example.tudelftsid.lustrumapp.R;
 
 import org.w3c.dom.Text;
 

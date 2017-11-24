@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Activities;
 
 
 import android.content.Context;
@@ -10,13 +10,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.widget.Toast;
 
+import com.example.tudelftsid.lustrumapp.DateSpel.DateQuestion;
+import com.example.tudelftsid.lustrumapp.DateSpel.DateSpelCard;
+import com.example.tudelftsid.lustrumapp.LustrumRestClient;
+import com.example.tudelftsid.lustrumapp.R;
+import com.example.tudelftsid.lustrumapp.Utils;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.mindorks.placeholderview.SwipeDecor;
 import com.mindorks.placeholderview.SwipePlaceHolderView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.io.File;
 import java.util.Collections;

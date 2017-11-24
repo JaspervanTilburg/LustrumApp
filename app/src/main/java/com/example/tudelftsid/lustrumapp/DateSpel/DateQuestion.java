@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.DateSpel;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

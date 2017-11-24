@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Activities;
 
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -8,6 +8,10 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.widget.CheckBox;
+
+import com.example.tudelftsid.lustrumapp.PagerAdapter.PagerAdapterTinder;
+import com.example.tudelftsid.lustrumapp.Preferences;
+import com.example.tudelftsid.lustrumapp.R;
 
 
 public class TinderActivity extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Fragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -7,6 +7,8 @@ import android.os.Bundle;
         import android.view.View;
         import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.tudelftsid.lustrumapp.R;
 
 public class InfoTabFragment extends Fragment {
 

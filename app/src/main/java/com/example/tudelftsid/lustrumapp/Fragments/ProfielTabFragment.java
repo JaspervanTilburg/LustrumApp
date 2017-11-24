@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp;
+package com.example.tudelftsid.lustrumapp.Fragments;
 
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -14,6 +14,8 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
+import com.example.tudelftsid.lustrumapp.LustrumRestClient;
+import com.example.tudelftsid.lustrumapp.R;
 
 import org.w3c.dom.Text;
 

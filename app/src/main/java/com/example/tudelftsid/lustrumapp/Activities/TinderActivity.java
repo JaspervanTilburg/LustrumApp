@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.view.Window;
 import android.widget.CheckBox;
 
@@ -44,21 +45,21 @@ public class TinderActivity extends AppCompatActivity {
         Preferences.initPreferences();
     }
 
-    public void onMannenCheckBoxClick() {
+    public void onMannenCheckBoxClick(View view) {
         CheckBox checkBox = findViewById(R.id.mannenCheckBox);
         if (checkBox.isChecked()) {
-            Preferences.setPreferMen(false);
-        } else {
             Preferences.setPreferMen(true);
+        } else {
+            Preferences.setPreferMen(false);
         }
     }
 
-    public void onVrouwenCheckBoxClick() {
+    public void onVrouwenCheckBoxClick(View view) {
         CheckBox checkBox = findViewById(R.id.vrouwenCheckBox);
         if (checkBox.isChecked()) {
-            Preferences.setPreferWomen(false);
-        } else {
             Preferences.setPreferWomen(true);
+        } else {
+            Preferences.setPreferWomen(false);
         }
     }
 

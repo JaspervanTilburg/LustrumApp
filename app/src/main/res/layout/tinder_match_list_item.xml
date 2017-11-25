@@ -62,7 +62,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
-                card_view:srcCompat="@android:drawable/sym_def_app_icon" />
+                android:src="@drawable/baby_face" />
 
             <Button
                 android:id="@+id/addToContactsButton"

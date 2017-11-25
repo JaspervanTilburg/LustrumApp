@@ -80,7 +80,9 @@ public class TinderCard {
         bolletjesTxt.setTypeface(mFont);
         huisTxt.setTypeface(mFont);
 
-        Glide.with(mContext).load(LustrumRestClient.BASE_URL + mProfile.getAvatar()).into(profileImageView);
+        if (!mProfile.getAvatar().contains("missing")) {
+            Glide.with(mContext).load(LustrumRestClient.BASE_URL + mProfile.getAvatar()).into(profileImageView);
+        }
         nameAgeTxt.setText(mProfile.getName().toUpperCase() + ", " + mProfile.getAge());
         clubTxt.setText(mProfile.getClub().toUpperCase());
         bolletjesTxt.setText(mProfile.getBolletjes() + " BOLLETJES");
@@ -133,15 +135,18 @@ public class TinderCard {
     }
 
     public void postLike() {
+        final Context newContext = mContext;
         LustrumRestClient.postLike(mProfile.getId(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("Like posted: " + response);
                 try {
                     if ((boolean) response.get("is_match")) {
-                        Intent intent = new Intent(mContext, TinderMatchActivity.class);
+                        Intent intent = new Intent(newContext, TinderMatchActivity.class);
                         intent.putExtra("name", mProfile.getName());
-                        mContext.startActivity(intent);
+                        intent.putExtra("image", mProfile.getAvatar());
+                        intent.putExtra("phone", mProfile.getPhone());
+                        newContext.startActivity(intent);
                     }
                     addTinderCard();
                 } catch (JSONException e) {

@@ -52,9 +52,9 @@ public class SwipeTabFragment extends Fragment {
                         .setSwipeInMsgLayoutId(R.layout.tinder_swipe_accept_view)
                         .setSwipeOutMsgLayoutId(R.layout.tinder_swipe_reject_view));
 
-//        for (int i = 0; i < INITIAL_TINDER_CARDS; i++) {
-//            getRandomUser();
-//        }
+        for (int i = 0; i < INITIAL_TINDER_CARDS; i++) {
+            getRandomUser();
+        }
 
         rootView.findViewById(R.id.dislikeButton).setOnClickListener(new View.OnClickListener() {
             @Override

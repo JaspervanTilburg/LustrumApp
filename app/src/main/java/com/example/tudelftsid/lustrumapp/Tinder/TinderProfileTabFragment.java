@@ -2,17 +2,20 @@ package com.example.tudelftsid.lustrumapp.Tinder;
 
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appyvet.materialrangebar.RangeBar;
+import com.bumptech.glide.Glide;
 import com.example.tudelftsid.lustrumapp.LustrumRestClient;
 import com.example.tudelftsid.lustrumapp.Preferences;
 import com.example.tudelftsid.lustrumapp.Profile;
@@ -85,6 +88,11 @@ public class TinderProfileTabFragment extends Fragment {
     private void setTextViews(Profile profile) {
         Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
         Typeface head_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Alternate_Bold.ttf");
+
+        ImageView imageView = rootView.findViewById(R.id.myProfileImageView);
+        if (!profile.getAvatar().contains("missing")) {
+            Glide.with(getContext()).load(LustrumRestClient.BASE_URL + profile.getAvatar()).into(imageView);
+        }
 
         TextView nameTxt = rootView.findViewById(R.id.myNameTxt);
         nameTxt.setText(profile.getName().toUpperCase() + " (" + profile.getAge() + ")");

@@ -89,21 +89,17 @@ public class TinderActivity extends AppCompatActivity {
     }
 
     public void onAddContactClick(View view) {
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.WRITE_CONTACTS)
-                != PackageManager.PERMISSION_GRANTED) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                    Manifest.permission.WRITE_CONTACTS)) {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.WRITE_CONTACTS},
-                        MY_PERMISSIONS_REQUEST_READ_CONTACTS);
-            } else {
-                ActivityCompat.requestPermissions(this,
-                        new String[]{Manifest.permission.WRITE_CONTACTS},
-                        MY_PERMISSIONS_REQUEST_READ_CONTACTS);
-            }
+        if (hasPermission()) {
+            ViewGroup parent = (ViewGroup) view.getParent();
+            TextView nameTxt = (TextView) parent.getChildAt(0);
+            TextView numberTxt = (TextView) parent.getChildAt(2);
+            String words = nameTxt.getText().toString();
+            String name = words.substring(0, words.length() - 5);
+            openContacts(name, numberTxt.getText().toString());
         } else {
-            addContact(view);
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.WRITE_CONTACTS},
+                    MY_PERMISSIONS_REQUEST_READ_CONTACTS);
         }
     }
 
@@ -123,15 +119,24 @@ public class TinderActivity extends AppCompatActivity {
         }
     }
 
-    private void addContact(View view) {
-        ViewGroup parent = (ViewGroup) view.getParent();
-        TextView nameTxt = (TextView) parent.getChildAt(0);
-        TextView numberTxt = (TextView) parent.getChildAt(2);
-        String words = nameTxt.getText().toString();
-        String name = words.substring(0, words.length() - 5);
+    private boolean hasPermission() {
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.WRITE_CONTACTS)
+                != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.WRITE_CONTACTS)) {
+                return false;
+            } else {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private void openContacts(String name, String phone) {
         Intent intent = new Intent(
                 ContactsContract.Intents.SHOW_OR_CREATE_CONTACT,
-                Uri.parse("tel:" + numberTxt.getText()));
+                Uri.parse("tel:" + phone));
         intent.putExtra(ContactsContract.Intents.Insert.NAME, name);
         intent.putExtra(ContactsContract.Intents.EXTRA_FORCE_CREATE, true);
         startActivity(intent);

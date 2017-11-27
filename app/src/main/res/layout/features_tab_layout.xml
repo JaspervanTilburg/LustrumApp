@@ -23,9 +23,9 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:onClick="onBerichtenClick"
-                android:src="@mipmap/berichten"
-                android:background="@drawable/lustrum_rectangle_1"/>
+                android:background="@drawable/lustrum_rectangle_1"
+                android:onClick="onAboutClick"
+                android:src="@mipmap/about"/>
 
             <ImageButton
                 android:layout_width="0dp"
@@ -64,19 +64,20 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle_1"
-                android:onClick="onAboutClick"
-                android:src="@mipmap/about"/>
+                android:background="@drawable/lustrum_rectangle"
+                android:onClick="onSoundboardClick"
+                android:src="@mipmap/soundboard"
+                android:visibility="invisible"/>
 
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle"
-                android:onClick="onSoundboardClick"
-                android:src="@mipmap/soundboard"
+                android:onClick="onBerichtenClick"
+                android:src="@mipmap/berichten"
+                android:background="@drawable/lustrum_rectangle_1"
                 android:visibility="invisible"/>
 
             <ImageButton

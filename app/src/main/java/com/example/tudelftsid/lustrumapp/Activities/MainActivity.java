@@ -23,6 +23,7 @@ import com.example.tudelftsid.lustrumapp.InfoPages.PiekWeekInfoActivity;
 import com.example.tudelftsid.lustrumapp.InfoPages.WispoInfoActivity;
 import com.example.tudelftsid.lustrumapp.LustrumRestClient;
 import com.example.tudelftsid.lustrumapp.PagerAdapter.PagerAdapterMain;
+import com.example.tudelftsid.lustrumapp.PushnotificationSettings;
 import com.example.tudelftsid.lustrumapp.R;
 import com.loopj.android.http.JsonHttpResponseHandler;
 

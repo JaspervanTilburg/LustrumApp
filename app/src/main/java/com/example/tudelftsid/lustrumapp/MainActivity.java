@@ -2,15 +2,18 @@ package com.example.tudelftsid.lustrumapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SwitchCompat;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -30,6 +33,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Calendar;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -37,11 +41,15 @@ public class MainActivity extends AppCompatActivity {
 
     private PagerAdapterMain pagerAdapterMain;
     private ViewPager mViewPager;
+    private String SharedPreferencesFileName = "MyPref";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        hoefCheck();
+        PushnotificationSettings.initNotificationSettings(getSharedPreferences(SharedPreferencesFileName, 0));
 
         Window mainWindow = this.getWindow();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -64,6 +72,15 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(2).setIcon(R.drawable.features_icon);
 
         retrieveToken();
+    }
+
+    private void hoefCheck() {
+        Calendar cal = Calendar.getInstance();
+        int minute = cal.get(Calendar.MINUTE);
+        int hour = cal.get(Calendar.HOUR_OF_DAY);
+        if(minute == 20 && hour == 20) {
+            Toast.makeText(this, "Bravo voor de tijd\nBravo voor de Hoef", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void onTinderClick(View view) {
@@ -181,5 +198,7 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PiekWeekInfoActivity.class);
         startActivity(intent);
     }
+
+
 
 }

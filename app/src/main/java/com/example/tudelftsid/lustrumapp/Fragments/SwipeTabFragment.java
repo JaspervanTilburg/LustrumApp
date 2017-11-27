@@ -36,6 +36,7 @@ public class SwipeTabFragment extends Fragment {
     private View rootView;
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
+    private Typeface body_font;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class SwipeTabFragment extends Fragment {
 
         mSwipeView = rootView.findViewById(R.id.swipeView);
         mContext = getActivity().getApplicationContext();
+        body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
 
         mSwipeView.getBuilder()
                 .setDisplayViewCount(3)
@@ -88,7 +90,6 @@ public class SwipeTabFragment extends Fragment {
                 Profile profile = Utils.loadProfile(response);
                 if (Preferences.match(profile.getGender(), profile.getClubjaar())) {
                     System.out.println("Profile " + profile.getId() + " queued: " + response);
-                    Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
                     mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView, body_font));
                 } else {
                     getRandomUser();

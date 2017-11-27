@@ -1,54 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/galaxy_background">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <ImageButton
-            android:layout_width="0dp"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:onClick="onBerichtenClick"
-            android:src="@mipmap/berichten"
-            android:background="@drawable/lustrum_rectangle_1"/>
+            android:orientation="horizontal"
+            android:id="@+id/firstRow"
+            android:layout_weight="1">
 
-        <ImageButton
-            android:layout_width="0dp"
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:onClick="onBerichtenClick"
+                android:src="@mipmap/berichten"
+                android:background="@drawable/lustrum_rectangle_1"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_weight="1"
+                android:onClick="onTinderClick"
+                android:src="@mipmap/tinder"
+                android:background="@drawable/lustrum_rectangle"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:onClick="onDatespelClick"
+                android:src="@mipmap/datespel"
+                android:background="@drawable/lustrum_rectangle"/>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_weight="1"
-            android:onClick="onTinderClick"
-            android:src="@mipmap/tinder"
-            android:background="@drawable/lustrum_rectangle"/>
+            android:orientation="horizontal"
+            android:id="@+id/secondRow"
+            android:layout_below="@id/firstRow">
 
-        <ImageButton
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_weight="1"
-            android:onClick="onDatespelClick"
-            android:src="@mipmap/datespel"
-            android:background="@drawable/lustrum_rectangle"/>
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lustrum_rectangle_1"
+                android:onClick="onAboutClick"
+                android:src="@mipmap/about"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lustrum_rectangle"
+                android:onClick="onSoundboardClick"
+                android:src="@mipmap/soundboard"
+                android:visibility="invisible"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
+                android:layout_weight="1"
+                android:visibility="invisible"/>
+        </LinearLayout>
 
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-
-    </LinearLayout>
+    </RelativeLayout>
 
 </RelativeLayout>

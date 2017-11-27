@@ -65,8 +65,6 @@ public class WispoInfoActivity extends AppCompatActivity {
         ImageView backgroundImage = (ImageView) findViewById(R.id.wispoBackground);
         backgroundImage.setImageResource(R.drawable.wispo_info);
 
-
-
         final Button infoButton = (Button) findViewById(R.id.wispo_website_button);
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override

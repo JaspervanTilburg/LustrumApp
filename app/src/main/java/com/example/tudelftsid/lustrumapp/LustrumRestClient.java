@@ -24,9 +24,8 @@ import cz.msebera.android.httpclient.entity.StringEntity;
 public class LustrumRestClient {
 
     public static final String FILE_NAME = "lustrum_virgiel_token.txt";
-    private static final String BASE_URL = "http://api.lustrumvirgiel.nl/";
+    public static final String BASE_URL = "https://api.lustrumvirgiel.nl/";
     private static AsyncHttpClient client = new AsyncHttpClient();
-    private static String tokentest = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MTA5MzkyMjIsInN1YiI6MX0.3Z-phBTmJm_B-hQDZuJFWNidD7rUXhAnHLv4xra8WiM";
     private static String token;
 
     public static String getToken() {
@@ -85,6 +84,22 @@ public class LustrumRestClient {
             e.printStackTrace();
         }
         client.post(null, getAbsoluteUrl("swipe"), entity, "application/json", responseHandler);
+    }
+
+    public static void postPreferences(String interest, int yearBegin, int yearEnd, ResponseHandlerInterface responseHandler) {
+        JSONObject auth = new JSONObject();
+        StringEntity entity = null;
+        try {
+            auth.put("interested_in", interest);
+            auth.put("interested_year_begin", yearBegin);
+            auth.put("interested_year_end", yearEnd);
+            entity = new StringEntity(auth.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        client.post(null, getAbsoluteUrl("preferences"), entity, "application/json", responseHandler);
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {

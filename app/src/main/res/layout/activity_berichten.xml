@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/lustrumPink">
+    android:background="@color/lustrumPink"
+    android:orientation="vertical"
+    android:padding="20dp">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/nogGeenBerichten"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NOG GEEN BERICHTEN"
+        android:layout_gravity="center"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"/>
+
+</LinearLayout>

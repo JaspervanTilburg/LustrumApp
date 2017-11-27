@@ -221,7 +221,7 @@
             <com.appyvet.materialrangebar.RangeBar
                 xmlns:app="http://schemas.android.com/apk/res-auto"
                 android:layout_width="match_parent"
-                android:layout_height="75dp"
+                android:layout_height="85dp"
                 android:id="@+id/rangeBar"
                 app:mrb_pinMaxFont="10sp"
                 app:mrb_selectorBoundaryColor="@color/lustrumPink"
@@ -231,7 +231,8 @@
                 app:mrb_selectorColor="@color/lustrumPink"
                 app:mrb_tickColor="@android:color/white"
                 app:mrb_selectorBoundarySize="2dp"
-                app:mrb_pinTextColor="#ACD123"
+                app:mrb_pinTextColor="@android:color/white"
+                app:mrb_pinRadius="20dp"
                 app:mrb_selectorSize="10dp"
                 app:mrb_tickEnd="2017"
                 app:mrb_tickInterval="1"

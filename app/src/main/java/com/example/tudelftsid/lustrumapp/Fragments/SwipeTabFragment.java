@@ -88,12 +88,8 @@ public class SwipeTabFragment extends Fragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile profile = Utils.loadProfile(response);
-                if (Preferences.match(profile.getGender(), profile.getClubjaar())) {
-                    System.out.println("Profile " + profile.getId() + " queued: " + response);
-                    mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView, body_font));
-                } else {
-                    getRandomUser();
-                }
+                System.out.println("Profile " + profile.getId() + " queued: " + response);
+                mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView, body_font));
             }
 
             @Override

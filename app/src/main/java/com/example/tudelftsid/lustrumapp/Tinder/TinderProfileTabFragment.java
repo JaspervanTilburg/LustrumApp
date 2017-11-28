@@ -114,11 +114,24 @@ public class TinderProfileTabFragment extends Fragment {
         CheckBox vrouwenCheckBox = rootView.findViewById(R.id.vrouwenCheckBox);
         RadioButton manButton = rootView.findViewById(R.id.manButton);
         RadioButton womanButton = rootView.findViewById(R.id.womanButton);
+
+        String interested = profile.getInterestedIn();
+        switch (interested) {
+            case "M" :
+                mannenCheckBox.setChecked(true);
+                break;
+            case "V" :
+                vrouwenCheckBox.setChecked(true);
+                break;
+            case "B" :
+                mannenCheckBox.setChecked(true);
+                vrouwenCheckBox.setChecked(true);
+                break;
+        }
+
         if (profile.getGender().equals("M")) {
-            vrouwenCheckBox.setChecked(true);
             manButton.setChecked(true);
         } else {
-            mannenCheckBox.setChecked(true);
             womanButton.setChecked(true);
         }
 

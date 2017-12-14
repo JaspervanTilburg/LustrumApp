@@ -124,7 +124,7 @@ public class Profile {
         this.club = location;
     }
 
-    public int getBolletjes() {
+    public Integer getBolletjes() {
         return bolletjes;
     }
 

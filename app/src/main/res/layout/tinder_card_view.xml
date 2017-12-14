@@ -48,15 +48,6 @@
                 android:drawableLeft="@mipmap/club"
                 android:drawablePadding="10dp"/>
             <TextView
-                android:id="@+id/bolletjesTxt"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/lustrumPink"
-                android:textSize="14dp"
-                android:textStyle="normal"
-                android:drawableLeft="@mipmap/bolletjes"
-                android:drawablePadding="10dp"/>
-            <TextView
                 android:id="@+id/huisTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -64,6 +55,15 @@
                 android:textSize="14dp"
                 android:textStyle="normal"
                 android:drawableLeft="@mipmap/huis"
+                android:drawablePadding="10dp"/>
+            <TextView
+                android:id="@+id/bolletjesTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/lustrumPink"
+                android:textSize="14dp"
+                android:textStyle="normal"
+                android:drawableLeft="@mipmap/bolletjes"
                 android:drawablePadding="10dp"/>
 
         </LinearLayout>

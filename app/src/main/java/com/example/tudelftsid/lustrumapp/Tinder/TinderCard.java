@@ -84,12 +84,26 @@ public class TinderCard {
             Glide.with(mContext).load(LustrumRestClient.BASE_URL + mProfile.getAvatar()).into(profileImageView);
         }
         nameAgeTxt.setText(mProfile.getName().toUpperCase() + ", " + mProfile.getAge());
-        clubTxt.setText(mProfile.getClub().toUpperCase());
-        bolletjesTxt.setText(mProfile.getBolletjes() + " BOLLETJES");
-        if (mProfile.getHuis().toUpperCase().contains("BOT") || mProfile.getHuis().toUpperCase().contains("BIJL")) {
-            huisTxt.setText(mProfile.getHuis().toUpperCase() + " BRAVO!!");
+        clubTxt.setText(mProfile.getClub().toUpperCase() + " (" + mProfile.getClubjaar());
+        if (mProfile.getVerticale() != null) {
+            clubTxt.append(", " + mProfile.getVerticale().toUpperCase());
+        }
+        if (mProfile.getClub().equals("ATHOS")) {
+            clubTxt.append(" BRAVO!");
+        }
+        clubTxt.append(")");
+        if (mProfile.getBolletjes() != null) {
+            bolletjesTxt.setText(mProfile.getBolletjes() + " BOLLETJES");
         } else {
+            bolletjesTxt.setVisibility(TextView.INVISIBLE);
+        }
+        if (!mProfile.getHuis().equals("") && mProfile.getHuis() != null) {
             huisTxt.setText(mProfile.getHuis().toUpperCase());
+            if (mProfile.getHuis().toUpperCase().equals("JACOBA VAN BEIERENLAAN 49")) {
+                huisTxt.append(" BRAVO!");
+            }
+        } else {
+            huisTxt.setVisibility(TextView.INVISIBLE);
         }
     }
 

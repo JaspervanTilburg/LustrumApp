@@ -36,6 +36,7 @@ import cz.msebera.android.httpclient.Header;
 public class TinderProfileTabFragment extends Fragment {
 
     private View rootView;
+    private RangeBar rangeBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class TinderProfileTabFragment extends Fragment {
 
         requestUserData();
 
-        RangeBar rangeBar = rootView.findViewById(R.id.rangeBar);
+        rangeBar = rootView.findViewById(R.id.rangeBar);
         rangeBar.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
             @Override
             public void onRangeChangeListener(RangeBar rangeBar, int leftPinIndex,
@@ -134,6 +135,9 @@ public class TinderProfileTabFragment extends Fragment {
         } else {
             womanButton.setChecked(true);
         }
+
+        rangeBar.setTickStart(profile.getInterstedYearBegin());
+        rangeBar.setTickEnd(profile.getInterestedYearEnd());
 
         TextView instellingenTxt = rootView.findViewById(R.id.instellingenTitel);
         TextView ikBenTxt = rootView.findViewById(R.id.ikBenTxt);

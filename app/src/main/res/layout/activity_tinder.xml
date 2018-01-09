@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context="com.example.tudelftsid.lustrumapp.Activities.TinderActivity">
+    tools:context="com.virgiel.lustrumapp.Activities.TinderActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/tinderBar"
@@ -26,7 +26,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <com.example.tudelftsid.lustrumapp.ViewPagerNoScroll
+    <com.virgiel.lustrumapp.ViewPagerNoScroll
         android:id="@+id/tinderPager"
         android:layout_width="match_parent"
         android:layout_height="0dp"

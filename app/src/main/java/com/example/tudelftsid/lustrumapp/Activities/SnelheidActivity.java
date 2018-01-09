@@ -5,9 +5,12 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.PackageManager;
+import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -32,10 +35,28 @@ public class SnelheidActivity extends AppCompatActivity implements LocationListe
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("SNELHEIDSMETER");
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            this.getWindow().setStatusBarColor(this.getResources().getColor(R.color.lustrumLightBlue_Dark));
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_snelheid);
 
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumLightBlue)));
+
+        Typeface head_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Alternate_Bold.ttf");
+        Typeface body_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Bold.ttf");
+
+        TextView echteSnelheid = (TextView) this.findViewById(R.id.echteSnelheid);
+        TextView maxSnelheid = (TextView) this.findViewById(R.id.maxSnelheid);
+        TextView titel1 = (TextView) this.findViewById(R.id.snelheidTitel1);
+        TextView titel2 = (TextView) this.findViewById(R.id.snelheidTitel2);
+
+        echteSnelheid.setTypeface(body_font);
+        maxSnelheid.setTypeface(body_font);
+        titel1.setTypeface(head_font);
+        titel2.setTypeface(head_font);
 
         checkLocationPermission();
     }
@@ -142,4 +163,10 @@ public class SnelheidActivity extends AppCompatActivity implements LocationListe
                 return true;
             }
         }
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        finish();
+        return true;
+    }
 }

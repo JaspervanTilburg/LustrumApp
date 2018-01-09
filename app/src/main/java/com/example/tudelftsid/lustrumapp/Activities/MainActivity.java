@@ -202,4 +202,9 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, SoundboardActivity.class);
         startActivity(intent);
     }
+
+    public void onSnelheidClick(View view) {
+        Intent intent = new Intent(this, SnelheidActivity.class);
+        startActivity(intent);
+    }
 }

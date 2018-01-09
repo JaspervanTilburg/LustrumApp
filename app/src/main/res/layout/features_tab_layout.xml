@@ -86,8 +86,10 @@
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                android:visibility="invisible"/>
+                android:background="@drawable/lustrum_rectangle"
+                android:onClick="onSnelheidClick"
+                android:src="@mipmap/soundboard"
+                android:layout_weight="1" />
         </LinearLayout>
 
 

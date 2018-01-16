@@ -5,6 +5,8 @@ android {
     buildToolsVersion '26.0.2'
     defaultConfig {
         applicationId "com.example.tudelftsid.lustrumapp"
+        versionCode 1
+        versionName "1.0"
         minSdkVersion 16
         targetSdkVersion 26
         versionCode 1

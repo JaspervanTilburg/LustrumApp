@@ -66,7 +66,9 @@ public class TinderMatchAdapter extends BaseAdapter {
         textViewCreatedAt.setTypeface(font);
         textViewNumber.setTypeface(font);
 
-        Glide.with(context).load(LustrumRestClient.BASE_URL + currentItem.getAvatar()).into(imageView);
+        if (!currentItem.getAvatar().contains("missing")) {
+            Glide.with(context).load(LustrumRestClient.BASE_URL + currentItem.getAvatar()).into(imageView);
+        }
         textViewItemName.setText(currentItem.getName() + " (" + currentItem.getAge() + ")");
         textViewCreatedAt.setText(dateDifference);
         textViewNumber.setText("+" + currentItem.getPhone());

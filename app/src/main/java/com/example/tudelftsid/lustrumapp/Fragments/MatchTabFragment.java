@@ -30,17 +30,19 @@ import cz.msebera.android.httpclient.Header;
 public class MatchTabFragment extends Fragment {
 
     private View rootView;
+    private Typeface body_font;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.match_tab_layout, container, false);
+        body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
 
         LustrumRestClient.getWithHeader("matches", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("Matches Retrieved: " + response);
                 List<Profile> profiles = Utils.loadProfiles(response);
-                Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
+
                 TinderMatchAdapter adapter = new TinderMatchAdapter(getContext(), profiles, body_font);
                 ListView itemsListView  = (ListView) rootView.findViewById(R.id.matchListView);
                 itemsListView.setAdapter(adapter);

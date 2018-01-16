@@ -80,14 +80,30 @@ public class TinderCard {
         bolletjesTxt.setTypeface(mFont);
         huisTxt.setTypeface(mFont);
 
-        Glide.with(mContext).load(LustrumRestClient.BASE_URL + mProfile.getAvatar()).into(profileImageView);
+        if (!mProfile.getAvatar().contains("missing")) {
+            Glide.with(mContext).load(LustrumRestClient.BASE_URL + mProfile.getAvatar()).into(profileImageView);
+        }
         nameAgeTxt.setText(mProfile.getName().toUpperCase() + ", " + mProfile.getAge());
-        clubTxt.setText(mProfile.getClub().toUpperCase());
-        bolletjesTxt.setText(mProfile.getBolletjes() + " BOLLETJES");
-        if (mProfile.getHuis().toUpperCase().contains("BOT") || mProfile.getHuis().toUpperCase().contains("BIJL")) {
-            huisTxt.setText(mProfile.getHuis().toUpperCase() + " BRAVO!!");
+        clubTxt.setText(mProfile.getClub().toUpperCase() + " (" + mProfile.getClubjaar());
+        if (mProfile.getVerticale() != null) {
+            clubTxt.append(", " + mProfile.getVerticale().toUpperCase());
+        }
+        if (mProfile.getClub().equals("ATHOS")) {
+            clubTxt.append(" BRAVO!");
+        }
+        clubTxt.append(")");
+        if (mProfile.getBolletjes() != null) {
+            bolletjesTxt.setText(mProfile.getBolletjes() + " BOLLETJES");
         } else {
+            bolletjesTxt.setVisibility(TextView.INVISIBLE);
+        }
+        if (!mProfile.getHuis().equals("") && mProfile.getHuis() != null) {
             huisTxt.setText(mProfile.getHuis().toUpperCase());
+            if (mProfile.getHuis().toUpperCase().equals("JACOBA VAN BEIERENLAAN 49")) {
+                huisTxt.append(" BRAVO!");
+            }
+        } else {
+            huisTxt.setVisibility(TextView.INVISIBLE);
         }
     }
 
@@ -133,15 +149,18 @@ public class TinderCard {
     }
 
     public void postLike() {
+        final Context newContext = mContext;
         LustrumRestClient.postLike(mProfile.getId(), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("Like posted: " + response);
                 try {
                     if ((boolean) response.get("is_match")) {
-                        Intent intent = new Intent(mContext, TinderMatchActivity.class);
+                        Intent intent = new Intent(newContext, TinderMatchActivity.class);
                         intent.putExtra("name", mProfile.getName());
-                        mContext.startActivity(intent);
+                        intent.putExtra("image", mProfile.getAvatar());
+                        intent.putExtra("phone", mProfile.getPhone());
+                        newContext.startActivity(intent);
                     }
                     addTinderCard();
                 } catch (JSONException e) {

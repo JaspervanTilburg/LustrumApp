@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "886666198181-snu5neng0b884qi2nqaein5fsjfo1e8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tudelftsid.lustrumapp",
+            "certificate_hash": "9e3d403713e5eded6614eb5920baa876c59a2074"
+          }
+        },
+        {
           "client_id": "886666198181-c6c5i0ofbj895g25eteeqga3kj3g838n.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -29,8 +37,13 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886666198181-c6c5i0ofbj895g25eteeqga3kj3g838n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         },
         "ads_service": {
           "status": 2

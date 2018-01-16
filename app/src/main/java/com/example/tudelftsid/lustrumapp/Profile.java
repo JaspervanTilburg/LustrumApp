@@ -30,6 +30,18 @@ public class Profile {
     @Expose
     private String gender;
 
+    @SerializedName("interested_in")
+    @Expose
+    private String interestedIn;
+
+    @SerializedName("interested_year_begin")
+    @Expose
+    private int interstedYearBegin;
+
+    @SerializedName("interested_year_end")
+    @Expose
+    private int interestedYearEnd;
+
     @SerializedName("age")
     @Expose
     private Integer age;
@@ -84,6 +96,18 @@ public class Profile {
         this.name = name;
     }
 
+    public String getInterestedIn() {
+        return interestedIn;
+    }
+
+    public int getInterstedYearBegin() {
+        return interstedYearBegin;
+    }
+
+    public int getInterestedYearEnd() {
+        return interestedYearEnd;
+    }
+
     public Integer getAge() {
         return age;
     }
@@ -100,7 +124,7 @@ public class Profile {
         this.club = location;
     }
 
-    public int getBolletjes() {
+    public Integer getBolletjes() {
         return bolletjes;
     }
 

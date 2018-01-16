@@ -23,9 +23,9 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="20dp"
                 android:layout_weight="1"
-                android:onClick="onBerichtenClick"
-                android:src="@mipmap/berichten"
-                android:background="@drawable/lustrum_rectangle_1"/>
+                android:background="@drawable/lustrum_rectangle_1"
+                android:onClick="onAboutClick"
+                android:src="@mipmap/about"/>
 
             <ImageButton
                 android:layout_width="0dp"
@@ -35,7 +35,7 @@
                 android:layout_weight="1"
                 android:onClick="onTinderClick"
                 android:src="@mipmap/tinder"
-                android:background="@drawable/lustrum_rectangle"/>
+                android:background="@drawable/lustrum_rectangle_gala"/>
 
             <ImageButton
                 android:layout_width="0dp"
@@ -46,7 +46,7 @@
                 android:layout_weight="1"
                 android:onClick="onDatespelClick"
                 android:src="@mipmap/datespel"
-                android:background="@drawable/lustrum_rectangle"/>
+                android:background="@drawable/lustrum_rectangle_gala"/>
 
 
         </LinearLayout>
@@ -64,17 +64,7 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle_1"
-                android:onClick="onAboutClick"
-                android:src="@mipmap/about"/>
-
-            <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle"
+                android:background="@drawable/lustrum_rectangle_gala"
                 android:onClick="onSoundboardClick"
                 android:src="@mipmap/soundboard"
                 android:visibility="invisible"/>
@@ -82,11 +72,25 @@
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:onClick="onBerichtenClick"
+                android:src="@mipmap/berichten"
+                android:background="@drawable/lustrum_rectangle_1"
+                android:visibility="invisible"/>
+
+            <!--TODO change this mipmap-->
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="20dp"
-                android:layout_weight="1"
-                android:visibility="invisible"/>
+                android:background="@drawable/lustrum_rectangle_wispo"
+                android:onClick="onSnelheidClick"
+                android:src="@mipmap/soundboard"
+                android:layout_weight="1" />
         </LinearLayout>
 
 

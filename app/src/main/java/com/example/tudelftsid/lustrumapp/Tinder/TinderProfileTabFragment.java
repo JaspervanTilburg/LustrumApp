@@ -2,17 +2,20 @@ package com.example.tudelftsid.lustrumapp.Tinder;
 
 import android.graphics.Paint;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appyvet.materialrangebar.RangeBar;
+import com.bumptech.glide.Glide;
 import com.example.tudelftsid.lustrumapp.LustrumRestClient;
 import com.example.tudelftsid.lustrumapp.Preferences;
 import com.example.tudelftsid.lustrumapp.Profile;
@@ -33,6 +36,7 @@ import cz.msebera.android.httpclient.Header;
 public class TinderProfileTabFragment extends Fragment {
 
     private View rootView;
+    private RangeBar rangeBar;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -40,7 +44,7 @@ public class TinderProfileTabFragment extends Fragment {
 
         requestUserData();
 
-        RangeBar rangeBar = rootView.findViewById(R.id.rangeBar);
+        rangeBar = rootView.findViewById(R.id.rangeBar);
         rangeBar.setOnRangeBarChangeListener(new RangeBar.OnRangeBarChangeListener() {
             @Override
             public void onRangeChangeListener(RangeBar rangeBar, int leftPinIndex,
@@ -86,6 +90,11 @@ public class TinderProfileTabFragment extends Fragment {
         Typeface body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
         Typeface head_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Alternate_Bold.ttf");
 
+        ImageView imageView = rootView.findViewById(R.id.myProfileImageView);
+        if (!profile.getAvatar().contains("missing")) {
+            Glide.with(getContext()).load(LustrumRestClient.BASE_URL + profile.getAvatar()).into(imageView);
+        }
+
         TextView nameTxt = rootView.findViewById(R.id.myNameTxt);
         nameTxt.setText(profile.getName().toUpperCase() + " (" + profile.getAge() + ")");
         nameTxt.setTypeface(body_font);
@@ -106,13 +115,29 @@ public class TinderProfileTabFragment extends Fragment {
         CheckBox vrouwenCheckBox = rootView.findViewById(R.id.vrouwenCheckBox);
         RadioButton manButton = rootView.findViewById(R.id.manButton);
         RadioButton womanButton = rootView.findViewById(R.id.womanButton);
+
+        String interested = profile.getInterestedIn();
+        switch (interested) {
+            case "M" :
+                mannenCheckBox.setChecked(true);
+                break;
+            case "V" :
+                vrouwenCheckBox.setChecked(true);
+                break;
+            case "B" :
+                mannenCheckBox.setChecked(true);
+                vrouwenCheckBox.setChecked(true);
+                break;
+        }
+
         if (profile.getGender().equals("M")) {
-            vrouwenCheckBox.setChecked(true);
             manButton.setChecked(true);
         } else {
-            mannenCheckBox.setChecked(true);
             womanButton.setChecked(true);
         }
+
+        rangeBar.setTickStart(profile.getInterstedYearBegin());
+        rangeBar.setTickEnd(profile.getInterestedYearEnd());
 
         TextView instellingenTxt = rootView.findViewById(R.id.instellingenTitel);
         TextView ikBenTxt = rootView.findViewById(R.id.ikBenTxt);

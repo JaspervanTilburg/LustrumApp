@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "886666198181",
+    "firebase_url": "https://virgiel-lustrum.firebaseio.com",
+    "project_id": "virgiel-lustrum",
+    "storage_bucket": "virgiel-lustrum.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:886666198181:android:d044dc88a723b722",
+        "android_client_info": {
+          "package_name": "com.example.tudelftsid.lustrumapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "886666198181-snu5neng0b884qi2nqaein5fsjfo1e8k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tudelftsid.lustrumapp",
+            "certificate_hash": "9e3d403713e5eded6614eb5920baa876c59a2074"
+          }
+        },
+        {
+          "client_id": "886666198181-c6c5i0ofbj895g25eteeqga3kj3g838n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPhYcYc1xxwZ68n4x__cOKy4y_KX7atfY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "886666198181-c6c5i0ofbj895g25eteeqga3kj3g838n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

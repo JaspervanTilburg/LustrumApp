@@ -44,9 +44,6 @@ public class SoundboardActivity extends AppCompatActivity {
 
         GridView gridView = (GridView) findViewById(R.id.deSoundboard);
 
-//        final ArrayAdapter<Sound> adapter =
-//                new ArrayAdapter<>(this, R.layout.soundboard_button, soundArray);
-
         SoundAdapter adapter = new SoundAdapter(this, R.layout.soundboard_button, soundArray);
 
         gridView.setAdapter(adapter);

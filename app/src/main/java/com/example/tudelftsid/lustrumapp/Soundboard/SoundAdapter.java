@@ -44,7 +44,5 @@ public class SoundAdapter extends ArrayAdapter<Sound> {
         image.setImageResource(currentSound.getmImageId());
 
         return listItem;
-
-//        return super.getView(position, convertView, parent);
     }
 }

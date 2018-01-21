@@ -1,30 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="labels">
-        <item>ZERO</item>
-        <item>ONE</item>
-        <item>TWO</item>
-        <item>THREE</item>
-        <item>FOUR</item>
-        <item>FIVE</item>
-        <item>SIX</item>
-        <item>SEVEN</item>
-        <item>EIGHT</item>
-        <item>NINE</item>
-        <item>TEN</item>
+        <item>dibo</item>
+        <item>enorm_bellen</item>
+        <item>knuistjes</item>
+        <item>kutfeuten</item>
+        <item>lul</item>
+        <item>mlg</item>
+        <item>pils_op</item>
+        <item>tijd_voor_pils</item>
+        <item>vo</item>
+        <item>vo_voor_de_leden</item>
+        <item>zevenhalf</item>
     </string-array>
 
     <integer-array name="ids">
-        <item>@raw/zero</item>
-        <item>@raw/one</item>
-        <item>@raw/two</item>
-        <item>@raw/three</item>
-        <item>@raw/four</item>
-        <item>@raw/five</item>
-        <item>@raw/six</item>
-        <item>@raw/seven</item>
-        <item>@raw/eight</item>
-        <item>@raw/nine</item>
-        <item>@raw/ten</item>
+        <item>@raw/dibo</item>
+        <item>@raw/enorm_bellen</item>
+        <item>@raw/knuistjes</item>
+        <item>@raw/kutfeuten</item>
+        <item>@raw/lul</item>
+        <item>@raw/mlg</item>
+        <item>@raw/pils_op</item>
+        <item>@raw/tijd_voor_pils</item>
+        <item>@raw/vo</item>
+        <item>@raw/vo_voor_de_leden</item>
+        <item>@raw/zevenhalf</item>
+    </integer-array>
+
+    <integer-array name="imageIds">
+        <item>@drawable/dibo</item>
+        <item>@drawable/enorm_bellen</item>
+        <item>@drawable/knuistjes</item>
+        <item>@drawable/kutfeuten</item>
+        <item>@drawable/lul</item>
+        <item>@drawable/mlg</item>
+        <item>@drawable/pils_op</item>
+        <item>@drawable/tijd_voor_pils</item>
+        <item>@drawable/vo</item>
+        <item>@drawable/vo_voor_de_leden</item>
+        <item>@drawable/zevenhalf</item>
     </integer-array>
 </resources>

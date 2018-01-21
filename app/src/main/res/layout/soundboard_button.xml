@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/soundboard_button"
-    android:layout_width="match_parent"
-    android:layout_height="50dp"
+    android:layout_width="100dp"
+    android:layout_height="100dp"
     android:gravity="center"
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp"
@@ -11,4 +11,5 @@
     android:layout_marginTop="20dp"
     android:background="@color/lustrumPink_Dark"
     android:textColor="#ffffff"
-    android:text="Vo voor Jip"/>
+    android:text="Vo voor Jip"
+    android:src="@drawable/zevenhalf"/>

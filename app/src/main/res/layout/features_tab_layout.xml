@@ -75,10 +75,10 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:onClick="onBerichtenClick"
-                android:src="@mipmap/berichten"
-                android:background="@drawable/lustrum_rectangle_1"
-                android:visibility="invisible"/>
+                android:background="@drawable/lustrum_rectangle"
+                android:onClick="onSoundboardClick"
+                android:src="@mipmap/soundboard"
+                android:visibility="visible"/>
 
             <!--TODO change this mipmap-->
             <ImageButton

@@ -37,16 +37,17 @@
                 android:src="@mipmap/tinder"
                 android:background="@drawable/lustrum_rectangle_gala"/>
 
+
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_weight="1"
-                android:onClick="onDatespelClick"
-                android:src="@mipmap/datespel"
-                android:background="@drawable/lustrum_rectangle_gala"/>
+                android:background="@drawable/lustrum_rectangle_gala"
+                android:onClick="onSoundboardClick"
+                android:src="@mipmap/soundboard"
+                android:visibility="visible"/>
 
 
         </LinearLayout>
@@ -63,22 +64,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_weight="1"
+                android:onClick="onDatespelClick"
+                android:src="@mipmap/datespel"
                 android:background="@drawable/lustrum_rectangle_gala"
-                android:onClick="onSoundboardClick"
-                android:src="@mipmap/soundboard"
                 android:visibility="invisible"/>
-
-            <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle"
-                android:onClick="onSoundboardClick"
-                android:src="@mipmap/soundboard"
-                android:visibility="visible"/>
 
             <!--TODO change this mipmap-->
             <ImageButton
@@ -92,6 +83,18 @@
                 android:src="@mipmap/soundboard"
                 android:visibility="invisible"
                 android:layout_weight="1" />
+
+            <!-- Filler to maintain 3 buttons on a line -->
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/lustrum_rectangle_gala"
+                android:onClick="onSoundboardClick"
+                android:src="@mipmap/soundboard"
+                android:visibility="invisible"/>
         </LinearLayout>
 
 

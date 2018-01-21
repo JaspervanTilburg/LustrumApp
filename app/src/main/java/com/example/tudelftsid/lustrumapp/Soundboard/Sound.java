@@ -8,10 +8,12 @@ public class Sound {
 
     private String mName;
     private int mResourceId;
+    private int mImageId;
 
-    public Sound(String name, int resourceId) {
+    public Sound(String name, int resourceId, int imageId) {
         this.mName = name;
         this.mResourceId = resourceId;
+        this.mImageId = imageId;
     }
 
     public int getResourceId() {
@@ -28,6 +30,14 @@ public class Sound {
 
     public void setName(String name) {
         this.mName = name;
+    }
+
+    public int getmImageId() {
+        return mImageId;
+    }
+
+    public void setmImageId(int mImageId) {
+        this.mImageId = mImageId;
     }
 
     @Override

@@ -17,11 +17,12 @@ public abstract class SoundStore {
 
         TypedArray labels = res.obtainTypedArray(R.array.labels);
         TypedArray ids = res.obtainTypedArray(R.array.ids);
+        TypedArray imageId = res.obtainTypedArray(R.array.imageIds);
 
         Sound[] sounds = new Sound[labels.length()];
 
         for (int i = 0; i < sounds.length; i++) {
-            sounds[i] = new Sound(labels.getString(i), ids.getResourceId(i, -1));
+            sounds[i] = new Sound(labels.getString(i), ids.getResourceId(i, 0), imageId.getResourceId(i, 0));
         }
 
         labels.recycle();

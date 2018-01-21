@@ -21,9 +21,9 @@ public class SoundAdapter extends ArrayAdapter<Sound> {
 
     private Context mContext;
     private int mResourceId;
-    private ArrayList<Sound> mSounds;
+    private Sound[] mSounds;
 
-    public SoundAdapter(@NonNull Context context, int resourceId, ArrayList<Sound> sounds) {
+    public SoundAdapter(@NonNull Context context, int resourceId, Sound[] sounds) {
         super(context, resourceId, sounds);
         this.mContext = context;
         this.mResourceId = resourceId;
@@ -38,7 +38,7 @@ public class SoundAdapter extends ArrayAdapter<Sound> {
         if (listItem == null)
             listItem = LayoutInflater.from(mContext).inflate(mResourceId, parent,false);
 
-        Sound currentSound = mSounds.get(position);
+        Sound currentSound = mSounds[position];
 
         ImageView image = (ImageView)listItem.findViewById(R.id.soundboard_button);
         image.setImageResource(currentSound.getmImageId());

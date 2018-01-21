@@ -90,6 +90,7 @@
                 android:background="@drawable/lustrum_rectangle_wispo"
                 android:onClick="onSnelheidClick"
                 android:src="@mipmap/soundboard"
+                android:visibility="invisible"
                 android:layout_weight="1" />
         </LinearLayout>
 

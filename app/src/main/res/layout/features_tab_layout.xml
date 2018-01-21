@@ -77,7 +77,7 @@
                 android:background="@drawable/lustrum_rectangle"
                 android:onClick="onSoundboardClick"
                 android:src="@mipmap/soundboard"
-                android:visibility="invisible"/>
+                android:visibility="visible"/>
 
             <ImageButton
                 android:layout_width="0dp"

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context="com.example.tudelftsid.lustrumapp.Activities.MainActivity">
+    tools:context="com.example.tudelftsid.lustrumapp.com.tudelftsid.lustrumapp.Activities.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
@@ -27,7 +27,7 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <com.example.tudelftsid.lustrumapp.ViewPagerNoScroll
+    <com.virgiel.lustrumapp.ViewPagerNoScroll
         android:id="@+id/pager"
         android:layout_width="match_parent"
         android:layout_height="0dp"

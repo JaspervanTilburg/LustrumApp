@@ -2,6 +2,7 @@ package com.virgiel.lustrumapp.Activities;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
@@ -9,6 +10,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -43,11 +45,18 @@ public class MainActivity extends AppCompatActivity {
     private PagerAdapterMain pagerAdapterMain;
     private ViewPager mViewPager;
     private String SharedPreferencesFileName = "MyPref";
+    public static int width, height;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Display display = getWindowManager().getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        width = size.x;
+        height = size.y;
 
         hoefCheck();
         PushnotificationSettings.initNotificationSettings(getSharedPreferences(SharedPreferencesFileName, 0));

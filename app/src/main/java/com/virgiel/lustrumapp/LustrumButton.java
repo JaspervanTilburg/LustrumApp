@@ -27,8 +27,8 @@ import java.util.ArrayList;
         public static final int DESELECT_BUTTON_SIZE = 157;
         public static final int SELECT_DURATION = 100;
 
-        private int xLoc;
-        private int yLoc;
+        private float xLoc;
+        private float yLoc;
 
         private ImageView image;
         private int color;
@@ -42,7 +42,7 @@ import java.util.ArrayList;
             childButtons = new ArrayList<>();
         }
 
-        public LustrumButton(ImageView image, int color, int x, int y) {
+        public LustrumButton(ImageView image, int color, float x, float y) {
             this.image = image;
             this.color = color;
             this.xLoc = x;
@@ -133,7 +133,7 @@ import java.util.ArrayList;
             this.color = color;
         }
 
-        public int getxLoc() {
+        public float getxLoc() {
             return xLoc;
         }
 
@@ -141,7 +141,7 @@ import java.util.ArrayList;
             this.xLoc = xLoc;
         }
 
-        public int getyLoc() {
+        public float getyLoc() {
             return yLoc;
         }
 

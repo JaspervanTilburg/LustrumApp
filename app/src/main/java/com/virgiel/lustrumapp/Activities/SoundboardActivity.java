@@ -9,11 +9,11 @@ import android.view.Window;
 import android.widget.AdapterView;
 import android.widget.GridView;
 
-import com.example.tudelftsid.lustrumapp.R;
-import com.example.tudelftsid.lustrumapp.Soundboard.Sound;
-import com.example.tudelftsid.lustrumapp.Soundboard.SoundAdapter;
-import com.example.tudelftsid.lustrumapp.Soundboard.SoundPlayer;
-import com.example.tudelftsid.lustrumapp.Soundboard.SoundStore;
+import com.virgiel.lustrumapp.R;
+import com.virgiel.lustrumapp.Soundboard.Sound;
+import com.virgiel.lustrumapp.Soundboard.SoundAdapter;
+import com.virgiel.lustrumapp.Soundboard.SoundPlayer;
+import com.virgiel.lustrumapp.Soundboard.SoundStore;
 
 /**
  * Created by Jip on 24-11-2017.

@@ -1,14 +1,18 @@
 package com.virgiel.lustrumapp.Fragments;
 
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.virgiel.lustrumapp.Activities.MainActivity;
 import com.virgiel.lustrumapp.LustrumButton;
 import com.virgiel.lustrumapp.OnSwipeTouchListener;
 import com.virgiel.lustrumapp.R;
@@ -24,10 +28,14 @@ public class TijdlijnTabFragment extends Fragment {
     private LustrumButton selectedButton;
     private ArrayList<LustrumButton> lustrumButtons;
     private View rootView;
+    private float width, height;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.tijdlijn_tab_layout, container, false);
+
+        this.width = MainActivity.width *0.78f;
+        this.height = MainActivity.height *0.69f;
 
         TextView timeline_txt = (TextView) rootView.findViewById(R.id.timeline_text);
         Typeface head_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Alternate_Bold.ttf");
@@ -91,18 +99,18 @@ public class TijdlijnTabFragment extends Fragment {
         lustrumButtons.add(lustrumWeekButton);
         lustrumButtons.add(piekWekenButton);
 
-        LustrumButton galaInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaInfoButton), R.color.lustrumPink, 200, 1100);
-        LustrumButton galaSpelButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaSpelButton), R.color.lustrumPink, 600, 900);
-        LustrumButton galaTinderButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaTinderButton), R.color.lustrumPink, 400, 200);
+        LustrumButton galaInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaInfoButton), R.color.lustrumPink, width*0.23f, height*0.78f);
+        //LustrumButton galaSpelButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaSpelButton), R.color.lustrumPink, 600, 900);
+        LustrumButton galaTinderButton = new LustrumButton((ImageView) rootView.findViewById(R.id.galaTinderButton), R.color.lustrumPink, width*0.47f, height*0.15f);
 
-        LustrumButton wispoInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.wispoInfoButton), R.color.lustrumPink, 500, 1000);
+        LustrumButton wispoInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.wispoInfoButton), R.color.lustrumPink, width*0.59f, height*0.78f);
         //LustrumButton wispoSnelheidsmeterButton = new LustrumButton((ImageView) rootView.findViewById(R.id.wispoSnelheidsmeterButton), R.color.lustrumPink, 700, 200);
 
-        LustrumButton lustrumWeekInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.lustrumWeekInfoButton), R.color.lustrumPink, 400, 1000);
-        LustrumButton piekWekenInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenInfoButton), R.color.lustrumPink, 500, 1000);
+        LustrumButton lustrumWeekInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.lustrumWeekInfoButton), R.color.lustrumPink, width*0.47f, height*0.78f);
+        LustrumButton piekWekenInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenInfoButton), R.color.lustrumPink, width*0.59f, height*0.78f);
 
         galaButton.addChildButton(galaInfoButton);
-        galaButton.addChildButton(galaSpelButton);
+        //galaButton.addChildButton(galaSpelButton);
         galaButton.addChildButton(galaTinderButton);
 
         wispoButton.addChildButton(wispoInfoButton);
@@ -112,7 +120,7 @@ public class TijdlijnTabFragment extends Fragment {
         piekWekenButton.addChildButton(piekWekenInfoButton);
 
         lustrumButtons.add(galaInfoButton);
-        lustrumButtons.add(galaSpelButton);
+        //lustrumButtons.add(galaSpelButton);
         lustrumButtons.add(galaTinderButton);
         lustrumButtons.add(wispoInfoButton);
         //lustrumButtons.add(wispoSnelheidsmeterButton);

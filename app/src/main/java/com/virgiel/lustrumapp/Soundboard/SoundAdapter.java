@@ -1,4 +1,4 @@
-package com.example.tudelftsid.lustrumapp.Soundboard;
+package com.virgiel.lustrumapp.Soundboard;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,9 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 
-import com.example.tudelftsid.lustrumapp.R;
-
-import java.util.ArrayList;
+import com.virgiel.lustrumapp.R;
 
 /**
  * Created by Rolf on 21-1-2018.

@@ -53,23 +53,24 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/secondRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:id="@+id/secondRow"
-            android:layout_below="@id/firstRow">
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/firstRow"
+            android:orientation="horizontal">
 
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_weight="1"
+                android:background="@drawable/lustrum_rectangle_gala"
                 android:onClick="onDatespelClick"
                 android:src="@mipmap/datespel"
-                android:background="@drawable/lustrum_rectangle_gala"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
 
             <!--TODO change this mipmap-->
             <ImageButton
@@ -77,12 +78,11 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
+                android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_wispo"
                 android:onClick="onSnelheidClick"
                 android:src="@mipmap/soundboard"
-                android:visibility="invisible"
-                android:layout_weight="1" />
+                android:visibility="invisible" />
 
             <!-- Filler to maintain 3 buttons on a line -->
             <ImageButton
@@ -92,9 +92,8 @@
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_gala"
-                android:onClick="onSoundboardClick"
                 android:src="@mipmap/soundboard"
-                android:visibility="invisible"/>
+                android:visibility="invisible" />
         </LinearLayout>
 
 

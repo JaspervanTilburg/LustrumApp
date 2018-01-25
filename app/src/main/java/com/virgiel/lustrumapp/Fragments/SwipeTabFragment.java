@@ -21,6 +21,7 @@ import com.mindorks.placeholderview.SwipePlaceHolderView;
 import org.json.JSONObject;
 
 import java.io.File;
+import java.util.Date;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -36,6 +37,8 @@ public class SwipeTabFragment extends Fragment {
     private SwipePlaceHolderView mSwipeView;
     private Context mContext;
     private Typeface body_font;
+    private Date mDate;
+    private long cooldownBetweenClicks = 300;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -56,18 +59,29 @@ public class SwipeTabFragment extends Fragment {
         for (int i = 0; i < INITIAL_TINDER_CARDS; i++) {
             getRandomUser();
         }
+        mDate = new Date();
 
         rootView.findViewById(R.id.dislikeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSwipeView.doSwipe(false);
+                Date checkDate = new Date();
+                Toast.makeText(getContext(), new Date().getTime()-mDate.getTime() + "", Toast.LENGTH_SHORT).show();
+                if((checkDate.getTime() - mDate.getTime()) >= cooldownBetweenClicks) {
+                    mDate = checkDate;
+                    mSwipeView.doSwipe(false);
+                }
             }
         });
 
         rootView.findViewById(R.id.likeButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mSwipeView.doSwipe(true);
+                Date checkDate = new Date();
+                Toast.makeText(getContext(), new Date().getTime()-mDate.getTime() + "", Toast.LENGTH_SHORT).show();
+                if((checkDate.getTime() - mDate.getTime()) >= cooldownBetweenClicks) {
+                    mDate = checkDate;
+                    mSwipeView.doSwipe(true);
+                }
             }
         });
 

@@ -53,7 +53,7 @@ public class TinderActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tab_tinder_layout);
         tabLayout.setupWithViewPager(mViewPager);
 
-        Preferences.initPreferences();
+        //Preferences.initPreferences();
     }
 
     public void onMannenCheckBoxClick(View view) {

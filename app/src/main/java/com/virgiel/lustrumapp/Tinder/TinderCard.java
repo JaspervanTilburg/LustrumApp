@@ -154,6 +154,7 @@ public class TinderCard {
                         intent.putExtra("name", mProfile.getName());
                         intent.putExtra("image", mProfile.getAvatar());
                         intent.putExtra("phone", mProfile.getPhone());
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         newContext.startActivity(intent);
                     }
                     addTinderCard();

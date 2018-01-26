@@ -65,7 +65,7 @@ public class SwipeTabFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Date checkDate = new Date();
-                Toast.makeText(getContext(), new Date().getTime()-mDate.getTime() + "", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), new Date().getTime()-mDate.getTime() + "", Toast.LENGTH_SHORT).show();
                 if((checkDate.getTime() - mDate.getTime()) >= cooldownBetweenClicks) {
                     mDate = checkDate;
                     mSwipeView.doSwipe(false);
@@ -77,7 +77,7 @@ public class SwipeTabFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Date checkDate = new Date();
-                Toast.makeText(getContext(), new Date().getTime()-mDate.getTime() + "", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getContext(), new Date().getTime()-mDate.getTime() + "", Toast.LENGTH_SHORT).show();
                 if((checkDate.getTime() - mDate.getTime()) >= cooldownBetweenClicks) {
                     mDate = checkDate;
                     mSwipeView.doSwipe(true);

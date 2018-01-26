@@ -111,8 +111,8 @@ public class TinderProfileTabFragment extends Fragment {
 
         CheckBox mannenCheckBox = rootView.findViewById(R.id.mannenCheckBox);
         CheckBox vrouwenCheckBox = rootView.findViewById(R.id.vrouwenCheckBox);
-        RadioButton manButton = rootView.findViewById(R.id.manButton);
-        RadioButton womanButton = rootView.findViewById(R.id.womanButton);
+//        RadioButton manButton = rootView.findViewById(R.id.manButton);
+//        RadioButton womanButton = rootView.findViewById(R.id.womanButton);
 
         String interested = profile.getInterestedIn();
         switch (interested) {
@@ -132,11 +132,11 @@ public class TinderProfileTabFragment extends Fragment {
                 break;
         }
 
-        if (profile.getGender().equals("M")) {
-            manButton.setChecked(true);
-        } else {
-            womanButton.setChecked(true);
-        }
+//        if (profile.getGender().equals("M")) {
+//            manButton.setChecked(true);
+//        } else {
+//            womanButton.setChecked(true);
+//        }
 
         if (profile.getInterstedYearBegin() < 2010 || profile.getInterstedYearBegin() > 2017) {
             profile.setInterstedYearBegin(2010);
@@ -147,25 +147,25 @@ public class TinderProfileTabFragment extends Fragment {
         rangeBar.setRangePinsByValue(profile.getInterstedYearBegin(), profile.getInterestedYearEnd());
 
         TextView instellingenTxt = rootView.findViewById(R.id.instellingenTitel);
-        TextView ikBenTxt = rootView.findViewById(R.id.ikBenTxt);
+        //TextView ikBenTxt = rootView.findViewById(R.id.ikBenTxt);
         TextView ikWilZienTxt = rootView.findViewById(R.id.ikWilZienTitel);
         TextView alleenTokoJaren = rootView.findViewById(R.id.alleenTokoTitel);
 
-        ikBenTxt.setTypeface(head_font);
+        //ikBenTxt.setTypeface(head_font);
         instellingenTxt.setTypeface(head_font);
         ikWilZienTxt.setTypeface(head_font);
         alleenTokoJaren.setTypeface(head_font);
 
         TextView mannen1 = rootView.findViewById(R.id.mannenCheckBox);
         TextView vrouwen1 = rootView.findViewById(R.id.vrouwenCheckBox);
-        TextView mannen2 = rootView.findViewById(R.id.manButton);
-        TextView vrouwen2 = rootView.findViewById(R.id.womanButton);
+        //TextView mannen2 = rootView.findViewById(R.id.manButton);
+        //TextView vrouwen2 = rootView.findViewById(R.id.womanButton);
         TextView jarenBody = rootView.findViewById(R.id.jarenBody);
 
         mannen1.setTypeface(body_font);
         vrouwen1.setTypeface(body_font);
-        mannen2.setTypeface(body_font);
-        vrouwen2.setTypeface(body_font);
+        //mannen2.setTypeface(body_font);
+        //vrouwen2.setTypeface(body_font);
         jarenBody.setTypeface(body_font);
     }
 

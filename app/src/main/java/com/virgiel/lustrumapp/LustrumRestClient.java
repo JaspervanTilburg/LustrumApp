@@ -68,6 +68,7 @@ public class LustrumRestClient {
         StringEntity entity = null;
         try {
             auth.put("user_id", user_id);
+            auth.put("is_like", 1);
             entity = new StringEntity(auth.toString());
         } catch (JSONException e) {
             e.printStackTrace();

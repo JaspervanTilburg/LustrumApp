@@ -10,8 +10,10 @@
 
     <application
         android:allowBackup="true"
+        android:hardwareAccelerated="false"
         android:icon="@drawable/icon_logo_4d"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@drawable/icon_logo_4d"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -47,6 +49,8 @@
         <activity android:name=".Activities.AboutActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".Activities.SnelheidActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.WispoProgrammaActivity"
             android:screenOrientation="portrait"/>
     </application>
 

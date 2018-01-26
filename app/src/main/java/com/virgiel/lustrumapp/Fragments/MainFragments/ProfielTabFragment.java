@@ -1,4 +1,4 @@
-package com.virgiel.lustrumapp.Fragments;
+package com.virgiel.lustrumapp.Fragments.MainFragments;
 
 import android.graphics.Color;
 import android.graphics.Typeface;

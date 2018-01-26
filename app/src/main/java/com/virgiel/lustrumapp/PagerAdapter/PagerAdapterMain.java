@@ -4,9 +4,9 @@ package com.virgiel.lustrumapp.PagerAdapter;
         import android.support.v4.app.FragmentPagerAdapter;
         import android.support.v4.view.PagerAdapter;
 
-        import com.virgiel.lustrumapp.Fragments.FeaturesTabFragment;
-        import com.virgiel.lustrumapp.Fragments.ProfielTabFragment;
-        import com.virgiel.lustrumapp.Fragments.TijdlijnTabFragment;
+        import com.virgiel.lustrumapp.Fragments.MainFragments.FeaturesTabFragment;
+        import com.virgiel.lustrumapp.Fragments.MainFragments.ProfielTabFragment;
+        import com.virgiel.lustrumapp.Fragments.MainFragments.TijdlijnTabFragment;
 
 public class PagerAdapterMain extends FragmentPagerAdapter {
 

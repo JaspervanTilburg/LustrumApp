@@ -199,6 +199,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onWispoProgrammaClick(View view) {
+        Intent intent = new Intent(this, WispoProgrammaActivity.class);
+        startActivity(intent);
+    }
+
     public void onLustrumWekenInfoClick(View view) {
         Intent intent = new Intent(this, LustrumWekenInfoActivity.class);
         startActivity(intent);

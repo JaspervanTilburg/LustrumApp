@@ -4,7 +4,7 @@
     android:id="@+id/activiteitenBackground"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/lustrumPink">
+    android:background="@color/lustrumLightBlue">
 
     <com.virgiel.lustrumapp.Background.Background
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -73,6 +73,18 @@
         android:visibility="invisible"
         android:clickable="true"
         android:onClick="onWispoInfoClick"/>
+
+    <ImageView
+        android:id="@+id/wispoProgrammaButton"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/wispoprogramma"
+        android:padding="20dp"
+        android:background="@drawable/lustrum_circle_4"
+        android:elevation="20dp"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:onClick="onWispoProgrammaClick"/>
 
     <!--TODO change this background and mipmap-->
     <!--<ImageView

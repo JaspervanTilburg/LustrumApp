@@ -108,6 +108,14 @@ public class Profile {
         return interestedYearEnd;
     }
 
+    public void setInterstedYearBegin(int interstedYearBegin) {
+        this.interstedYearBegin = interstedYearBegin;
+    }
+
+    public void setInterestedYearEnd(int interestedYearEnd) {
+        this.interestedYearEnd = interestedYearEnd;
+    }
+
     public Integer getAge() {
         return age;
     }

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context="com.example.tudelftsid.lustrumapp.com.tudelftsid.lustrumapp.Activities.MainActivity">
+    tools:context="com.virgiel.lustrumapp.Activities.MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"

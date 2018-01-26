@@ -1,4 +1,4 @@
-package com.virgiel.lustrumapp.Fragments;
+package com.virgiel.lustrumapp.Fragments.TinderFragments;
 
 import android.graphics.Typeface;
 import android.os.Bundle;

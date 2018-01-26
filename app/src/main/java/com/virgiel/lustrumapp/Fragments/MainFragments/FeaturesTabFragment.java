@@ -1,4 +1,4 @@
-package com.virgiel.lustrumapp.Fragments;
+package com.virgiel.lustrumapp.Fragments.MainFragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

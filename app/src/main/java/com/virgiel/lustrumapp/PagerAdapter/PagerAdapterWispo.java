@@ -7,10 +7,13 @@ import android.support.v4.app.FragmentPagerAdapter;
 import com.virgiel.lustrumapp.Fragments.TinderFragments.MatchTabFragment;
 import com.virgiel.lustrumapp.Fragments.TinderFragments.SwipeTabFragment;
 import com.virgiel.lustrumapp.Fragments.TinderFragments.TinderProfileTabFragment;
+import com.virgiel.lustrumapp.Fragments.WispoFragments.DinsdagFragment;
+import com.virgiel.lustrumapp.Fragments.WispoFragments.MaandagFragment;
+import com.virgiel.lustrumapp.Fragments.WispoFragments.WoensdagFragment;
 
-public class PagerAdapterTinder extends FragmentPagerAdapter {
+public class PagerAdapterWispo extends FragmentPagerAdapter {
 
-    public PagerAdapterTinder(FragmentManager fm) {
+    public PagerAdapterWispo(FragmentManager fm) {
         super(fm);
     }
 
@@ -19,13 +22,13 @@ public class PagerAdapterTinder extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                SwipeTabFragment tab1 = new SwipeTabFragment();
+                MaandagFragment tab1 = new MaandagFragment();
                 return tab1;
             case 1:
-                MatchTabFragment tab2 = new MatchTabFragment();
+                DinsdagFragment tab2 = new DinsdagFragment();
                 return tab2;
             case 2:
-                TinderProfileTabFragment tab3 = new TinderProfileTabFragment();
+                WoensdagFragment tab3 = new WoensdagFragment();
                 return tab3;
             default:
                 return null;
@@ -41,11 +44,11 @@ public class PagerAdapterTinder extends FragmentPagerAdapter {
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "SWIPEN";
+                return "Ma";
             case 1:
-                return "MATCHES";
+                return "Di";
             case 2:
-                return "PROFIEL";
+                return "Wo";
         }
         return null;
     }

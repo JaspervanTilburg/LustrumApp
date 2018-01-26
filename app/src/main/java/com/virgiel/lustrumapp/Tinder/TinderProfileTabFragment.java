@@ -118,13 +118,17 @@ public class TinderProfileTabFragment extends Fragment {
         switch (interested) {
             case "M" :
                 mannenCheckBox.setChecked(true);
+                Preferences.setPreferMen(true);
                 break;
             case "V" :
                 vrouwenCheckBox.setChecked(true);
+                Preferences.setPreferWomen(true);
                 break;
             case "B" :
                 mannenCheckBox.setChecked(true);
                 vrouwenCheckBox.setChecked(true);
+                Preferences.setPreferWomen(true);
+                Preferences.setPreferMen(true);
                 break;
         }
 

@@ -138,8 +138,13 @@ public class TinderProfileTabFragment extends Fragment {
             womanButton.setChecked(true);
         }
 
-        rangeBar.setTickStart(profile.getInterstedYearBegin());
-        rangeBar.setTickEnd(profile.getInterestedYearEnd());
+        if (profile.getInterstedYearBegin() < 2010 || profile.getInterstedYearBegin() > 2017) {
+            profile.setInterstedYearBegin(2010);
+        }
+        if (profile.getInterestedYearEnd() < 2010 || profile.getInterestedYearEnd() > 2017) {
+            profile.setInterestedYearEnd(2017);
+        }
+        rangeBar.setRangePinsByValue(profile.getInterstedYearBegin(), profile.getInterestedYearEnd());
 
         TextView instellingenTxt = rootView.findViewById(R.id.instellingenTitel);
         TextView ikBenTxt = rootView.findViewById(R.id.ikBenTxt);

@@ -73,7 +73,7 @@ public class Preferences {
         LustrumRestClient.postPreferences(getInterestString(), startYear, endYear, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("Preferences posted: " + response);
+                System.out.println("Preferences posted: " + getInterestString() + ", " + startYear + ", " + endYear + ", " + response);
             }
 
             @Override

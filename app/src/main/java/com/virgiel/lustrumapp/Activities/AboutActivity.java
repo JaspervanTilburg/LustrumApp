@@ -25,6 +25,7 @@ public class AboutActivity extends AppCompatActivity {
     @Override
     public boolean onSupportNavigateUp(){
         Toast.makeText(this, "Bravo 47", Toast.LENGTH_SHORT).show();
+        finish();
         return true;
     }
 }

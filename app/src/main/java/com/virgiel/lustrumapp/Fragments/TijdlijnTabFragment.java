@@ -130,7 +130,7 @@ public class TijdlijnTabFragment extends Fragment {
         lustrumButtons.add(lustrumWeekInfoButton);
         lustrumButtons.add(piekWekenInfoButton);
 
-        selectedButton = lustrumButtons.get(0);
+        selectedButton = lustrumButtons.get(1);
         selectedButton.animateExpand();
         selectedButton.animateScaleUp();
         selectedButton.setName(getActivity());

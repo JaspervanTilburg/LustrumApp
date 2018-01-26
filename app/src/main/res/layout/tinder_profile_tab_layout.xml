@@ -88,59 +88,59 @@
             android:textStyle="bold"
             android:layout_height="wrap_content"/>
 
-        <TextView
-            android:id="@+id/ikBenTxt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="IK BEN"
-            android:textColor="@android:color/darker_gray"/>
+        <!--<TextView-->
+            <!--android:id="@+id/ikBenTxt"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:text="IK BEN"-->
+            <!--android:textColor="@android:color/darker_gray"/>-->
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@android:color/darker_gray"/>
+        <!--<View-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="1dp"-->
+            <!--android:background="@android:color/darker_gray"/>-->
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal"
-            android:background="@android:color/white"
-            android:padding="5dp">
+        <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:orientation="horizontal"-->
+            <!--android:background="@android:color/white"-->
+            <!--android:padding="5dp">-->
 
-            <RadioGroup
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+            <!--<RadioGroup-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:orientation="horizontal">-->
 
-                <RadioButton
-                    android:id="@+id/manButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    android:layout_marginRight="5dp"
-                    android:checked="true"
-                    android:text="MAN"
-                    android:textColor="@android:color/black"
-                    android:textAlignment="center"
-                    android:button="@android:color/transparent"
-                    android:background="@drawable/gender_selector"/>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/manButton"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:checked="true"-->
+                    <!--android:text="MAN"-->
+                    <!--android:textColor="@android:color/black"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:button="@android:color/transparent"-->
+                    <!--android:background="@drawable/gender_selector"/>-->
 
-                <RadioButton
-                    android:id="@+id/womanButton"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:layout_weight="1"
-                    android:layout_marginRight="5dp"
-                    android:text="VROUW"
-                    android:textColor="@android:color/black"
-                    android:textAlignment="center"
-                    android:button="@android:color/transparent"
-                    android:background="@drawable/gender_selector"/>
-            </RadioGroup>
+                <!--<RadioButton-->
+                    <!--android:id="@+id/womanButton"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="30dp"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_marginRight="5dp"-->
+                    <!--android:text="VROUW"-->
+                    <!--android:textColor="@android:color/black"-->
+                    <!--android:textAlignment="center"-->
+                    <!--android:button="@android:color/transparent"-->
+                    <!--android:background="@drawable/gender_selector"/>-->
+            <!--</RadioGroup>-->
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
         <TextView
             android:id="@+id/ikWilZienTitel"

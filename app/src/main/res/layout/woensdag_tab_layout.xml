@@ -6,6 +6,7 @@
     android:background="@drawable/wispoachtergrond">
 
     <LinearLayout
+        android:id="@+id/woensdag_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -14,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PRINSPLEIN"
+            android:text="PRINSPLEIN   15:00"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
@@ -41,7 +42,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PRINSPLEIN"
+            android:text="PRINSPLEIN   17:00"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"

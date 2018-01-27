@@ -132,7 +132,8 @@ public class TinderCard {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile profile = Utils.loadProfile(response);
-                System.out.println("Profile " + profile.getId() + " queued: " + response);
+                System.out.println("Profile (addTinderCard) " + profile.getId() + " queued: " + response);
+                System.out.println("Context: " + newContext + ", swipeview: " + newSwipeView + ", font: " + newFont);
                 newSwipeView.addView(new TinderCard(newContext, profile, newSwipeView, newFont));
             }
 

@@ -101,7 +101,8 @@ public class SwipeTabFragment extends Fragment {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile profile = Utils.loadProfile(response);
-                System.out.println("Profile " + profile.getId() + " queued: " + response);
+                System.out.println("Profile (getRandomUser) " + profile.getId() + " queued: " + response);
+                System.out.println("Context: " + mContext + ", swipeview: " + mSwipeView + ", font: " + body_font);
                 mSwipeView.addView(new TinderCard(mContext, profile, mSwipeView, body_font));
             }
 

@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.virgiel.lustrumapp.R;
 
@@ -23,6 +25,12 @@ public class MaandagFragment extends Fragment {
         rootView = inflater.inflate(R.layout.maandag_tab_layout, container, false);
         body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
 
+        LinearLayout myLayout = (LinearLayout) rootView.findViewById(R.id.maandag_text);
+        for (int i = 0; i < myLayout.getChildCount(); i++) {
+            if (myLayout.getChildAt(i) instanceof TextView) {
+                ((TextView) myLayout.getChildAt(i)).setTypeface(body_font);
+            }
+        }
         return rootView;
     }
 }

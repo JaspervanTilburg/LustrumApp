@@ -6,6 +6,7 @@
     android:background="@drawable/wispoachtergrond">
 
     <LinearLayout
+        android:id="@+id/dinsdag_text"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -14,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PANO"
+            android:text="PANO   15:00"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
@@ -34,7 +35,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="YETI PLEIN"
+            android:text="YETI PLEIN   17:00"
             android:textColor="#FFFFFF"
             android:gravity="center_horizontal"
             android:textSize="20dp"

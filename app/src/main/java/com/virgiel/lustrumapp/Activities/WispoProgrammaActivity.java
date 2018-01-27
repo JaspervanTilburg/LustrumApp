@@ -1,5 +1,6 @@
 package com.virgiel.lustrumapp.Activities;
 
+import android.content.res.ColorStateList;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
@@ -32,5 +33,7 @@ public class WispoProgrammaActivity extends AppCompatActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.wispo_tab_layout);
         tabLayout.setupWithViewPager(mViewPager);
+        tabLayout.setBackgroundColor(getResources().getColor(R.color.lustrumLightBlue_Dark));
+        tabLayout.setTabTextColors(ColorStateList.valueOf(getResources().getColor(R.color.lustrumLightBlue_Light)));
     }
 }

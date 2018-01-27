@@ -4,12 +4,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
-import com.virgiel.lustrumapp.Fragments.TinderFragments.MatchTabFragment;
-import com.virgiel.lustrumapp.Fragments.TinderFragments.SwipeTabFragment;
-import com.virgiel.lustrumapp.Fragments.TinderFragments.TinderProfileTabFragment;
 import com.virgiel.lustrumapp.Fragments.WispoFragments.DinsdagFragment;
+import com.virgiel.lustrumapp.Fragments.WispoFragments.DonderdagFragment;
 import com.virgiel.lustrumapp.Fragments.WispoFragments.MaandagFragment;
+import com.virgiel.lustrumapp.Fragments.WispoFragments.VrijdagFragment;
+import com.virgiel.lustrumapp.Fragments.WispoFragments.ZaterdagFragment;
 import com.virgiel.lustrumapp.Fragments.WispoFragments.WoensdagFragment;
+import com.virgiel.lustrumapp.Fragments.WispoFragments.ZondagFragment;
 
 public class PagerAdapterWispo extends FragmentPagerAdapter {
 
@@ -22,14 +23,26 @@ public class PagerAdapterWispo extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                MaandagFragment tab1 = new MaandagFragment();
+                ZaterdagFragment tab1 = new ZaterdagFragment();
                 return tab1;
             case 1:
-                DinsdagFragment tab2 = new DinsdagFragment();
+                ZondagFragment tab2 = new ZondagFragment();
                 return tab2;
             case 2:
-                WoensdagFragment tab3 = new WoensdagFragment();
+                MaandagFragment tab3 = new MaandagFragment();
                 return tab3;
+            case 3:
+                DinsdagFragment tab4 = new DinsdagFragment();
+                return tab4;
+            case 4:
+                WoensdagFragment tab5 = new WoensdagFragment();
+                return tab5;
+            case 5:
+                DonderdagFragment tab6 = new DonderdagFragment();
+                return tab6;
+            case 6:
+                VrijdagFragment tab7 = new VrijdagFragment();
+                return tab7;
             default:
                 return null;
         }
@@ -37,18 +50,26 @@ public class PagerAdapterWispo extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return 3;
+        return 7;
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
         switch (position) {
             case 0:
-                return "Ma";
+                return "Za";
             case 1:
-                return "Di";
+                return "Zo";
             case 2:
+                return "Ma";
+            case 3:
+                return "Di";
+            case 4:
                 return "Wo";
+            case 5:
+                return "Do";
+            case 6:
+                return "Vr";
         }
         return null;
     }

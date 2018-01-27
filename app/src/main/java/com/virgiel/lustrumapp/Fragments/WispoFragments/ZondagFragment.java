@@ -13,14 +13,14 @@ import com.virgiel.lustrumapp.R;
  * Created by TUDelft SID on 5-10-2017.
  */
 
-public class MaandagFragment extends Fragment {
+public class ZondagFragment extends Fragment {
 
     private View rootView;
     private Typeface body_font;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.maandag_tab_layout, container, false);
+        rootView = inflater.inflate(R.layout.zondag_tab_layout, container, false);
         body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
 
         return rootView;

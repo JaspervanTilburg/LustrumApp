@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PANO"
+            android:text="PRINS"
             android:textColor="#FFFFFF"
             android:layout_marginBottom="10dp"
             android:gravity="center_horizontal"
@@ -25,7 +25,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="LIVE SAX"
+            android:text="MYSTERY GUEST"
             android:textColor="#FFFFFF"
             android:gravity="center_horizontal"
             android:textSize="20dp"/>
@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:text="YETI PLEIN"
+            android:text="PRINSPLEIN"
             android:textColor="#FFFFFF"
             android:gravity="center_horizontal"
             android:textSize="20dp"
@@ -43,7 +43,15 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="FESTIVAL //"
+            android:text="DJ DENNIS"
+            android:textColor="#FFFFFF"
+            android:gravity="center_horizontal"
+            android:textSize="20dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="BBQ@PRINS"
             android:textColor="#FFFFFF"
             android:gravity="center_horizontal"
             android:textSize="20dp"/>
@@ -52,7 +60,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="THE BOY NEXTDOOR"
+            android:text="MYSTERY GUEST"
             android:textColor="#FFFFFF"
             android:gravity="center_horizontal"
             android:textSize="20dp"/>
@@ -71,7 +79,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="DAISY"
+            android:text="DJ PJ"
             android:textColor="#FFFFFF"
             android:gravity="center_horizontal"
             android:textSize="20dp"/>
@@ -90,7 +98,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="BROEDERLIEFDE"
+            android:text="DJ JAMIE (DI-RECT)"
             android:textColor="#FFFFFF"
             android:gravity="center_horizontal"
             android:textSize="20dp"/>
@@ -109,7 +117,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
-            android:text="THE BOY NEXT DOOR"
+            android:text="VIRGIEL"
             android:textColor="#FFFFFF"
             android:gravity="center_horizontal"
             android:textSize="20dp"/>

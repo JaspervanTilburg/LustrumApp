@@ -68,10 +68,9 @@
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle_gala"
-                android:onClick="onDatespelClick"
-                android:src="@mipmap/datespel"
-                android:visibility="invisible" />
+                android:background="@drawable/lustrum_rectangle_wispo"
+                android:onClick="onWispoProgrammaClick"
+                android:src="@mipmap/wispoprogramma" />
 
             <!--TODO change this mipmap-->
             <ImageButton

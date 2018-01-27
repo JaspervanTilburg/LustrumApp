@@ -70,7 +70,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_wispo"
                 android:onClick="onWispoProgrammaClick"
-                android:src="@mipmap/wispoprogramma" />
+                android:src="@mipmap/soundboard" />
 
             <!--TODO change this mipmap-->
             <ImageButton
@@ -90,6 +90,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_gala"
                 android:src="@mipmap/soundboard"

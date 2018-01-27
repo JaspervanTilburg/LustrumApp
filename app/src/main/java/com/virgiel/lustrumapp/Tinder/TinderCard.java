@@ -113,6 +113,7 @@ public class TinderCard {
     @SwipeIn
     private void onSwipeIn(){
         postLike();
+        addTinderCard();
     }
 
     @SwipeInState
@@ -157,7 +158,7 @@ public class TinderCard {
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         newContext.startActivity(intent);
                     }
-                    addTinderCard();
+//                    addTinderCard();
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

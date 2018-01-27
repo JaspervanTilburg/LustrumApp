@@ -78,14 +78,14 @@ public class TinderCard {
             Glide.with(mContext).load(LustrumRestClient.BASE_URL + mProfile.getAvatar()).into(profileImageView);
         }
         nameAgeTxt.setText(mProfile.getName().toUpperCase() + ", " + mProfile.getAge());
-        clubTxt.setText(mProfile.getClub().toUpperCase() + " (" + mProfile.getClubjaar());
+        clubTxt.setText(mProfile.getClub().toUpperCase());
         if (mProfile.getVerticale() != null) {
             clubTxt.append(", " + mProfile.getVerticale().toUpperCase());
         }
-        if (mProfile.getClub().equals("ATHOS")) {
+        if (mProfile.getClub().toUpperCase().equals("ATHOS")) {
             clubTxt.append(" BRAVO!");
         }
-        clubTxt.append(")");
+        clubTxt.append(" (" + mProfile.getClubjaar() + ")");
         if (mProfile.getBolletjes() != null) {
             bolletjesTxt.setText(mProfile.getBolletjes() + " BOLLETJES");
         } else {
@@ -151,9 +151,9 @@ public class TinderCard {
                 try {
                     if ((boolean) response.get("is_match")) {
                         Intent intent = new Intent(newContext, TinderMatchActivity.class);
-                        intent.putExtra("name", mProfile.getName());
-                        intent.putExtra("image", mProfile.getAvatar());
-                        intent.putExtra("phone", mProfile.getPhone());
+                        intent.putExtra("name", (String) ((JSONObject) response.get("user")).get("name"));
+                        intent.putExtra("image", (String) ((JSONObject) response.get("user")).get("avatar"));
+                        intent.putExtra("phone", (String) ((JSONObject) response.get("user")).get("phone_number"));
                         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         newContext.startActivity(intent);
                     }

@@ -8,7 +8,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="20dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -20,8 +21,6 @@
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_1"
                 android:onClick="onAboutClick"
@@ -31,7 +30,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
                 android:layout_weight="1"
                 android:onClick="onTinderClick"
                 android:src="@mipmap/tinder"
@@ -42,8 +40,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_gala"
                 android:onClick="onSoundboardClick"
@@ -60,13 +56,12 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/firstRow"
+            android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_wispo"
                 android:onClick="onWispoProgrammaClick"
@@ -77,7 +72,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_wispo"
                 android:onClick="onSnelheidClick"
@@ -89,8 +83,6 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="20dp"
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_gala"
                 android:src="@mipmap/soundboard"

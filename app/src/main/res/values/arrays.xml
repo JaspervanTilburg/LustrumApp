@@ -15,6 +15,7 @@
         <item>berggeit</item>
         <item>gratis</item>
         <item>rambam</item>
+        <item>molbier</item>
     </string-array>
 
     <integer-array name="ids">
@@ -32,6 +33,7 @@
         <item>@raw/berggeit</item>
         <item>@raw/gratis</item>
         <item>@raw/rambam</item>
+        <item>@raw/molbier</item>
     </integer-array>
 
     <integer-array name="imageIds">
@@ -49,5 +51,6 @@
         <item>@drawable/berggeit</item>
         <item>@drawable/gratis</item>
         <item>@drawable/rambam</item>
+        <item>@drawable/molbier</item>
     </integer-array>
 </resources>

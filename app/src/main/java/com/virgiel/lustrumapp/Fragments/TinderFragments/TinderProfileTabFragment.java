@@ -69,7 +69,7 @@ public class TinderProfileTabFragment extends Fragment {
             @Override
             public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
                 System.out.println("Something went wrong " + msg);
-                if (statusCode >= 400 || statusCode <500) {
+                if (statusCode >= 500) {
                     logout();
                 }
             }
@@ -77,7 +77,7 @@ public class TinderProfileTabFragment extends Fragment {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject object) {
                 System.out.println("Something went wrong " + throwable);
-                if (statusCode >= 400 || statusCode <500) {
+                if (statusCode >= 500) {
                     logout();
                 }
             }

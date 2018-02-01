@@ -51,7 +51,7 @@ public class MatchTabFragment extends Fragment {
             @Override
             public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
                 System.out.println("Something went wrong, statuscode: " + statusCode + ", " + msg);
-                if (statusCode >= 400 || statusCode <500) {
+                if (statusCode >= 500) {
                     logout();
                 }
             }

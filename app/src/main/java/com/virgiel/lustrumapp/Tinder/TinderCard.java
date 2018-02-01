@@ -93,7 +93,7 @@ public class TinderCard {
         }
         if (!mProfile.getHuis().equals("") && mProfile.getHuis() != null) {
             huisTxt.setText(mProfile.getHuis().toUpperCase());
-            if (mProfile.getHuis().toUpperCase().equals("JACOBA VAN BEIERENLAAN 49")) {
+            if (mProfile.getHuis().toUpperCase().contains("JACOBA VAN BEIERENLAAN 49") || mProfile.getHuis().toUpperCase().contains("BOTTE BIJL")) {
                 huisTxt.append(" BRAVO!");
             }
         } else {

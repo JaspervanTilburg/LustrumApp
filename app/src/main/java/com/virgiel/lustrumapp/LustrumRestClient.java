@@ -78,6 +78,21 @@ public class LustrumRestClient {
         client.post(null, getAbsoluteUrl("swipe"), entity, "application/json", responseHandler);
     }
 
+    public static void postDisLike(int user_id, ResponseHandlerInterface responseHandler) {
+        JSONObject auth = new JSONObject();
+        StringEntity entity = null;
+        try {
+            auth.put("user_id", user_id);
+            auth.put("is_like", 0);
+            entity = new StringEntity(auth.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        client.post(null, getAbsoluteUrl("swipe"), entity, "application/json", responseHandler);
+    }
+
     public static void postPreferences(String interest, int yearBegin, int yearEnd, ResponseHandlerInterface responseHandler) {
         JSONObject auth = new JSONObject();
         StringEntity entity = null;

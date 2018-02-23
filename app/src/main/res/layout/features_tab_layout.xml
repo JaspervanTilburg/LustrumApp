@@ -31,20 +31,22 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:onClick="onTinderClick"
-                android:src="@mipmap/tinder"
-                android:background="@drawable/lustrum_rectangle_gala"/>
-
+                android:background="@drawable/lustrum_rectangle_1"
+                android:onClick="onSoundboardClick"
+                android:src="@mipmap/soundboard"
+                android:visibility="visible"/>
 
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle_gala"
-                android:onClick="onSoundboardClick"
-                android:src="@mipmap/soundboard"
-                android:visibility="visible"/>
+                android:onClick="onTinderClick"
+                android:src="@mipmap/tinder"
+                android:background="@drawable/lustrum_rectangle_gala"/>
+
+
+
 
 
         </LinearLayout>

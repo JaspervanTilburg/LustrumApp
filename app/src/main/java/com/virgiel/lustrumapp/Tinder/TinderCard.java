@@ -93,7 +93,7 @@ public class TinderCard {
         }
         if (!mProfile.getHuis().equals("") && mProfile.getHuis() != null) {
             huisTxt.setText(mProfile.getHuis().toUpperCase());
-            if (mProfile.getHuis().toUpperCase().equals("JACOBA VAN BEIERENLAAN 49")) {
+            if (mProfile.getHuis().toUpperCase().contains("JACOBA VAN BEIERENLAAN 49") || mProfile.getHuis().toUpperCase().contains("BOTTE BIJL")) {
                 huisTxt.append(" BRAVO!");
             }
         } else {
@@ -103,6 +103,7 @@ public class TinderCard {
 
     @SwipeOut
     private void onSwipedOut(){
+        postDislike();
         addTinderCard();
     }
 
@@ -168,7 +169,29 @@ public class TinderCard {
             @Override
             public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
                 System.out.println("Something went wrong " + msg);
-                if (statusCode >= 400 || statusCode <500) {
+                if (statusCode >= 500) {
+                    logout();
+                }
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject msg) {
+                System.out.println("Something went wrong with queue " + msg);
+            }
+        });
+    }
+
+    public void postDislike() {
+        LustrumRestClient.postDisLike(mProfile.getId(), new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                System.out.println("Dislike posted: " + response);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
+                System.out.println("Something went wrong " + msg);
+                if (statusCode >= 500) {
                     logout();
                 }
             }

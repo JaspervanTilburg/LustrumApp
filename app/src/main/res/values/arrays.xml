@@ -16,6 +16,7 @@
         <item>gratis</item>
         <item>rambam</item>
         <item>molbier</item>
+        <item>onvoldoende</item>
     </string-array>
 
     <integer-array name="ids">
@@ -34,6 +35,7 @@
         <item>@raw/gratis</item>
         <item>@raw/rambam</item>
         <item>@raw/molbier</item>
+        <item>@raw/onvoldoende</item>
     </integer-array>
 
     <integer-array name="imageIds">
@@ -52,5 +54,6 @@
         <item>@drawable/gratis</item>
         <item>@drawable/rambam</item>
         <item>@drawable/molbier</item>
+        <item>@drawable/onvoldoende</item>
     </integer-array>
 </resources>

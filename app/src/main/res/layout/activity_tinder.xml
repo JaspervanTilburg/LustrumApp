@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:fitsSystemWindows="true"
-    tools:context="com.example.tudelftsid.lustrumapp.com.tudelftsid.lustrumapp.Activities.TinderActivity">
+    tools:context="com.virgiel.lustrumapp.Activities.TinderActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/tinderBar"

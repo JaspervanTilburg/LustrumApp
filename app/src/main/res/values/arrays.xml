@@ -32,6 +32,8 @@
         <item>it_giet_oan</item>
         <item>lekker_wijf</item>
         <item>yeah_letsgo</item>
+        <item>chapeau</item>
+        <item>kech</item>
     </string-array>
 
     <integer-array name="ids">
@@ -56,6 +58,8 @@
         <item>@raw/it_giet_oan</item>
         <item>@raw/lekker_wijf</item>
         <item>@raw/yeah_letsgo</item>
+        <item>@raw/chapeau</item>
+        <item>@raw/kech</item>
     </integer-array>
 
     <integer-array name="imageIds">
@@ -80,5 +84,7 @@
         <item>@drawable/it_giet_oan</item>
         <item>@drawable/lekker_wijf</item>
         <item>@drawable/yeah_letsgo</item>
+        <item>@drawable/chapeau</item>
+        <item>@drawable/kech</item>
     </integer-array>
 </resources>

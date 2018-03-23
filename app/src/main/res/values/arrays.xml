@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+
+    <!--
+    Disclaimer:
+
+        New items need to be added to the bottom of each array.
+
+    -->
+
+
     <string-array name="labels">
         <item>dibo</item>
         <item>enorm_bellen</item>
@@ -15,8 +25,13 @@
         <item>berggeit</item>
         <item>gratis</item>
         <item>rambam</item>
-        <item>molbier</item>
         <item>onvoldoende</item>
+        <item>knorrenland</item>
+        <item>ha_bier</item>
+        <item>dat_is_echt_errug</item>
+        <item>it_giet_oan</item>
+        <item>lekker_wijf</item>
+        <item>yeah_letsgo</item>
     </string-array>
 
     <integer-array name="ids">
@@ -34,8 +49,13 @@
         <item>@raw/berggeit</item>
         <item>@raw/gratis</item>
         <item>@raw/rambam</item>
-        <item>@raw/molbier</item>
         <item>@raw/onvoldoende</item>
+        <item>@raw/groen_knorreland</item>
+        <item>@raw/ha_bier</item>
+        <item>@raw/dat_is_echt_errug</item>
+        <item>@raw/it_giet_oan</item>
+        <item>@raw/lekker_wijf</item>
+        <item>@raw/yeah_letsgo</item>
     </integer-array>
 
     <integer-array name="imageIds">
@@ -53,7 +73,12 @@
         <item>@drawable/berggeit</item>
         <item>@drawable/gratis</item>
         <item>@drawable/rambam</item>
-        <item>@drawable/molbier</item>
         <item>@drawable/onvoldoende</item>
+        <item>@drawable/groen_knorreland</item>
+        <item>@drawable/ha_bier</item>
+        <item>@drawable/dat_is_echt_errug</item>
+        <item>@drawable/it_giet_oan</item>
+        <item>@drawable/lekker_wijf</item>
+        <item>@drawable/yeah_letsgo</item>
     </integer-array>
 </resources>

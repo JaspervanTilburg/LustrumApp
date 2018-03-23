@@ -52,6 +52,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".Activities.WispoProgrammaActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.LustrumWeekProgrammaActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

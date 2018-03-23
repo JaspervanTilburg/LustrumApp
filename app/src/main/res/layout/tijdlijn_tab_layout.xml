@@ -113,6 +113,18 @@
         android:onClick="onLustrumWekenInfoClick"/>
 
     <ImageView
+        android:id="@+id/lustrumWeekProgrammaButton"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@drawable/wispoprogramma"
+        android:padding="20dp"
+        android:background="@drawable/lustrum_circle_5"
+        android:elevation="20dp"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:onClick="onLustrumWeekProgrammaClick"/>
+
+    <ImageView
         android:id="@+id/piekWekenInfoButton"
         android:layout_width="90dp"
         android:layout_height="90dp"

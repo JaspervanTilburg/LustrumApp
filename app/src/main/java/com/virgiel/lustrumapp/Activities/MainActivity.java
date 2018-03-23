@@ -204,6 +204,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onLustrumWeekProgrammaClick(View view) {
+        Intent intent = new Intent(this, LustrumWeekProgrammaActivity.class);
+        startActivity(intent);
+    }
+
     public void onLustrumWekenInfoClick(View view) {
         Intent intent = new Intent(this, LustrumWekenInfoActivity.class);
         startActivity(intent);

@@ -30,14 +30,14 @@ public class LustrumWeekProgrammaActivity extends AppCompatActivity {
             Window lustrumWeekProgrammaWindow = this.getWindow();
             lustrumWeekProgrammaWindow.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             lustrumWeekProgrammaWindow.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            lustrumWeekProgrammaWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumBlue_Dark));
+            lustrumWeekProgrammaWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumBlue));
         }
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lustrumweek_programma);
 
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumBlue)));
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumBlue_Dark)));
     }
 
     @Override

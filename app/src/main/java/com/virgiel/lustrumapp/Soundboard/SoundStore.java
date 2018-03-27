@@ -6,6 +6,9 @@ import android.content.res.TypedArray;
 
 import com.virgiel.lustrumapp.R;
 
+import java.util.Arrays;
+import java.util.Collections;
+
 /**
  * Created by Jip on 24-11-2017.
  */
@@ -27,6 +30,8 @@ public abstract class SoundStore {
 
         labels.recycle();
         ids.recycle();
+
+        Collections.reverse(Arrays.asList(sounds));
 
         return sounds;
     }

@@ -70,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/lustrum_rectangle_1"
+                android:background="@drawable/lustrum_rectangle_lustrumweek"
                 android:onClick="onLustrumWeekProgrammaClick"
                 android:src="@mipmap/wispoprogramma" />
 

@@ -62,9 +62,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_wispo"
                 android:onClick="onWispoProgrammaClick"
-                android:src="@mipmap/wispoprogramma" />
-            
-            <!--TODO change this rectangle-->
+                android:src="@mipmap/wispo_programm" />
+
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -72,7 +71,7 @@
                 android:layout_marginLeft="10dp"
                 android:background="@drawable/lustrum_rectangle_lustrumweek"
                 android:onClick="onLustrumWeekProgrammaClick"
-                android:src="@mipmap/wispoprogramma" />
+                android:src="@mipmap/lustrumweek_programm" />
 
             <!-- Filler to maintain 3 buttons on a line -->
             <ImageButton

@@ -1,8 +1,11 @@
 package com.virgiel.lustrumapp.Activities;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ListView;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -41,12 +44,19 @@ public class SelfieStreamActivity extends AppCompatActivity {
                 SelfieStreamAdapter adapter = new SelfieStreamAdapter(getApplicationContext(), selfies, body_font);
                 ListView itemsListView  = findViewById(R.id.selfieListView);
                 itemsListView.setAdapter(adapter);
-                //X2e5qc5LsWs
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
                 System.out.println("Something went wrong, statuscode: " + statusCode + ", " + msg);
+            }
+        });
+
+        FloatingActionButton photoButton = (FloatingActionButton) findViewById(R.id.photoButton);
+        photoButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                startActivity(intent);
             }
         });
     }

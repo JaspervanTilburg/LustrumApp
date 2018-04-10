@@ -53,7 +53,6 @@ public class SelfieStreamAdapter extends BaseAdapter {
         }
 
         Selfie currentItem = (Selfie) getItem(position);
-        System.out.println(currentItem.getImageURL());
         ImageView imageView = (ImageView) convertView.findViewById(R.id.selfieImageView);
         if (!currentItem.getImageURL().contains("missing")) {
             Glide.with(context).load(LustrumRestClient.BASE_URL + currentItem.getImageURL()).into(imageView);

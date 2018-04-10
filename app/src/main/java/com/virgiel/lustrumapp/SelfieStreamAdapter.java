@@ -49,9 +49,15 @@ public class SelfieStreamAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         if (convertView == null) {
             convertView = LayoutInflater.from(context).
-                    inflate(R.layout.tinder_match_list_item, parent, false);
+                    inflate(R.layout.selfie_list_item, parent, false);
         }
+
         Selfie currentItem = (Selfie) getItem(position);
+        System.out.println(currentItem.getImageURL());
+        ImageView imageView = (ImageView) convertView.findViewById(R.id.selfieImageView);
+        if (!currentItem.getImageURL().contains("missing")) {
+            Glide.with(context).load(LustrumRestClient.BASE_URL + currentItem.getImageURL()).into(imageView);
+        }
 
         return convertView;
     }

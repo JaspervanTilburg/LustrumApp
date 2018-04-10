@@ -5,6 +5,7 @@ import android.content.Context;
 import com.virgiel.lustrumapp.DateSpel.DateQuestion;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.virgiel.lustrumapp.Tinder.Profile;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -54,6 +55,24 @@ public class Utils {
                 profileList.add(profile);
             }
             return profileList;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static List<Selfie> loadSelfies(JSONObject response) {
+        try{
+            GsonBuilder builder = new GsonBuilder();
+            Gson gson = builder.create();
+            List<Selfie> selfieList = new ArrayList<>();
+            JSONArray array = (JSONArray) response.get("selfies");
+            for(int i=0;i<array.length();i++){
+                JSONObject selfieObj = (JSONObject) array.get(i);
+                Selfie selfie = gson.fromJson(selfieObj.toString(), Selfie.class);
+                selfieList.add(selfie);
+            }
+            return selfieList;
         }catch (Exception e){
             e.printStackTrace();
             return null;

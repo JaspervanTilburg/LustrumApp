@@ -14,11 +14,11 @@ public class Selfie {
     @Expose
     private Integer id;
 
-    @SerializedName("createdAt")
+    @SerializedName("created_at")
     @Expose
     private String createdAt;
 
-    @SerializedName("imageURL")
+    @SerializedName("image")
     @Expose
     private String imageURL;
 

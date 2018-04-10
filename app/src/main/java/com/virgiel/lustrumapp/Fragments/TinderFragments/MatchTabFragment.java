@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.virgiel.lustrumapp.LustrumRestClient;
-import com.virgiel.lustrumapp.Profile;
+import com.virgiel.lustrumapp.Tinder.Profile;
 import com.virgiel.lustrumapp.R;
 import com.virgiel.lustrumapp.Tinder.TinderMatchAdapter;
 import com.virgiel.lustrumapp.Utils;

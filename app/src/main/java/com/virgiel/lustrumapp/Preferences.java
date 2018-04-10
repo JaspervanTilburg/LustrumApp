@@ -1,6 +1,7 @@
 package com.virgiel.lustrumapp;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.virgiel.lustrumapp.Tinder.Profile;
 
 import org.json.JSONObject;
 

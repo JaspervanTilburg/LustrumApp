@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.virgiel.lustrumapp.Activities.TinderMatchActivity;
 import com.virgiel.lustrumapp.LustrumRestClient;
-import com.virgiel.lustrumapp.Profile;
 import com.virgiel.lustrumapp.R;
 import com.virgiel.lustrumapp.Utils;
 import com.loopj.android.http.JsonHttpResponseHandler;

@@ -229,8 +229,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onSnelheidClick(View view) {
-        Intent intent = new Intent(this, SnelheidActivity.class);
+    public void onSelfieStreamClick(View view) {
+        Intent intent = new Intent(this, SelfieStreamActivity.class);
         startActivity(intent);
     }
 }

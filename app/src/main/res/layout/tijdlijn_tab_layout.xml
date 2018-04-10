@@ -101,6 +101,18 @@
         -->
 
     <ImageView
+        android:id="@+id/selfieStreamButton"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
+        android:src="@mipmap/info"
+        android:padding="20dp"
+        android:background="@drawable/lustrum_circle_5"
+        android:elevation="20dp"
+        android:visibility="invisible"
+        android:clickable="true"
+        android:onClick="onSelfieStreamClick"/>
+
+    <ImageView
         android:id="@+id/lustrumWeekInfoButton"
         android:layout_width="90dp"
         android:layout_height="90dp"

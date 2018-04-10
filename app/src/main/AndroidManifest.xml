@@ -54,6 +54,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".Activities.LustrumWeekProgrammaActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.SelfieStreamActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

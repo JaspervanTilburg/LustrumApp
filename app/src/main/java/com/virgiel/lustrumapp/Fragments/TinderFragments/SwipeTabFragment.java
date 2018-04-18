@@ -97,7 +97,7 @@ public class SwipeTabFragment extends Fragment {
     }
 
     public void getRandomUser() {
-        LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
+        LustrumRestClient.getWithHeader("/queue", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile profile = Utils.loadProfile(response);

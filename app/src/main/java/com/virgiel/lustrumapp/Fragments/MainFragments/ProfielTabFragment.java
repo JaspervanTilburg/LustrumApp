@@ -153,7 +153,7 @@ public class ProfielTabFragment extends Fragment {
     }
 
     private void makeWelcomePersonal(final TextView welcomeTxt) {
-        LustrumRestClient.getWithHeader("profile", null, new JsonHttpResponseHandler() {
+        LustrumRestClient.getWithHeader("/profile", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile myProfile = Utils.loadProfile(response);

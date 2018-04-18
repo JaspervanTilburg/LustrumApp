@@ -8,14 +8,22 @@ import com.loopj.android.http.ResponseHandlerInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.UnsupportedEncodingException;
 
+import cz.msebera.android.httpclient.HttpEntity;
+import cz.msebera.android.httpclient.entity.ContentType;
 import cz.msebera.android.httpclient.entity.StringEntity;
+import cz.msebera.android.httpclient.entity.mime.HttpMultipartMode;
+import cz.msebera.android.httpclient.entity.mime.MultipartEntityBuilder;
+import cz.msebera.android.httpclient.entity.mime.content.FileBody;
 
 public class LustrumRestClient {
 
     public static final String FILE_NAME = "lustrum_virgiel_token.txt";
-    public static final String BASE_URL = "https://api.lustrumvirgiel.nl/";
+    public static final String BASE_URL = "https://api.lustrumvirgiel.nl";
     private static AsyncHttpClient client = new AsyncHttpClient();
     private static String token;
 
@@ -60,7 +68,7 @@ public class LustrumRestClient {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        client.post(null, getAbsoluteUrl("auth"), entity, "application/json", responseHandler);
+        client.post(null, getAbsoluteUrl("/auth"), entity, "application/json", responseHandler);
     }
 
     public static void postLike(int user_id, ResponseHandlerInterface responseHandler) {
@@ -75,7 +83,7 @@ public class LustrumRestClient {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        client.post(null, getAbsoluteUrl("swipe"), entity, "application/json", responseHandler);
+        client.post(null, getAbsoluteUrl("/swipe"), entity, "application/json", responseHandler);
     }
 
     public static void postDisLike(int user_id, ResponseHandlerInterface responseHandler) {
@@ -90,7 +98,7 @@ public class LustrumRestClient {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        client.post(null, getAbsoluteUrl("swipe"), entity, "application/json", responseHandler);
+        client.post(null, getAbsoluteUrl("/swipe"), entity, "application/json", responseHandler);
     }
 
     public static void postPreferences(String interest, int yearBegin, int yearEnd, ResponseHandlerInterface responseHandler) {
@@ -106,7 +114,16 @@ public class LustrumRestClient {
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
-        client.post(null, getAbsoluteUrl("preferences"), entity, "application/json", responseHandler);
+        client.post(null, getAbsoluteUrl("/preferences"), entity, "application/json", responseHandler);
+    }
+
+    public static void postSelfie(String imageURL, ResponseHandlerInterface responseHandlerInterface) {
+        File myFile = new File(imageURL);
+        RequestParams params = new RequestParams();
+        try {
+            params.put("image", myFile);
+        } catch(FileNotFoundException e) {}
+        client.post(getAbsoluteUrl("/selfies"), params, responseHandlerInterface);
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {

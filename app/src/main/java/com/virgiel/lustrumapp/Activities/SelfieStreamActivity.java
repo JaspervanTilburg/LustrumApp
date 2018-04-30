@@ -3,10 +3,9 @@ package com.virgiel.lustrumapp.Activities;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Typeface;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
@@ -17,7 +16,6 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
-import com.loopj.android.http.ResponseHandlerInterface;
 import com.virgiel.lustrumapp.LustrumRestClient;
 import com.virgiel.lustrumapp.R;
 import com.virgiel.lustrumapp.Selfie;
@@ -26,7 +24,6 @@ import com.virgiel.lustrumapp.Utils;
 
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
@@ -47,22 +44,7 @@ public class SelfieStreamActivity extends AppCompatActivity {
         setContentView(R.layout.activity_selfie_stream);
         body_font = Typeface.createFromAsset(getAssets(), "fonts/DIN_Bold.ttf");
 
-        LustrumRestClient.getWithHeader("/selfies", null, new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("Selfies Retrieved: " + response);
-
-                selfies = Utils.loadSelfies(response);
-                SelfieStreamAdapter adapter = new SelfieStreamAdapter(getApplicationContext(), selfies, body_font);
-                ListView itemsListView  = findViewById(R.id.selfieListView);
-                itemsListView.setAdapter(adapter);
-            }
-
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
-                System.out.println("Something went wrong, statuscode: " + statusCode + ", " + msg);
-            }
-        });
+        retrieveSelfies();
 
         FloatingActionButton photoButton = (FloatingActionButton) findViewById(R.id.photoButton);
         photoButton.setOnClickListener(new View.OnClickListener() {
@@ -85,17 +67,17 @@ public class SelfieStreamActivity extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode, resultCode, data);
-        System.out.println("Posting " + data.getExtras().get("data"));
-        LustrumRestClient.postSelfie(data.getData().getPath(), new JsonHttpResponseHandler() {
+        LustrumRestClient.postSelfie((Bitmap) data.getExtras().get("data"), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("Selfie posted: " + response);
+                Toast.makeText(getApplicationContext(), "Selfie Posted", Toast.LENGTH_SHORT).show();
+                retrieveSelfies();
             }
 
             @Override
             public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
-                System.out.println("Something went wrong " + statusCode + ", " + throwable);
+                System.out.println("Something went wrong with selfie post" + statusCode + ", " + msg + ", " + throwable);
             }
 
             @Override
@@ -118,4 +100,22 @@ public class SelfieStreamActivity extends AppCompatActivity {
         }
     }
 
+    public void retrieveSelfies() {
+        LustrumRestClient.getWithHeader("/selfies", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                System.out.println("Selfies Retrieved: " + response);
+
+                selfies = Utils.loadSelfies(response);
+                SelfieStreamAdapter adapter = new SelfieStreamAdapter(getApplicationContext(), selfies, body_font);
+                ListView itemsListView  = findViewById(R.id.selfieListView);
+                itemsListView.setAdapter(adapter);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
+                System.out.println("Something went wrong, statuscode: " + statusCode + ", " + msg);
+            }
+        });
+    }
 }

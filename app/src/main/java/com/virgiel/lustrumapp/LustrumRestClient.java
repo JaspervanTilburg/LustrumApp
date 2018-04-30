@@ -1,5 +1,8 @@
 package com.virgiel.lustrumapp;
 
+import android.graphics.Bitmap;
+import android.util.Base64;
+
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.AsyncHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
@@ -8,17 +11,10 @@ import com.loopj.android.http.ResponseHandlerInterface;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.ByteArrayOutputStream;
 import java.io.UnsupportedEncodingException;
 
-import cz.msebera.android.httpclient.HttpEntity;
-import cz.msebera.android.httpclient.entity.ContentType;
 import cz.msebera.android.httpclient.entity.StringEntity;
-import cz.msebera.android.httpclient.entity.mime.HttpMultipartMode;
-import cz.msebera.android.httpclient.entity.mime.MultipartEntityBuilder;
-import cz.msebera.android.httpclient.entity.mime.content.FileBody;
 
 public class LustrumRestClient {
 
@@ -117,13 +113,23 @@ public class LustrumRestClient {
         client.post(null, getAbsoluteUrl("/preferences"), entity, "application/json", responseHandler);
     }
 
-    public static void postSelfie(String imageURL, ResponseHandlerInterface responseHandlerInterface) {
-        File myFile = new File(imageURL);
-        RequestParams params = new RequestParams();
+    public static void postSelfie(Bitmap bitmap, ResponseHandlerInterface responseHandlerInterface) {
+        JSONObject auth = new JSONObject();
+        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+        byte[] data = bos.toByteArray();
+        String imageEncoded = Base64.encodeToString(data, Base64.DEFAULT);
+        StringEntity entity = null;
         try {
-            params.put("image", myFile);
-        } catch(FileNotFoundException e) {}
-        client.post(getAbsoluteUrl("/selfies"), params, responseHandlerInterface);
+            auth.put("image", "data:image/jpeg;base64," + imageEncoded);
+            entity = new StringEntity(auth.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        System.out.println("JSON: " + auth.toString());
+        client.post(null, getAbsoluteUrl("/selfies"), entity, "application/json", responseHandlerInterface);
     }
 
     private static String getAbsoluteUrl(String relativeUrl) {

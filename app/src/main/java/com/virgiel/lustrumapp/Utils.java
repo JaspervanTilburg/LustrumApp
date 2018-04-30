@@ -67,10 +67,12 @@ public class Utils {
             Gson gson = builder.create();
             List<Selfie> selfieList = new ArrayList<>();
             JSONArray array = (JSONArray) response.get("selfies");
-            for(int i=0;i<array.length();i++){
+            for(int i=0;i<array.length();i++) {
                 JSONObject selfieObj = (JSONObject) array.get(i);
                 Selfie selfie = gson.fromJson(selfieObj.toString(), Selfie.class);
-                selfieList.add(selfie);
+                if (!selfie.getImageURL().contains("missing")) {
+                    selfieList.add(selfie);
+                }
             }
             return selfieList;
         }catch (Exception e){

@@ -5,6 +5,7 @@
     android:layout_height="wrap_content">
 
     <android.support.v7.widget.CardView
+        android:id="@+id/selfieCardView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -14,13 +15,47 @@
         android:layout_marginBottom="5dp"
         card_view:cardCornerRadius="7dp"
         card_view:cardElevation="4dp"
-        android:background="@color/lustrumLightBlue_Dark">
+        card_view:cardBackgroundColor="#FFFFFF">
 
-        <ImageView
-            android:id="@+id/selfieImageView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="5dp"
-            android:src="@drawable/baby_face" />
+            android:layout_height="match_parent"
+            android:layout_margin="2dp">
+
+            <ImageView
+                android:id="@+id/selfieImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/baby_face" />
+
+            <RelativeLayout
+                android:layout_width="100dp"
+                android:layout_height="60dp"
+                android:layout_alignBottom="@id/selfieImageView">
+
+                <ImageButton
+                    android:id="@+id/selfieLikeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_corners_button"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/likesTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:padding="5dp"
+                    android:drawableLeft="@mipmap/selfie_like"
+                    android:text="LIKES"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
     </android.support.v7.widget.CardView>
+
 </RelativeLayout>

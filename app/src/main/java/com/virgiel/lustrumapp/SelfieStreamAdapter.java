@@ -7,9 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -62,6 +64,7 @@ public class SelfieStreamAdapter extends BaseAdapter {
         final TextView likesTextView = convertView.findViewById(R.id.likesTextView);
         final View convertViewFinal = convertView;
         ImageButton selfieLikeButton = convertView.findViewById(R.id.selfieLikeButton);
+        Button selfieDeleteButton = convertView.findViewById(R.id.selfieDeleteButton);
 
         selfieLikeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -74,6 +77,17 @@ public class SelfieStreamAdapter extends BaseAdapter {
                     postSelfieLike(selfie.getId());
                     likesTextView.setText((selfie.getLikes() + 1) + "");
                     likesTextView.setTextColor(convertViewFinal.getContext().getResources().getColor(R.color.lustrumBlue_Dark));
+                }
+            }
+        });
+
+        selfieDeleteButton.setBackgroundColor(Color.TRANSPARENT);
+        selfieDeleteButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Selfie selfie = items.get(position);
+                if (LustrumRestClient.getToken().equals("eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJleHAiOjE1MjM1NDQ1MDEsInN1YiI6Njc0fQ._d5IkbZ7L-7tqOFoXp1NgMgKCqRbrw0CxWs48Wv4ju0")) {
+                    deleteSelfie(selfie.getId());
+                    Toast.makeText(context, "Selfie Deleted", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -121,6 +135,25 @@ public class SelfieStreamAdapter extends BaseAdapter {
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject msg) {
                 System.out.println("Something went wrong with selfie unlike " + msg);
+            }
+        });
+    }
+
+    public void deleteSelfie(int image_id) {
+        LustrumRestClient.getWithHeader("/selfies/" + image_id + "/delete", null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                System.out.println("Selfie deleted: " + response);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
+                System.out.println("Something went wrong with selfie delete" + statusCode + ", " + msg + ", " + throwable);
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject msg) {
+                System.out.println("Something went wrong with selfie delete " + msg);
             }
         });
     }

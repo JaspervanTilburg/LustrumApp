@@ -29,6 +29,11 @@
                 android:layout_margin="5dp"
                 android:src="@drawable/baby_face" />
 
+            <Button
+                android:id="@+id/selfieDeleteButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
             <RelativeLayout
                 android:layout_width="100dp"
                 android:layout_height="60dp"

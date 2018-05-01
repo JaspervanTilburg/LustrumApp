@@ -26,6 +26,10 @@ public class Selfie {
     @Expose
     private Integer likes;
 
+    @SerializedName("liked_by_me")
+    @Expose
+    private boolean likedByMe;
+
     public Integer getId() {
         return id;
     }
@@ -56,5 +60,13 @@ public class Selfie {
 
     public void setLikes(Integer likes) {
         this.likes = likes;
+    }
+
+    public boolean isLikedByMe() {
+        return likedByMe;
+    }
+
+    public void setLikedByMe(boolean likedByMe) {
+        this.likedByMe = likedByMe;
     }
 }

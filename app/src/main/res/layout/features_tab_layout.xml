@@ -41,9 +41,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:onClick="onTinderClick"
-                android:src="@mipmap/tinder"
-                android:background="@drawable/lustrum_rectangle_gala"/>
+                android:onClick="onSelfieStreamClick"
+                android:background="@drawable/lustrum_rectangle_1"
+                android:src="@mipmap/selfiestream"/>
+
         </LinearLayout>
 
         <LinearLayout
@@ -73,15 +74,15 @@
                 android:onClick="onLustrumWeekProgrammaClick"
                 android:src="@mipmap/lustrumweek_programm" />
 
-            <!-- Filler to maintain 3 buttons on a line -->
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle_gala"
-                android:src="@mipmap/soundboard"
-                android:visibility="invisible" />
+                android:onClick="onTinderClick"
+                android:src="@mipmap/tinder"
+                android:background="@drawable/lustrum_rectangle_gala"/>
+
         </LinearLayout>
 
 

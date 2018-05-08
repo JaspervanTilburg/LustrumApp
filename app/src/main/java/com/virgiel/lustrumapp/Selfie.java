@@ -30,6 +30,10 @@ public class Selfie {
     @Expose
     private boolean likedByMe;
 
+    @SerializedName("user")
+    @Expose
+    private String user;
+
     public Integer getId() {
         return id;
     }
@@ -42,31 +46,27 @@ public class Selfie {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
-        this.createdAt = createdAt;
-    }
-
     public String getImageURL() {
         return imageURL;
-    }
-
-    public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
     }
 
     public Integer getLikes() {
         return likes;
     }
 
-    public void setLikes(Integer likes) {
-        this.likes = likes;
-    }
-
     public boolean isLikedByMe() {
         return likedByMe;
     }
 
+    public void setLikes(Integer likes) {
+        this.likes = likes;
+    }
+
     public void setLikedByMe(boolean likedByMe) {
         this.likedByMe = likedByMe;
+    }
+
+    public String getUser() {
+        return user;
     }
 }

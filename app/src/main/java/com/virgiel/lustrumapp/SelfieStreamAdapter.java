@@ -3,6 +3,7 @@ package com.virgiel.lustrumapp;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,24 +60,34 @@ public class SelfieStreamAdapter extends BaseAdapter {
                     inflate(R.layout.selfie_list_item, parent, false);
         }
 
-        Selfie currentItem = (Selfie) getItem(position);
+        final Selfie currentItem = (Selfie) getItem(position);
         ImageView imageView = convertView.findViewById(R.id.selfieImageView);
-        final TextView likesTextView = convertView.findViewById(R.id.likesTextView);
-        final View convertViewFinal = convertView;
+        TextView userNameView = convertView.findViewById(R.id.selfieUserName);
         ImageButton selfieLikeButton = convertView.findViewById(R.id.selfieLikeButton);
         Button selfieDeleteButton = convertView.findViewById(R.id.selfieDeleteButton);
+        final TextView likesTextView = convertView.findViewById(R.id.likesTextView);
+        final Drawable likePink = convertView.getResources().getDrawable(R.mipmap.like_pink);
+        final Drawable likeWhite = convertView.getResources().getDrawable(R.mipmap.like);
+        likePink.setBounds(0,0,50,50);
+        likeWhite.setBounds(0,0,50,50);
+        userNameView.setTypeface(font);
+        likesTextView.setTypeface(font);
 
         selfieLikeButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Selfie selfie = items.get(position);
-                if (selfie.isLikedByMe()) {
+                if (currentItem.isLikedByMe()) {
+                    currentItem.setLikedByMe(false);
+                    currentItem.setLikes(currentItem.getLikes() - 1);
                     postSelfieUnLike(selfie.getId());
-                    likesTextView.setText((selfie.getLikes() - 1) + "");
-                    likesTextView.setTextColor(Color.WHITE);
+                    likesTextView.setText(" " + currentItem.getLikes() + " vind-ik-vo's");
+                    likesTextView.setCompoundDrawables(likeWhite, null, null, null);
                 } else {
+                    currentItem.setLikedByMe(true);
+                    currentItem.setLikes(currentItem.getLikes() + 1);
                     postSelfieLike(selfie.getId());
-                    likesTextView.setText((selfie.getLikes() + 1) + "");
-                    likesTextView.setTextColor(convertViewFinal.getContext().getResources().getColor(R.color.lustrumBlue_Dark));
+                    likesTextView.setText(" " + currentItem.getLikes() + " vind-ik-vo's");
+                    likesTextView.setCompoundDrawables(likePink, null, null, null);
                 }
             }
         });
@@ -93,9 +104,10 @@ public class SelfieStreamAdapter extends BaseAdapter {
         });
 
         Glide.with(context).load(LustrumRestClient.BASE_URL + currentItem.getImageURL()).into(imageView);
-        likesTextView.setText(currentItem.getLikes().toString());
+        likesTextView.setText(" " + currentItem.getLikes() + " vind-ik-vo's");
+        userNameView.setText(currentItem.getUser());
         if (currentItem.isLikedByMe()) {
-            likesTextView.setTextColor(convertView.getContext().getResources().getColor(R.color.lustrumBlue_Dark));
+            likesTextView.setCompoundDrawables(likePink, null, null, null);
         }
         return convertView;
 

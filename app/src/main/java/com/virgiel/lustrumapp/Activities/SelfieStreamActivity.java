@@ -66,25 +66,27 @@ public class SelfieStreamActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data){
-        LustrumRestClient.postSelfie((Bitmap) data.getExtras().get("data"), new JsonHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
-                System.out.println("Selfie posted: " + response);
-                Toast.makeText(getApplicationContext(), "Selfie Posted", Toast.LENGTH_SHORT).show();
-                retrieveSelfies();
-            }
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 1 && data != null) {
+            LustrumRestClient.postSelfie((Bitmap) data.getExtras().get("data"), new JsonHttpResponseHandler() {
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    System.out.println("Selfie posted: " + response);
+                    Toast.makeText(getApplicationContext(), "Selfie Posted", Toast.LENGTH_SHORT).show();
+                    retrieveSelfies();
+                }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
-                System.out.println("Something went wrong with selfie post" + statusCode + ", " + msg + ", " + throwable);
-            }
+                @Override
+                public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
+                    System.out.println("Something went wrong with selfie post" + statusCode + ", " + msg + ", " + throwable);
+                }
 
-            @Override
-            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject msg) {
-                System.out.println("Something went wrong with selfie post " + msg);
-            }
-        });
+                @Override
+                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject msg) {
+                    System.out.println("Something went wrong with selfie post " + msg);
+                }
+            });
+        }
     }
 
     @Override

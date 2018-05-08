@@ -230,7 +230,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSelfieStreamClick(View view) {
-        Intent intent = new Intent(this, SelfieStreamActivity.class);
-        startActivity(intent);
+        if (!LustrumRestClient.hasToken()) {
+            mViewPager.setCurrentItem(1);
+        } else {
+            Intent intent = new Intent(this, SelfieStreamActivity.class);
+            startActivity(intent);
+        }
     }
 }

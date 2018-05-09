@@ -67,7 +67,7 @@ public class SelfieStreamActivity extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == 1 && data != null) {
+        if (requestCode == CAMERA_PERMISSION && data != null) {
             LustrumRestClient.postSelfie((Bitmap) data.getExtras().get("data"), new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {

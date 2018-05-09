@@ -1,6 +1,7 @@
 package com.virgiel.lustrumapp;
 
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.virgiel.lustrumapp.Tinder.Profile;
 
 import org.json.JSONObject;
 
@@ -45,7 +46,7 @@ public class Preferences {
     }
 
     public static void initPreferences() {
-        LustrumRestClient.getWithHeader("profile", null, new JsonHttpResponseHandler() {
+        LustrumRestClient.getWithHeader("/profile", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("My Profile loaded: " + response);

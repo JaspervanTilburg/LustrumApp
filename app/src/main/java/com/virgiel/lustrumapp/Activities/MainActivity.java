@@ -229,8 +229,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onSnelheidClick(View view) {
-        Intent intent = new Intent(this, SnelheidActivity.class);
-        startActivity(intent);
+    public void onSelfieStreamClick(View view) {
+        if (!LustrumRestClient.hasToken()) {
+            mViewPager.setCurrentItem(1);
+        } else {
+            Intent intent = new Intent(this, SelfieStreamActivity.class);
+            startActivity(intent);
+        }
     }
 }

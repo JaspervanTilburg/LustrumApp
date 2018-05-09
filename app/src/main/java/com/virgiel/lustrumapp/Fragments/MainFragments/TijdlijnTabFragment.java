@@ -113,6 +113,7 @@ public class TijdlijnTabFragment extends Fragment {
 
         LustrumButton piekWekenInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenInfoButton), R.color.lustrumPink, width*0.59f, height*0.78f);
 
+        LustrumButton selfieStreamButton = new LustrumButton((ImageView) rootView.findViewById(R.id.selfieStreamButton), R.color.lustrumPink, width*0.7f, height*0.15f);
         galaButton.addChildButton(galaInfoButton);
         //galaButton.addChildButton(galaSpelButton);
         galaButton.addChildButton(galaTinderButton);
@@ -123,6 +124,7 @@ public class TijdlijnTabFragment extends Fragment {
 
         lustrumWeekButton.addChildButton(lustrumWeekInfoButton);
         lustrumWeekButton.addChildButton(lustrumWeekProgrammaButton);
+        lustrumWeekButton.addChildButton(selfieStreamButton);
 
         piekWekenButton.addChildButton(piekWekenInfoButton);
 
@@ -135,6 +137,7 @@ public class TijdlijnTabFragment extends Fragment {
         lustrumButtons.add(lustrumWeekInfoButton);
         lustrumButtons.add(lustrumWeekProgrammaButton);
         lustrumButtons.add(piekWekenInfoButton);
+        lustrumButtons.add(selfieStreamButton);
 
         selectedButton = lustrumButtons.get(1);
         selectedButton.animateExpand();

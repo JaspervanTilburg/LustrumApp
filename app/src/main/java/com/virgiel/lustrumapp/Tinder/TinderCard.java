@@ -10,7 +10,6 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.virgiel.lustrumapp.Activities.TinderMatchActivity;
 import com.virgiel.lustrumapp.LustrumRestClient;
-import com.virgiel.lustrumapp.Profile;
 import com.virgiel.lustrumapp.R;
 import com.virgiel.lustrumapp.Utils;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -129,7 +128,7 @@ public class TinderCard {
         final SwipePlaceHolderView newSwipeView = mSwipeView;
         final Context newContext = mContext;
         final Typeface newFont = mFont;
-        LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
+        LustrumRestClient.getWithHeader("/queue", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile profile = Utils.loadProfile(response);

@@ -11,7 +11,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.virgiel.lustrumapp.LustrumRestClient;
-import com.virgiel.lustrumapp.Profile;
 import com.virgiel.lustrumapp.R;
 
 import java.text.SimpleDateFormat;

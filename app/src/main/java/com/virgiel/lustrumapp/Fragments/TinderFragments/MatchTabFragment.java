@@ -10,7 +10,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.virgiel.lustrumapp.LustrumRestClient;
-import com.virgiel.lustrumapp.Profile;
+import com.virgiel.lustrumapp.Tinder.Profile;
 import com.virgiel.lustrumapp.R;
 import com.virgiel.lustrumapp.Tinder.TinderMatchAdapter;
 import com.virgiel.lustrumapp.Utils;
@@ -37,7 +37,7 @@ public class MatchTabFragment extends Fragment {
         rootView = inflater.inflate(R.layout.match_tab_layout, container, false);
         body_font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/DIN_Bold.ttf");
 
-        LustrumRestClient.getWithHeader("matches", null, new JsonHttpResponseHandler() {
+        LustrumRestClient.getWithHeader("/matches", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("Matches Retrieved: " + response);

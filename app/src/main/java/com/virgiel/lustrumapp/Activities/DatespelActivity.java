@@ -61,7 +61,7 @@ public class DatespelActivity extends AppCompatActivity {
     }
 
     public void getDateCards() throws JSONException {
-        LustrumRestClient.get("date_questions", null, new JsonHttpResponseHandler() {
+        LustrumRestClient.get("/date_questions", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONArray response) {
                 try {

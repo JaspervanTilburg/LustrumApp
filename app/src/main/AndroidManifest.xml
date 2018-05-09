@@ -7,6 +7,10 @@
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.WRITE_CONTACTS"/>
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-feature android:name="android.hardware.camera" android:required="true" />
+
 
     <application
         android:allowBackup="true"
@@ -53,6 +57,8 @@
         <activity android:name=".Activities.WispoProgrammaActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".Activities.LustrumWeekProgrammaActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.SelfieStreamActivity"
             android:screenOrientation="portrait"/>
     </application>
 

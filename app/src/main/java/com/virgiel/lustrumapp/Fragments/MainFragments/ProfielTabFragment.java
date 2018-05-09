@@ -14,7 +14,7 @@ import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import com.virgiel.lustrumapp.LustrumRestClient;
-import com.virgiel.lustrumapp.Profile;
+import com.virgiel.lustrumapp.Tinder.Profile;
 import com.virgiel.lustrumapp.PushnotificationSettings;
 import com.virgiel.lustrumapp.R;
 import com.virgiel.lustrumapp.Utils;
@@ -153,7 +153,7 @@ public class ProfielTabFragment extends Fragment {
     }
 
     private void makeWelcomePersonal(final TextView welcomeTxt) {
-        LustrumRestClient.getWithHeader("profile", null, new JsonHttpResponseHandler() {
+        LustrumRestClient.getWithHeader("/profile", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile myProfile = Utils.loadProfile(response);

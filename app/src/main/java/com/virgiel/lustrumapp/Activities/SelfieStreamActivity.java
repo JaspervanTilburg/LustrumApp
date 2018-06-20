@@ -4,13 +4,20 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
 import android.graphics.Typeface;
+import android.media.ExifInterface;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -24,6 +31,10 @@ import com.virgiel.lustrumapp.Utils;
 
 import org.json.JSONObject;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import cz.msebera.android.httpclient.Header;
@@ -36,6 +47,7 @@ public class SelfieStreamActivity extends AppCompatActivity {
 
     private Typeface body_font;
     private List<Selfie> selfies;
+    private File mCurrentPhoto;
     public static final int CAMERA_PERMISSION = 18;
 
     @Override
@@ -54,7 +66,19 @@ public class SelfieStreamActivity extends AppCompatActivity {
                     requestPermission();
                 } else {
                     Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    startActivityForResult(takePictureIntent, CAMERA_PERMISSION);
+                    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                        try {
+                            File photoFile = null;
+                            photoFile = createImageFile();
+                            if (photoFile != null) {
+                                Uri photoURI = FileProvider.getUriForFile(getApplicationContext(),
+                                        "com.example.android.fileprovider",
+                                        photoFile);
+                                takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                                startActivityForResult(takePictureIntent, CAMERA_PERMISSION);
+                            }
+                        } catch (IOException ex) {}
+                    }
                 }
             }
         });
@@ -67,8 +91,10 @@ public class SelfieStreamActivity extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAMERA_PERMISSION && data != null) {
-            LustrumRestClient.postSelfie((Bitmap) data.getExtras().get("data"), new JsonHttpResponseHandler() {
+        if (requestCode == CAMERA_PERMISSION) { // && data != null) {
+            Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhoto.getAbsolutePath());
+            bitmap = rotateBitmap(bitmap, mCurrentPhoto);
+            LustrumRestClient.postSelfie(bitmap, new JsonHttpResponseHandler() {
                 @Override
                 public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                     System.out.println("Selfie posted: " + response);
@@ -78,12 +104,12 @@ public class SelfieStreamActivity extends AppCompatActivity {
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, String msg, Throwable throwable) {
-                    System.out.println("Something went wrong with selfie post" + statusCode + ", " + msg + ", " + throwable);
+                    System.out.println("Something went wrong with selfie post: " + statusCode + ", " + msg + ", " + throwable);
                 }
 
                 @Override
                 public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject msg) {
-                    System.out.println("Something went wrong with selfie post " + msg);
+                    System.out.println("Something went wrong with selfie post: " + msg);
                 }
             });
         }
@@ -126,6 +152,59 @@ public class SelfieStreamActivity extends AppCompatActivity {
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imageFileName,".jpg",storageDir);
+        mCurrentPhoto = image;
         return image;
+    }
+
+    public static Bitmap rotateBitmap(Bitmap bitmap, File file) {
+        ExifInterface exif = null;
+        try {
+            exif = new ExifInterface(file.getAbsolutePath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION,
+                ExifInterface.ORIENTATION_UNDEFINED);
+
+        Matrix matrix = new Matrix();
+        switch (orientation) {
+            case ExifInterface.ORIENTATION_NORMAL:
+                return bitmap;
+            case ExifInterface.ORIENTATION_FLIP_HORIZONTAL:
+                matrix.setScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_180:
+                matrix.setRotate(180);
+                break;
+            case ExifInterface.ORIENTATION_FLIP_VERTICAL:
+                matrix.setRotate(180);
+                matrix.postScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_TRANSPOSE:
+                matrix.setRotate(90);
+                matrix.postScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_90:
+                matrix.setRotate(90);
+                break;
+            case ExifInterface.ORIENTATION_TRANSVERSE:
+                matrix.setRotate(-90);
+                matrix.postScale(-1, 1);
+                break;
+            case ExifInterface.ORIENTATION_ROTATE_270:
+                matrix.setRotate(-90);
+                break;
+            default:
+                return bitmap;
+        }
+        try {
+            Bitmap bmRotated = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            bitmap.recycle();
+            return bmRotated;
+        }
+        catch (OutOfMemoryError e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

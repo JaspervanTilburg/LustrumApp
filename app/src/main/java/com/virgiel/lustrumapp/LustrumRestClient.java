@@ -116,7 +116,7 @@ public class LustrumRestClient {
     public static void postSelfie(Bitmap bitmap, ResponseHandlerInterface responseHandlerInterface) {
         JSONObject auth = new JSONObject();
         ByteArrayOutputStream bos = new ByteArrayOutputStream();
-        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, bos);
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 75, bos);
         byte[] data = bos.toByteArray();
         String imageEncoded = Base64.encodeToString(data, Base64.DEFAULT);
         StringEntity entity = null;

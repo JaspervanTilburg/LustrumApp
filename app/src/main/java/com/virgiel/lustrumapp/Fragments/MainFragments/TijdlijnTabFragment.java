@@ -49,7 +49,7 @@ public class TijdlijnTabFragment extends Fragment {
         initButtons();
         initSwipe();
         initTitle();
-        selectButton(lustrumButtons.get(2));
+        selectButton(lustrumButtons.get(3));
     }
 
     public void initTitle() {

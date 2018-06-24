@@ -124,8 +124,8 @@ public class TijdlijnTabFragment extends Fragment {
 
         lustrumWeekButton.addChildButton(lustrumWeekInfoButton);
         lustrumWeekButton.addChildButton(lustrumWeekProgrammaButton);
-        lustrumWeekButton.addChildButton(selfieStreamButton);
 
+        piekWekenButton.addChildButton(selfieStreamButton);
         piekWekenButton.addChildButton(piekWekenInfoButton);
 
         lustrumButtons.add(galaInfoButton);

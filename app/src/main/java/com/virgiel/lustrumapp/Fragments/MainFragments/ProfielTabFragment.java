@@ -158,7 +158,7 @@ public class ProfielTabFragment extends Fragment {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile myProfile = Utils.loadProfile(response);
                 String welcomeString = welcomeTxt.getText().toString();
-                welcomeString += ", " + myProfile.getName().toUpperCase();
+                welcomeString += ",\n" + myProfile.getName().toUpperCase();
                 welcomeTxt.setText(welcomeString);
             }
 

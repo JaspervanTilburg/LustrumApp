@@ -44,6 +44,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".InfoPages.PiekWeekInfoActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.PintenVangenActivity"
+            android:screenOrientation="portrait"/>
         <activity android:name=".Activities.SoundboardActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".Activities.AboutActivity"

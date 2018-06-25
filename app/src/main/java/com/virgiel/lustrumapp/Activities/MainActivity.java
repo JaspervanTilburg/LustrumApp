@@ -209,6 +209,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onPintenVangenClick(View view) {
+        Intent intent = new Intent(this, PintenVangenActivity.class);
+        startActivity(intent);
+    }
+
     public void onPiekWeekInfoClick(View view) {
         Intent intent = new Intent(this, PiekWeekInfoActivity.class);
         startActivity(intent);

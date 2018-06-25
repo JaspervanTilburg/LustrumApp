@@ -1,0 +1,24 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/galaxy_background">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_margin="20dp"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="SCORE: 0"
+        android:textColor="#FFFFFF"
+        android:id="@+id/score_text" />
+
+
+    <com.virgiel.lustrumapp.PintenVangen.BierDrawer
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/game_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

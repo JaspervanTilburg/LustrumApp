@@ -125,7 +125,6 @@
         android:onClick="onLustrumWekenInfoClick"/>
 
     <ImageView
-<<<<<<< HEAD
         android:id="@+id/pintenVangenButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -136,7 +135,8 @@
         android:visibility="invisible"
         android:clickable="true"
         android:onClick="onPintenVangenClick"/>
-=======
+
+    <ImageView
         android:id="@+id/lustrumWeekProgrammaButton"
         android:layout_width="90dp"
         android:layout_height="90dp"
@@ -147,7 +147,6 @@
         android:visibility="invisible"
         android:clickable="true"
         android:onClick="onLustrumWeekProgrammaClick"/>
->>>>>>> OpenNotifications
 
     <ImageView
         android:id="@+id/piekWekenInfoButton"

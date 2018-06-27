@@ -48,12 +48,35 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/secondRow"
+            android:id="@+id/thirdRow"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_below="@+id/firstRow"
+            android:layout_marginTop="10dp"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/lustrum_rectangle_1"
+                android:onClick="onBerichtenClick"
+                android:src="@mipmap/berichten" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/secondRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/thirdRow"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 

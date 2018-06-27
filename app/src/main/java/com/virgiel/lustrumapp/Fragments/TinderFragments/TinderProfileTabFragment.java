@@ -8,7 +8,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -16,7 +15,7 @@ import com.appyvet.materialrangebar.RangeBar;
 import com.bumptech.glide.Glide;
 import com.virgiel.lustrumapp.LustrumRestClient;
 import com.virgiel.lustrumapp.Preferences;
-import com.virgiel.lustrumapp.Profile;
+import com.virgiel.lustrumapp.Tinder.Profile;
 import com.virgiel.lustrumapp.R;
 import com.virgiel.lustrumapp.Utils;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -58,7 +57,7 @@ public class TinderProfileTabFragment extends Fragment {
     }
 
     public void requestUserData() {
-        LustrumRestClient.getWithHeader("profile", null, new JsonHttpResponseHandler() {
+        LustrumRestClient.getWithHeader("/profile", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 System.out.println("My Profile loaded: " + response);

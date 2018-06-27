@@ -16,11 +16,15 @@ import android.view.Window;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.virgiel.lustrumapp.InfoPages.GalaInfoActivity;
 import com.virgiel.lustrumapp.InfoPages.LustrumWekenInfoActivity;
 import com.virgiel.lustrumapp.InfoPages.PiekWeekInfoActivity;
 import com.virgiel.lustrumapp.InfoPages.WispoInfoActivity;
 import com.virgiel.lustrumapp.LustrumRestClient;
+import com.virgiel.lustrumapp.Notifications.Notification;
 import com.virgiel.lustrumapp.PagerAdapter.PagerAdapterMain;
 import com.virgiel.lustrumapp.PushnotificationSettings;
 import com.virgiel.lustrumapp.R;
@@ -82,6 +86,25 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.getTabAt(2).setIcon(R.drawable.features_icon);
 
         retrieveToken();
+
+        if (getIntent().getExtras() != null) {
+            String message = "";
+            long time = 0;
+            for (String key : getIntent().getExtras().keySet()) {
+                if (key.equalsIgnoreCase("bericht")) {
+                    message = (String) getIntent().getExtras().get(key);
+                }
+                if (key.equalsIgnoreCase("google.sent_time")) {
+                    time = (long) getIntent().getExtras().get(key);
+                }
+            }
+
+            if (!message.equalsIgnoreCase("") && time != 0) {
+                DatabaseReference notificationRef = FirebaseDatabase.getInstance().getReference("notifications");
+                Notification notification = new Notification("LUSTRUM VIRGIEL XXIV", message, time);
+                notificationRef.push().setValue(notification);
+            }
+        }
     }
 
     private void hoefCheck() {
@@ -164,6 +187,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void retrieveToken() {
+        String refreshedToken = FirebaseInstanceId.getInstance().getToken();
+        System.out.println("FirebaseInstanceID: " + refreshedToken);
         try {
             FileInputStream inputStream = new FileInputStream(new File(getFilesDir(), LustrumRestClient.FILE_NAME));
 
@@ -204,6 +229,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onLustrumWeekProgrammaClick(View view) {
+        Intent intent = new Intent(this, LustrumWeekProgrammaActivity.class);
+        startActivity(intent);
+    }
+
     public void onLustrumWekenInfoClick(View view) {
         Intent intent = new Intent(this, LustrumWekenInfoActivity.class);
         startActivity(intent);
@@ -229,8 +259,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onSnelheidClick(View view) {
-        Intent intent = new Intent(this, SnelheidActivity.class);
-        startActivity(intent);
+    public void onSelfieStreamClick(View view) {
+        if (!LustrumRestClient.hasToken()) {
+            mViewPager.setCurrentItem(1);
+        } else {
+            Intent intent = new Intent(this, SelfieStreamActivity.class);
+            startActivity(intent);
+        }
     }
 }

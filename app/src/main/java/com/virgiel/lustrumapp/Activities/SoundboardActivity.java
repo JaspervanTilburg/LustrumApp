@@ -31,11 +31,11 @@ public class SoundboardActivity extends AppCompatActivity {
         setTitle("SOUNDBOARD");
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             Window soundboardWindow = this.getWindow();
-            soundboardWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumPink_Dark));
+            soundboardWindow.setStatusBarColor(this.getResources().getColor(R.color.lustrumBlue_Dark));
         }
 
         this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumPink)));
+        this.getSupportActionBar().setBackgroundDrawable(new ColorDrawable(this.getResources().getColor(R.color.lustrumBlue)));
 
         mSoundPlayer = new SoundPlayer(this);
         Sound[] soundArray = SoundStore.getSounds(this);

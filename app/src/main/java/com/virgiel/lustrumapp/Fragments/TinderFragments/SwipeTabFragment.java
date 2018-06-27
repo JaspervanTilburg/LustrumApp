@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.virgiel.lustrumapp.LustrumRestClient;
-import com.virgiel.lustrumapp.Profile;
+import com.virgiel.lustrumapp.Tinder.Profile;
 import com.virgiel.lustrumapp.R;
 import com.virgiel.lustrumapp.Tinder.TinderCard;
 import com.virgiel.lustrumapp.Utils;
@@ -97,7 +97,7 @@ public class SwipeTabFragment extends Fragment {
     }
 
     public void getRandomUser() {
-        LustrumRestClient.getWithHeader("queue", null, new JsonHttpResponseHandler() {
+        LustrumRestClient.getWithHeader("/queue", null, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Profile profile = Utils.loadProfile(response);

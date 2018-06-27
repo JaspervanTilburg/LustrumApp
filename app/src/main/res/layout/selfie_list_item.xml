@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/selfieCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="5dp"
+        card_view:cardCornerRadius="7dp"
+        card_view:cardElevation="4dp"
+        card_view:cardBackgroundColor="#FFFFFF">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp">
+
+            <ImageView
+                android:id="@+id/selfieImageView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:src="@drawable/baby_face" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@color/lustrumBlue_Dark">
+
+                <TextView
+                    android:id="@+id/selfieUserName"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="USER NAME"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/selfieDeleteButton"
+                android:layout_width="50dp"
+                android:layout_height="50dp"/>
+
+            <RelativeLayout
+                android:layout_width="160dp"
+                android:layout_height="50dp"
+                android:layout_alignBottom="@id/selfieImageView">
+
+                <ImageButton
+                    android:id="@+id/selfieLikeButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/rounded_corners_button"
+                    android:layout_margin="10dp"/>
+
+                <TextView
+                    android:id="@+id/likesTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:padding="5dp"
+                    android:drawableLeft="@mipmap/like"
+                    android:text=" vind-ik-vo's"
+                    android:gravity="center"
+                    android:textColor="#FFFFFF"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

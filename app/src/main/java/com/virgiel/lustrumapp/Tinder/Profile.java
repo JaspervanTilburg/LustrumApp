@@ -1,4 +1,4 @@
-package com.virgiel.lustrumapp;
+package com.virgiel.lustrumapp.Tinder;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

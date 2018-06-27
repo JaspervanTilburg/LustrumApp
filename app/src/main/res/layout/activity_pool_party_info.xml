@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--TODO change this picture-->
+        <ImageView
+            android:id="@+id/piekWeekBackground"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/lustrumBlue"
+            android:scaleType="centerCrop" />
+
+        <TextView
+            android:id="@+id/pool_party_info_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:text="POOL PARTY"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@color/lustrumBlue"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="15dp"
+                android:drawableLeft="@drawable/bulletpoint_1d_w"
+                android:drawablePadding="10dp"
+                android:id="@+id/pool_party_bullet_1"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/bulletpoint_2d_w"
+                android:drawablePadding="10dp"
+                android:id="@+id/pool_party_bullet_2"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/bulletpoint_3d_w"
+                android:drawablePadding="10dp"
+                android:id="@+id/pool_party_bullet_3"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="10dp"
+                android:drawableLeft="@drawable/bulletpoint_4d_w"
+                android:drawablePadding="10dp"
+                android:id="@+id/pool_party_bullet_4"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/pool_party_info_body"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp" />
+
+        <LinearLayout
+            android:id="@+id/pool_party_timetable_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pool_party_timetable_head"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:background="@color/lustrumBlue"
+                android:text="TIMETABLE"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/breakfastClubBut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/lustrumBlue"
+                android:layout_margin="15dp"
+                android:text="BREAKFAST CLUB" />
+
+            <Button
+                android:id="@+id/reunistentourBut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@color/lustrumBlue"
+                android:layout_margin="15dp"
+                android:text="REUNISTEN TOUR" />
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

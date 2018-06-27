@@ -49,7 +49,7 @@ public class TijdlijnTabFragment extends Fragment {
         initButtons();
         initSwipe();
         initTitle();
-        selectButton(lustrumButtons.get(2));
+        selectButton(lustrumButtons.get(3));
     }
 
     public void initTitle() {
@@ -109,10 +109,12 @@ public class TijdlijnTabFragment extends Fragment {
         //LustrumButton wispoSnelheidsmeterButton = new LustrumButton((ImageView) rootView.findViewById(R.id.wispoSnelheidsmeterButton), R.color.lustrumPink, 700, 200);
 
         LustrumButton lustrumWeekInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.lustrumWeekInfoButton), R.color.lustrumPink, width*0.47f, height*0.78f);
+        LustrumButton lustrumWeekProgrammaButton = new LustrumButton((ImageView) rootView.findViewById(R.id.lustrumWeekProgrammaButton), R.color.lustrumPink, width*0.23f, height*0.2f);
 
         LustrumButton pintenVangenButton = new LustrumButton((ImageView) rootView.findViewById(R.id.pintenVangenButton), R.color.lustrumPink, width*0.2f, height*0.2f);
         LustrumButton piekWekenInfoButton = new LustrumButton((ImageView) rootView.findViewById(R.id.piekWekenInfoButton), R.color.lustrumPink, width*0.47f, height*0.78f);
 
+        LustrumButton selfieStreamButton = new LustrumButton((ImageView) rootView.findViewById(R.id.selfieStreamButton), R.color.lustrumPink, width*0.7f, height*0.15f);
         galaButton.addChildButton(galaInfoButton);
         //galaButton.addChildButton(galaSpelButton);
         galaButton.addChildButton(galaTinderButton);
@@ -122,8 +124,10 @@ public class TijdlijnTabFragment extends Fragment {
         //wispoButton.addChildButton(wispoSnelheidsmeterButton);
 
         lustrumWeekButton.addChildButton(lustrumWeekInfoButton);
+        lustrumWeekButton.addChildButton(lustrumWeekProgrammaButton);
 
         piekWekenButton.addChildButton(pintenVangenButton);
+        piekWekenButton.addChildButton(selfieStreamButton);
         piekWekenButton.addChildButton(piekWekenInfoButton);
 
         lustrumButtons.add(galaInfoButton);
@@ -134,7 +138,9 @@ public class TijdlijnTabFragment extends Fragment {
         //lustrumButtons.add(wispoSnelheidsmeterButton);
         lustrumButtons.add(lustrumWeekInfoButton);
         lustrumButtons.add(pintenVangenButton);
+        lustrumButtons.add(lustrumWeekProgrammaButton);
         lustrumButtons.add(piekWekenInfoButton);
+        lustrumButtons.add(selfieStreamButton);
 
         selectedButton = lustrumButtons.get(1);
         selectedButton.animateExpand();

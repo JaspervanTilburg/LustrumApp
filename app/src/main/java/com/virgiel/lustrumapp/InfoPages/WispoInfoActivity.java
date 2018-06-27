@@ -22,7 +22,6 @@ import com.virgiel.lustrumapp.R;
  */
 public class WispoInfoActivity extends AppCompatActivity {
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setTitle("WISPO");
@@ -65,7 +64,7 @@ public class WispoInfoActivity extends AppCompatActivity {
         infoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String url = "https://www.lustrumvirgiel.nl/evenementen/wispo/";
+                String url = "https://lustrumvirgiel.nl/evenementen/wintersport/";
                 Intent i = new Intent(Intent.ACTION_VIEW);
                 i.setData(Uri.parse(url));
                 startActivity(i);

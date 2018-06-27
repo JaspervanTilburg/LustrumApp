@@ -142,8 +142,7 @@ public class BierDrawer extends View implements SensorEventListener {
     }
 
     public void gameOver() {
-        //TODO
-        ((Activity) getContext()).finish();
+        //((Activity) getContext()).finish();
     }
 
     @Override

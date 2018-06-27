@@ -7,8 +7,8 @@ android {
         applicationId "com.virgiel.lustrumapp"
         minSdkVersion 16
         targetSdkVersion 26
-        versionCode 5
-        versionName "5.0"
+        versionCode 11
+        versionName "11.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -26,7 +26,9 @@ android {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-messaging:11.0.4'
+    implementation 'com.google.firebase:firebase-database:16.0.1'
+    implementation 'com.google.firebase:firebase-messaging:17.0.0'
+
     compile fileTree(dir: 'libs', include: ['*.jar'])
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

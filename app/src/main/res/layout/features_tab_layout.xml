@@ -41,12 +41,31 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:onClick="onTinderClick"
-                android:src="@mipmap/tinder"
-                android:background="@drawable/lustrum_rectangle_gala"/>
+                android:onClick="onSelfieStreamClick"
+                android:background="@drawable/lustrum_rectangle_1"
+                android:src="@mipmap/selfiestream"/>
 
+        </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/thirdRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/firstRow"
+            android:layout_marginTop="10dp"
+            android:weightSum="3"
+            android:orientation="horizontal">
 
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/lustrum_rectangle_1"
+                android:onClick="onBerichtenClick"
+                android:src="@mipmap/berichten" />
 
 
         </LinearLayout>
@@ -57,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/firstRow"
+            android:layout_below="@+id/thirdRow"
             android:layout_marginTop="10dp"
             android:orientation="horizontal">
 
@@ -67,28 +86,26 @@
                 android:layout_weight="1"
                 android:background="@drawable/lustrum_rectangle_wispo"
                 android:onClick="onWispoProgrammaClick"
-                android:src="@mipmap/wispoprogramma" />
+                android:src="@mipmap/wispo_programm" />
 
-            <!--TODO change this mipmap-->
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/lustrum_rectangle_lustrumweek"
+                android:onClick="onLustrumWeekProgrammaClick"
+                android:src="@mipmap/lustrumweek_programm" />
+
             <ImageButton
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle_wispo"
-                android:onClick="onSnelheidClick"
-                android:src="@mipmap/soundboard"
-                android:visibility="invisible" />
+                android:onClick="onTinderClick"
+                android:src="@mipmap/tinder"
+                android:background="@drawable/lustrum_rectangle_gala"/>
 
-            <!-- Filler to maintain 3 buttons on a line -->
-            <ImageButton
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_weight="1"
-                android:background="@drawable/lustrum_rectangle_gala"
-                android:src="@mipmap/soundboard"
-                android:visibility="invisible" />
         </LinearLayout>
 
 

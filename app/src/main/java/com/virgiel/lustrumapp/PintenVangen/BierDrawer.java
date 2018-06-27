@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
@@ -18,7 +19,17 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.virgiel.lustrumapp.Activities.DatespelActivity;
+import com.virgiel.lustrumapp.Activities.HighscoreActivity;
+import com.virgiel.lustrumapp.LustrumRestClient;
 import com.virgiel.lustrumapp.R;
+import com.virgiel.lustrumapp.Tinder.Profile;
+import com.virgiel.lustrumapp.Utils;
+
+import org.json.JSONObject;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -30,6 +41,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
+
+import cz.msebera.android.httpclient.Header;
 
 /**
  * Created by Jasper on 26-6-2016.
@@ -142,7 +155,49 @@ public class BierDrawer extends View implements SensorEventListener {
     }
 
     public void gameOver() {
-        //((Activity) getContext()).finish();
+        final EditText input = new EditText(getContext());
+        input.setSingleLine();
+        input.setText("");
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle("Game Over!");
+        builder.setMessage("Vul je naam in");
+        builder.setView(input);
+        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                if (!input.getText().equals("")) {
+                    postScore(input.getText().toString());
+                    dialogInterface.dismiss();
+                    ((Activity) getContext()).finish();
+                    Intent intent = new Intent(getContext(), HighscoreActivity.class);
+                    getContext().startActivity(intent);
+                }
+            }
+        });
+        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+                ((Activity) getContext()).finish();
+            }
+        });
+
+        final AlertDialog dialog = builder.create();
+        dialog.setOnShowListener(new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface dialogInterface) {
+                dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.lustrumGreen));
+                dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.lustrumGreen));
+            }
+        });
+        dialog.show();
+    }
+
+    public void postScore(String username) {
+        DatabaseReference scoreRef = FirebaseDatabase.getInstance().getReference().child("scores");
+        Score scoreObj = new Score(username, score, System.currentTimeMillis());
+        scoreRef.push().setValue(scoreObj);
     }
 
     @Override
@@ -167,5 +222,4 @@ public class BierDrawer extends View implements SensorEventListener {
     public void onAccuracyChanged(Sensor sensor, int i) {
 
     }
-
 }

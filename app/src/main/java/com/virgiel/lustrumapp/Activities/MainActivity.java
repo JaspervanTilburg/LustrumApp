@@ -259,6 +259,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onPiekWeekProgrammaClick(View view) {
+        Intent intent = new Intent(this, PiekWeekProgrammaActivity.class);
+        startActivity(intent);
+    }
+
     public void onSelfieStreamClick(View view) {
         if (!LustrumRestClient.hasToken()) {
             mViewPager.setCurrentItem(1);

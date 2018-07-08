@@ -210,6 +210,18 @@
             android:onClick="onPiekWekenButtonClicked"
             android:src="@drawable/piek_weken_logo" />
 
+        <ImageView
+            android:id="@+id/piekWeekProgrammaButton"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@mipmap/piekweek_programm"
+            android:padding="20dp"
+            android:background="@drawable/lustrum_circle_6"
+            android:elevation="20dp"
+            android:visibility="invisible"
+            android:clickable="true"
+            android:onClick="onPiekWeekProgrammaClick"/>
+
     </LinearLayout>
 
 </RelativeLayout>

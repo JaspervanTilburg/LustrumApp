@@ -42,7 +42,7 @@
                 android:layout_marginLeft="10dp"
                 android:layout_weight="1"
                 android:onClick="onSelfieStreamClick"
-                android:background="@drawable/lustrum_rectangle_1"
+                android:background="@drawable/lustrum_rectangle_piekweek"
                 android:src="@mipmap/selfiestream"/>
 
         </LinearLayout>
@@ -62,11 +62,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:layout_marginRight="20dp"
                 android:background="@drawable/lustrum_rectangle_1"
                 android:onClick="onBerichtenClick"
                 android:src="@mipmap/berichten" />
 
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:onClick="onPiekWeekProgrammaClick"
+                android:src="@mipmap/piekweek_programm"
+                android:background="@drawable/lustrum_rectangle_piekweek"/>
 
         </LinearLayout>
 

@@ -65,6 +65,8 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".Activities.HighscoreActivity"
             android:screenOrientation="portrait"/>
+        <activity android:name=".Activities.PiekWeekProgrammaActivity"
+            android:screenOrientation="portrait"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

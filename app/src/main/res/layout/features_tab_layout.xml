@@ -94,7 +94,6 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/thirdRow"
             android:layout_marginTop="10dp"
-            android:weightSum="3"
             android:orientation="horizontal">
 
             <ImageButton
@@ -109,10 +108,18 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:onClick="onPiekWeekProgrammaClick"
                 android:src="@mipmap/piekweek_programm"
+                android:background="@drawable/lustrum_rectangle_piekweek"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:onClick="onPintenVangenClick"
+                android:src="@mipmap/pinten_vangen"
                 android:background="@drawable/lustrum_rectangle_piekweek"/>
 
 

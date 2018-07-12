@@ -91,7 +91,7 @@ public class SelfieStreamActivity extends AppCompatActivity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == CAMERA_PERMISSION) { // && data != null) {
+        if (requestCode == CAMERA_PERMISSION && resultCode != 0) {
             Bitmap bitmap = BitmapFactory.decodeFile(mCurrentPhoto.getAbsolutePath());
             bitmap = rotateBitmap(bitmap, mCurrentPhoto);
             LustrumRestClient.postSelfie(bitmap, new JsonHttpResponseHandler() {
